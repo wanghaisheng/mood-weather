@@ -1,0 +1,308 @@
+
+<html><head><base href="/report"><title>Weather Report & Analytics</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobile-container {
+    width: 375px;
+    height: 812px;
+    border-radius: 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(0,0,0,0.3);
+    border: 12px solid #34495e;
+    background-color: #1a1a1a;
+}
+
+.content {
+    height: 100%;
+    overflow-y: auto;
+    color: white;
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    background: rgba(26, 26, 26, 0.9);
+}
+
+.stats-container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.chart-container {
+    height: 200px;
+    margin: 20px 0;
+    position: relative;
+}
+
+.prediction-card {
+    background: rgba(52, 152, 219, 0.2);
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 4px solid #3498db;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #3498db;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.prediction-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.accuracy-badge {
+    background: rgba(46, 204, 113, 0.2);
+    color: #2ecc71;
+    padding: 4px 8px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+}
+
+.bottom-menu {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(44, 62, 80, 0.9);
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-around;
+    backdrop-filter: blur(10px);
+    z-index: 3;
+}
+
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    color: white;
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.menu-item.active {
+    opacity: 1;
+    color: #3498db;
+}
+
+.menu-item span {
+    font-size: 0.8rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animated {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+</style>
+</head>
+<body>
+<div class="mobile-container">
+    <div class="content">
+        <h2>Weather Analysis</h2>
+        
+        <div class="stats-container animated">
+            <h3>Today's Overview</h3>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value">87%</div>
+                    <div class="stat-label">Accuracy</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">234</div>
+                    <div class="stat-label">Reports Today</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">18°C</div>
+                    <div class="stat-label">Avg Temp</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">63%</div>
+                    <div class="stat-label">Humidity</div>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <svg width="100%" height="100%" viewBox="0 0 300 200">
+                    <!-- Temperature trend line -->
+                    <path d="M0,150 Q75,100 150,120 T300,90" 
+                          fill="none" 
+                          stroke="#3498db" 
+                          stroke-width="3"
+                          stroke-linecap="round"/>
+                    
+                    <!-- Grid lines -->
+                    <g stroke="rgba(255,255,255,0.1)" stroke-width="1">
+                        <line x1="0" y1="0" x2="300" y2="0"/>
+                        <line x1="0" y1="50" x2="300" y2="50"/>
+                        <line x1="0" y1="100" x2="300" y2="100"/>
+                        <line x1="0" y1="150" x2="300" y2="150"/>
+                        <line x1="0" y1="200" x2="300" y2="200"/>
+                    </g>
+
+                    <!-- Data points -->
+                    <circle cx="0" cy="150" r="4" fill="#3498db"/>
+                    <circle cx="75" cy="100" r="4" fill="#3498db"/>
+                    <circle cx="150" cy="120" r="4" fill="#3498db"/>
+                    <circle cx="225" cy="110" r="4" fill="#3498db"/>
+                    <circle cx="300" cy="90" r="4" fill="#3498db"/>
+                </svg>
+            </div>
+        </div>
+
+        <h3>Predictions</h3>
+        
+        <div class="prediction-card animated" style="animation-delay: 0.2s">
+            <div class="prediction-header">
+                <h4>Tomorrow</h4>
+                <span class="accuracy-badge">95% Accurate</span>
+            </div>
+            <p>Sunny with scattered clouds</p>
+            <p>High: 24°C | Low: 18°C</p>
+        </div>
+
+        <div class="prediction-card animated" style="animation-delay: 0.4s">
+            <div class="prediction-header">
+                <h4>Next Week</h4>
+                <span class="accuracy-badge">85% Accurate</span>
+            </div>
+            <p>Mild temperatures with occasional rain</p>
+            <p>Avg High: 22°C | Avg Low: 16°C</p>
+        </div>
+
+        <div class="prediction-card animated" style="animation-delay: 0.6s">
+            <div class="prediction-header">
+                <h4>Monthly Trend</h4>
+                <span class="accuracy-badge">78% Accurate</span>
+            </div>
+            <p>Warming trend with above average rainfall</p>
+            <p>Temperature trend: ↗ | Rainfall trend: ↗</p>
+        </div>
+    </div>
+
+    <div class="bottom-menu">
+        <a href="https://example.com/" class="menu-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+            </svg>
+            <span>Home</span>
+        </a>
+        <a href="https://example.com/report" class="menu-item active">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/>
+            </svg>
+            <span>Report</span>
+        </a>
+        <a href="https://example.com/radar" class="menu-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.07 4.93l-1.41 1.41A8.014 8.014 0 0120 12c0 4.41-3.59 8-8 8s-8-3.59-8-8c0-4.41 3.59-8 8-8v3l4-4-4-4v3c-5.52 0-10 4.48-10 10s4.48 10 10 10 10-4.48 10-10c0-2.76-1.12-5.26-2.93-7.07z"/>
+            </svg>
+            <span>Radar</span>
+        </a>
+        <a href="https://example.com/friends" class="menu-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+            </svg>
+            <span>Friends</span>
+        </a>
+        <a href="https://example.com/settings" class="menu-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+            </svg>
+            <span>Settings</span>
+        </a>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Add hover effects for menu items
+    document.querySelectorAll('.menu-item').forEach(item => {
+        item.addEventListener('mouseover', () => {
+            if (!item.classList.contains('active')) {
+                item.style.opacity = '0.9';
+            }
+        });
+        item.addEventListener('mouseout', () => {
+            if (!item.classList.contains('active')) {
+                item.style.opacity = '0.7';
+            }
+        });
+    });
+
+    // Add hover effects for prediction cards
+    document.querySelectorAll('.prediction-card').forEach(card => {
+        card.addEventListener('mouseover', () => {
+            card.style.transform = 'translateY(-2px)';
+            card.style.transition = 'transform 0.3s ease';
+        });
+        card.addEventListener('mouseout', () => {
+            card.style.transform = 'translateY(0)';
+        });
+    });
+
+    // Animate stats on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.animated').forEach(element => {
+        observer.observe(element);
+    });
+});
+</script>
+</body></html>
