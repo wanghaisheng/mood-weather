@@ -1,0 +1,355 @@
+
+<html><head><base href="https://example.com/radar"><title>Weather Radar</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobile-container {
+    width: 375px;
+    height: 812px;
+    border-radius: 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(0,0,0,0.3);
+    border: 12px solid #34495e;
+    background-color: #1a1a1a;
+}
+
+.content {
+    height: 100%;
+    overflow-y: auto;
+    color: white;
+    position: relative;
+    z-index: 2;
+    background: rgba(26, 26, 26, 0.9);
+}
+
+.radar-container {
+    width: 100%;
+    height: 60%;
+    position: relative;
+    background: #1a1a1a;
+    overflow: hidden;
+}
+
+.radar-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 3;
+}
+
+.radar-button {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.radar-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.radar-button.active {
+    background: #3498db;
+}
+
+.radar-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.legend {
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 3;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 5px 0;
+    font-size: 0.8rem;
+}
+
+.legend-color {
+    width: 20px;
+    height: 10px;
+    border-radius: 2px;
+}
+
+.weather-info {
+    padding: 20px;
+}
+
+.weather-alerts {
+    margin-top: 20px;
+}
+
+.alert-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border-left: 4px solid #e74c3c;
+}
+
+.bottom-menu {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(44, 62, 80, 0.9);
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-around;
+    backdrop-filter: blur(10px);
+    z-index: 3;
+}
+
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    color: white;
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.menu-item.active {
+    opacity: 1;
+    color: #3498db;
+}
+
+.menu-item span {
+    font-size: 0.8rem;
+}
+
+.animated {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes radarSweep {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.radar-sweep {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: radarSweep 4s linear infinite;
+}
+
+.time-slider {
+    width: 90%;
+    margin: 10px auto;
+    display: block;
+}
+
+</style>
+</head>
+<body>
+<div class="mobile-container">
+    <div class="content">
+        <div class="radar-container">
+            <svg width="100%" height="100%" viewBox="0 0 100 100" class="radar-overlay">
+                <!-- Radar circles -->
+                <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,255,255,0.1)" />
+                <circle cx="50" cy="50" r="30" fill="none" stroke="rgba(255,255,255,0.1)" />
+                <circle cx="50" cy="50" r="15" fill="none" stroke="rgba(255,255,255,0.1)" />
+                
+                <!-- Radar grid -->
+                <line x1="0" y1="50" x2="100" y2="50" stroke="rgba(255,255,255,0.1)" />
+                <line x1="50" y1="0" x2="50" y2="100" stroke="rgba(255,255,255,0.1)" />
+                
+                <!-- Radar sweep animation -->
+                <g class="radar-sweep">
+                    <path d="M50,50 L50,5 A45,45 0 0,1 95,50 Z" 
+                          fill="rgba(52,152,219,0.2)" />
+                </g>
+                
+                <!-- Weather phenomena -->
+                <g class="weather-phenomena">
+                    <!-- Rain -->
+                    <circle cx="65" cy="35" r="3" fill="#3498db" opacity="0.7" />
+                    <circle cx="30" cy="70" r="4" fill="#3498db" opacity="0.8" />
+                    <!-- Storm -->
+                    <circle cx="75" cy="65" r="5" fill="#e74c3c" opacity="0.6" />
+                </g>
+            </svg>
+            
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #3498db"></div>
+                    <span>Rain</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #e74c3c"></div>
+                    <span>Storm</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #f1c40f"></div>
+                    <span>Light Rain</span>
+                </div>
+            </div>
+            
+            <div class="radar-controls">
+                <button class="radar-button active">Past 1h</button>
+                <button class="radar-button">Past 3h</button>
+                <button class="radar-button">Past 6h</button>
+            </div>
+        </div>
+        
+        <div class="weather-info">
+            <input type="range" class="time-slider" min="0" max="60" value="60">
+            
+            <div class="weather-alerts">
+                <h3>Weather Alerts</h3>
+                <div class="alert-card animated">
+                    <h4>Severe Thunderstorm Warning</h4>
+                    <p>Expected within next 30 minutes in your area</p>
+                </div>
+                <div class="alert-card animated" style="border-left-color: #f1c40f">
+                    <h4>Heavy Rain Advisory</h4>
+                    <p>Precipitation expected to continue for next 2 hours</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-menu">
+        <a href="https://example.com/" class="menu-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+            </svg>
+            <span>Home</span>
+        </a>
+        <a href="https://example.com/report" class="menu-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/>
+            </svg>
+            <span>Report</span>
+        </a>
+        <a href="https://example.com/radar" class="menu-item active">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.07 4.93l-1.41 1.41A8.014 8.014 0 0120 12c0 4.41-3.59 8-8 8s-8-3.59-8-8c0-4.41 3.59-8 8-8v3l4-4-4-4v3c-5.52 0-10 4.48-10 10s4.48 10 10 10 10-4.48 10-10c0-2.76-1.12-5.26-2.93-7.07z"/>
+            </svg>
+            <span>Radar</span>
+        </a>
+        <a href="https://example.com/friends" class="menu-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+            </svg>
+            <span>Friends</span>
+        </a>
+        <a href="https://example.com/settings" class="menu-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+            </svg>
+            <span>Settings</span>
+        </a>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Radar controls interaction
+    const radarButtons = document.querySelectorAll('.radar-button');
+    radarButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            radarButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+        });
+    });
+
+    // Time slider interaction
+    const timeSlider = document.querySelector('.time-slider');
+    timeSlider.addEventListener('input', function() {
+        // Update radar display based on time
+        updateRadarDisplay(this.value);
+    });
+
+    function updateRadarDisplay(time) {
+        // Add weather phenomena based on time
+        const phenomena = document.querySelector('.weather-phenomena');
+        phenomena.innerHTML = ''; // Clear existing phenomena
+        
+        // Add random weather patterns based on time
+        const numPatterns = Math.floor(time / 10);
+        for(let i = 0; i < numPatterns; i++) {
+            const x = 20 + Math.random() * 60;
+            const y = 20 + Math.random() * 60;
+            const r = 2 + Math.random() * 4;
+            
+            const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            circle.setAttribute("cx", x);
+            circle.setAttribute("cy", y);
+            circle.setAttribute("r", r);
+            circle.setAttribute("fill", Math.random() > 0.7 ? "#e74c3c" : "#3498db");
+            circle.setAttribute("opacity", 0.6 + Math.random() * 0.3);
+            
+            phenomena.appendChild(circle);
+        }
+    }
+
+    // Menu interaction
+    document.querySelectorAll('.menu-item').forEach(item => {
+        item.addEventListener('mouseover', () => {
+            if (!item.classList.contains('active')) {
+                item.style.opacity = '0.9';
+            }
+        });
+        item.addEventListener('mouseout', () => {
+            if (!item.classList.contains('active')) {
+                item.style.opacity = '0.7';
+            }
+        });
+    });
+
+    // Initial radar display
+    updateRadarDisplay(60);
+});
+</script>
+</body></html>
