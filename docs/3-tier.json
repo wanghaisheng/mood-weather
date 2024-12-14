@@ -1,0 +1,278 @@
+{
+  "Primary Emotions": {
+    "Happy": {
+      "Secondary Emotions": {
+        "Playful": {
+          "Tertiary Emotions": [
+            "Aroused",
+            "Cheeky"
+          ]
+        },
+        "Content": {
+          "Tertiary Emotions": [
+            "Free",
+            "Joyful"
+          ]
+        },
+        "Interested": {
+          "Tertiary Emotions": [
+            "Curious",
+            "Inquisitive"
+          ]
+        },
+        "Proud": {
+          "Tertiary Emotions": [
+            "Successful",
+            "Confident"
+          ]
+        },
+        "Accepted": {
+          "Tertiary Emotions": [
+            "Respected",
+            "Valued"
+          ]
+        },
+        "Powerful": {
+          "Tertiary Emotions": [
+            "Courageous",
+            "Creative"
+          ]
+        },
+        "Peaceful": {
+          "Tertiary Emotions": [
+            "Loving",
+            "Thankful"
+          ]
+        },
+        "Trusting": {
+          "Tertiary Emotions": [
+            "Sensitive",
+            "Intimate"
+          ]
+        },
+        "Optimistic": {
+          "Tertiary Emotions": [
+            "Hopeful",
+            "Inspired"
+          ]
+        }
+      }
+    },
+    "Surprised": {
+      "Secondary Emotions": {
+        "Startled": {
+          "Tertiary Emotions": [
+            "Shocked",
+            "Dismayed"
+          ]
+        },
+        "Confused": {
+          "Tertiary Emotions": [
+            "Disillusioned",
+            "Perplexed"
+          ]
+        },
+        "Amazed": {
+          "Tertiary Emotions": [
+            "Astonished",
+            "Awe"
+          ]
+        },
+        "Excited": {
+          "Tertiary Emotions": [
+            "Eager",
+            "Energetic"
+          ]
+        }
+      }
+    },
+    "Bad": {
+      "Secondary Emotions": {
+        "Bored": {
+          "Tertiary Emotions": [
+            "Indifferent",
+            "Apathetic"
+          ]
+        },
+        "Busy": {
+          "Tertiary Emotions": [
+            "Pressured",
+            "Rushed"
+          ]
+        },
+        "Stressed": {
+          "Tertiary Emotions": [
+            "Overwhelmed",
+            "Out of control"
+          ]
+        },
+        "Tired": {
+          "Tertiary Emotions": [
+            "Sleepy",
+            "Unfocused"
+          ]
+        }
+      }
+    },
+    "Fearful": {
+      "Secondary Emotions": {
+        "Scared": {
+          "Tertiary Emotions": [
+            "Helpless",
+            "Frightened"
+          ]
+        },
+        "Anxious": {
+          "Tertiary Emotions": [
+            "Overwhelmed",
+            "Worried"
+          ]
+        },
+        "Insecure": {
+          "Tertiary Emotions": [
+            "Inadequate",
+            "Inferior"
+          ]
+        },
+        "Weak": {
+          "Tertiary Emotions": [
+            "Worthless",
+            "Insignificant"
+          ]
+        },
+        "Rejected": {
+          "Tertiary Emotions": [
+            "Excluded",
+            "Persecuted"
+          ]
+        },
+        "Threatened": {
+          "Tertiary Emotions": [
+            "Nervous",
+            "Exposed"
+          ]
+        }
+      }
+    },
+    "Angry": {
+      "Secondary Emotions": {
+        "Let down": {
+          "Tertiary Emotions": [
+            "Betrayed",
+            "Resentful"
+          ]
+        },
+        "Humiliated": {
+          "Tertiary Emotions": [
+            "Disrespected",
+            "Ridiculed"
+          ]
+        },
+        "Bitter": {
+          "Tertiary Emotions": [
+            "Indignant",
+            "Violated"
+          ]
+        },
+        "Mad": {
+          "Tertiary Emotions": [
+            "Furious",
+            "Jealous"
+          ]
+        },
+        "Aggressive": {
+          "Tertiary Emotions": [
+            "Provoked",
+            "Hostile"
+          ]
+        },
+        "Frustrated": {
+          "Tertiary Emotions": [
+            "Infuriated",
+            "Annoyed"
+          ]
+        },
+        "Distant": {
+          "Tertiary Emotions": [
+            "Withdrawn",
+            "Numb"
+          ]
+        },
+        "Critical": {
+          "Tertiary Emotions": [
+            "Skeptical",
+            "Dismissive"
+          ]
+        }
+      }
+    },
+    "Disgusted": {
+      "Secondary Emotions": {
+        "Disapproving": {
+          "Tertiary Emotions": [
+            "Judgmental",
+            "Embarrassed"
+          ]
+        },
+        "Disappointed": {
+          "Tertiary Emotions": [
+            "Appalled",
+            "Revolted"
+          ]
+        },
+        "Awful": {
+          "Tertiary Emotions": [
+            "Nauseated",
+            "Detestable"
+          ]
+        },
+        "Repelled": {
+          "Tertiary Emotions": [
+            "Horrified",
+            "Hesitant"
+          ]
+        }
+      }
+    },
+    "Sad": {
+      "Secondary Emotions": {
+        "Hurt": {
+          "Tertiary Emotions": [
+            "Embarrassed",
+            "Disappointed"
+          ]
+        },
+        "Depressed": {
+          "Tertiary Emotions": [
+            "Inferior",
+            "Empty"
+          ]
+        },
+        "Guilty": {
+          "Tertiary Emotions": [
+            "Remorseful",
+            "Ashamed"
+          ]
+        },
+        "Despair": {
+          "Tertiary Emotions": [
+            "Powerless",
+            "Grief"
+          ]
+        },
+        "Vulnerable": {
+          "Tertiary Emotions": [
+            "Fragile",
+            "Victimized"
+          ]
+        },
+        "Lonely": {
+          "Tertiary Emotions": [
+            "Isolated",
+            "Abandoned"
+          ]
+        }
+      }
+    }
+  }
+}
