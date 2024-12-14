@@ -1,0 +1,2117 @@
+
+<html><head><base href="/" /><style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.mobile-container {
+  position: relative;
+  width: 375px;
+  height: 812px;
+  margin: 20px auto;
+  border-radius: 40px;
+  overflow: hidden;
+  background-image: url("https://ideogram.ai/assets/image/lossless/response/lgJRZIbxRBmkp5asEUJweA");
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  transition: background-image 0.5s ease;
+}
+
+.mobile-container.monday {
+  background-image: url("https://ideogram.ai/assets/image/lossless/response/3HEuONR3TSS2h7DLQzxdpQ");
+}
+
+.mobile-container.today {
+  background-image: url("https://ideogram.ai/assets/image/lossless/response/6vKr2wp_SgygvfdohbGOtA");
+}
+
+.monday .location,
+.monday .temperature,
+.monday .weather-description,
+.monday .detail-label,
+.monday .detail-value,
+.monday .forecast-day,
+.monday .forecast-temp,
+.monday .hourly-time,
+.monday .hourly-temp,
+.monday h3 {
+  color: #fff !important;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8) !important;
+}
+
+.notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 30px;
+  background: #000;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  z-index: 100;
+}
+
+.status-bar {
+  position: absolute;
+  top: 5px;
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  z-index: 101;
+}
+
+.time {
+  font-weight: bold;
+}
+
+.status-icons {
+  display: flex;
+  gap: 5px;
+}
+
+.home-indicator {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 5px;
+  background: #333;
+  border-radius: 3px;
+  z-index: 100;
+}
+
+.content {
+  height: 100%;
+  padding: 40px 20px;
+  padding-top: 80px;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto;
+}
+
+.location {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #222;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+}
+
+.temperature {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 64px;
+  font-weight: 200;
+  margin: 20px 0;
+  color: #222;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+}
+
+.weather-icon {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+}
+
+.forecast {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 15px;
+}
+
+.forecast-item {
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.forecast-day {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 5px;
+}
+
+.forecast-temp {
+  font-size: 18px;
+}
+
+.hourly-forecast {
+  margin: 20px 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 15px;
+}
+
+.hourly-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 10px 0;
+  scrollbar-width: none;
+}
+
+.hourly-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.hourly-item {
+  flex: 0 0 auto;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.hourly-time {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 5px;
+}
+
+.hourly-temp {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.sun {
+  animation: rotate 20s linear infinite;
+}
+
+.weather-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.detail-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  padding: 15px;
+  text-align: left;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.detail-label {
+  font-size: 12px;
+  opacity: 0.8;
+  color: #444;
+}
+
+.detail-value {
+  font-size: 18px;
+  margin-top: 5px;
+  color: #222;
+}
+
+.weather-info {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.add-button {
+  position: absolute; 
+  bottom: 80px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: #007AFF;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.voice-container {
+  margin-top: 15px;
+  padding: 15px;
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+.record-button {
+  width: 100%;
+  padding: 10px;
+  background: #FF3B30;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.record-button.recording {
+  background: #34C759;
+}
+
+.transcription-area {
+  width: 100%;
+  min-height: 60px;
+  padding: 10px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.mic-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  width: 80%;
+  max-width: 300px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.tag-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.tag {
+  background: #f0f0f0;
+  padding: 8px;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.tag:hover {
+  background: #e0e0e0;
+}
+
+.tag.selected {
+  background: #007AFF;
+  color: white;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.save-button {
+  background: #007AFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  width: 100%;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.save-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.breadcrumb {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.breadcrumb-item {
+  background: #e0e0e0;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+}
+
+.settings-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+
+.setting-item {
+  margin: 15px 0;
+}
+
+.language-select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-top: 5px;
+}
+
+.setting-item label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.menu-button {
+  position: absolute; 
+  top: 60px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.menu-modal {
+  position: absolute;
+  top: 110px; 
+  right: 20px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  overflow: hidden;
+  display: none;
+  z-index: 1000;
+  min-width: 150px; 
+}
+
+.radar-container {
+  display: none;
+  height: 100%;
+  padding: 65px 15px 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+}
+
+.radar-section {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  padding: 18px;
+  margin-bottom: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.radar-section h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.reporter-map {
+  width: 100%;
+  height: 320px;  /* Increased height for better visibility */
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  margin: 15px 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.radar-animation {
+  width: 100%;
+  max-width: 280px;
+  height: 280px;
+  margin: 10px auto;
+  position: relative;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border: 2px solid rgba(0, 122, 255, 0.3);
+  overflow: hidden;
+}
+
+@keyframes radarScan {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes radarPulse {
+  0% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
+
+.radar-sweep {
+  animation: radarScan 4s linear infinite;
+  transform-origin: center center;
+}
+
+.radar-pulse {
+  animation: radarPulse 2s ease-out infinite;
+}
+
+.radar-scanning-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.radar-detail-card {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 12px;
+  border-radius: 12px;
+}
+
+.radar-detail-label {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.radar-detail-value {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.weather-alert {
+  background: rgba(103, 58, 183, 0.08);
+  border-left: 4px solid #673AB7;
+  transition: all 0.3s ease;
+}
+
+.weather-alert:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(103, 58, 183, 0.2);
+}
+
+.alert-title {
+  font-weight: 600;
+  margin-bottom: 5px;
+  transition: color 0.3s ease;
+  color: #673AB7;
+}
+
+.alert-message {
+  color: #333;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.leaderboard-section {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  padding: 18px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.filter-controls {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.filter-select {
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 122, 255, 0.2);
+  background: rgba(255, 255, 255, 0.9);
+  flex: 1;
+  font-size: 14px;
+  color: #333;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23333%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px top 50%;
+  background-size: 10px auto;
+}
+
+.leaderboard-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+  overflow-x: auto;
+  padding-bottom: 5px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.leaderboard-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.leaderboard-tab {
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 14px;
+  border: 1px solid rgba(0, 122, 255, 0.1);
+}
+
+.leaderboard-tab.active {
+  background: #007AFF;
+  color: white;
+  border-color: transparent;
+}
+
+.leaderboard-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.leaderboard-item:last-child {
+  border-bottom: none;
+}
+
+.friends-container {
+  display: none;
+  height: 100%;
+  padding: 65px 15px 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  background-image: inherit;
+}
+
+.map-section {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  padding: 18px;
+  margin-bottom: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.map-section h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.map-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(255,255,255,0.9);
+  padding: 8px 12px;
+  border-radius: 8px;
+  z-index: 1;
+  font-size: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.map-legend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.legend-dot.high { 
+  background: #FF453A;
+}
+
+.legend-dot.medium {
+  background: #FF9F0A;
+}
+
+.legend-dot.low {
+  background: #30D158;
+}
+
+.map-stat-card {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 15px;
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+}
+
+.map-stat-card:hover {
+  transform: translateY(-2px);
+}
+
+.stat-trend {
+  font-size: 12px;
+  color: #30D158;
+  margin-top: 4px;
+}
+
+.feed-section {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  padding: 18px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.feed-section h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.feed-filter {
+  font-size: 13px;
+  color: #007AFF;
+  padding: 5px 10px;
+  background: rgba(0, 122, 255, 0.1);
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.weather-card {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 12px;
+  transition: transform 0.2s ease;
+}
+
+.weather-card:last-child {
+  margin-bottom: 0;
+}
+
+.weather-card:hover {
+  transform: translateY(-2px);
+}
+
+.weather-card .location {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.weather-card .temperature {
+  font-size: 24px;
+  font-weight: 300;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.weather-card .reporter {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.reporter-avatar {
+  width: 24px;
+  height: 24px;
+  background: #007AFF;
+  border-radius: 12px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.weather-card .timestamp {
+  font-size: 12px;
+  color: #999;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.weather-card .meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.interaction-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.interaction-button {
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.like-button {
+  background: rgba(255, 45, 85, 0.1);
+  color: #FF2D55;
+}
+
+.comment-button {
+  background: rgba(0, 122, 255, 0.1);
+  color: #007AFF;
+}
+
+.reports-container {
+  display: none;
+  height: 100%;
+  padding: 65px 15px 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+}
+
+.report-section {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  padding: 18px;
+  margin-bottom: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.chart-container {
+  height: 200px;
+  margin: 15px 0;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #666;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin: 5px 0;
+}
+
+.stat-trend {
+  font-size: 12px;
+  color: #34C759;
+}
+
+.stat-trend.negative {
+  color: #FF3B30;
+}
+
+.pattern-cards {
+  display: grid;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.pattern-card {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 15px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pattern-icon {
+  font-size: 24px;
+}
+
+.pattern-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.pattern-desc {
+  font-size: 14px;
+  color: #666;
+}
+
+.book-container {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.book-cover {
+  flex: 0 0 100px;
+}
+
+.book-svg {
+  width: 100px;
+  height: 150px;
+}
+
+.book-title {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.book-details {
+  flex: 1;
+}
+
+.book-details h4 {
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.book-details p {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 15px 0;
+}
+
+.chapter-preview {
+  background: rgba(0, 122, 255, 0.1);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.chapter-preview h5 {
+  margin: 0 0 5px 0;
+  color: #007AFF;
+  font-size: 14px;
+}
+
+.chapter-preview p {
+  margin: 0;
+  font-size: 13px;
+}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+</head><body>
+
+<div class="mobile-container today" id="weatherContainer">
+  <div class="notch"></div>
+  <div class="status-bar">
+    <span class="time">9:41</span>
+    <div class="status-icons">
+      <span>5G</span>
+      <span>100%</span>
+    </div>
+  </div>
+  
+  <div class="menu-button" id="menuButton">
+    <svg viewBox="0 0 24 24" width="24" height="24">
+      <path fill="currentColor" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"/>
+    </svg>
+  </div>
+
+  <div class="menu-modal" id="menuModal">
+    <div class="menu-item" data-page="weather">Weather</div>
+    <div class="menu-item" data-page="radar">Weather Radar</div>
+    <div class="menu-item" data-page="friends">Friends</div>
+    <div class="menu-item" data-page="report">Reports</div>
+    <div class="menu-item" data-page="settings">Settings</div>
+  </div>
+
+  <div class="content">
+    <div class="weather-info">
+      <div class="location" data-i18n="location">San Francisco</div>
+      <div class="weather-icon">
+        <svg class="sun" viewBox="0 0 100 100" width="120" height="120">
+          <circle cx="50" cy="50" r="20" fill="#FFD700"/>
+          <line x1="50" y1="20" x2="50" y2="10" stroke="#FFD700" stroke-width="4" stroke-linecap="round"/>
+          <line x1="50" y1="80" x2="50" y2="90" stroke="#FFD700" stroke-width="4" stroke-linecap="round"/>
+          <line x1="20" y1="50" x2="10" y2="50" stroke="#FFD700" stroke-width="4" stroke-linecap="round"/>
+          <line x1="80" y1="50" x2="90" y2="50" stroke="#FFD700" stroke-width="4" stroke-linecap="round"/>
+          <line x1="30" y1="30" x2="22" y2="22" stroke="#FFD700" stroke-width="4" stroke-linecap="round"/>
+          <line x1="70" y1="30" x2="78" y2="22" stroke="#FFD700" stroke-width="4" stroke-linecap="round"/>
+          <line x1="30" y1="70" x2="22" y2="78" stroke="#FFD700" stroke-width="4" stroke-linecap="round"/>
+          <line x1="70" y1="70" x2="78" y2="78" stroke="#FFD700" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="temperature">72°</div>
+      <div style="font-size: 18px; margin-bottom: 20px; color: #333; text-shadow: 1px 1px 2px rgba(255,255,255,0.8);" data-i18n="sunny">Sunny</div>
+      
+      <div class="hourly-forecast">
+        <h3 style="text-align: left; margin-bottom: 10px; color: #333;">24-Hour Forecast</h3>
+        <div class="hourly-scroll">
+          <div class="hourly-item">
+            <div class="hourly-time">Now</div>
+            <div class="hourly-temp">72°</div>
+          </div>
+          <div class="hourly-item">
+            <div class="hourly-time">11 AM</div>
+            <div class="hourly-temp">74°</div>
+          </div>
+          <div class="hourly-item">
+            <div class="hourly-time">12 PM</div>
+            <div class="hourly-temp">75°</div>
+          </div>
+          <div class="hourly-item">
+            <div class="hourly-time">1 PM</div>
+            <div class="hourly-temp">76°</div>
+          </div>
+          <div class="hourly-item">
+            <div class="hourly-time">2 PM</div>
+            <div class="hourly-temp">76°</div>
+          </div>
+          <div class="hourly-item">
+            <div class="hourly-time">3 PM</div>
+            <div class="hourly-temp">75°</div>
+          </div>
+          <div class="hourly-item">
+            <div class="hourly-time">4 PM</div>
+            <div class="hourly-temp">74°</div>
+          </div>
+          <div class="hourly-item">
+            <div class="hourly-time">5 PM</div>
+            <div class="hourly-temp">72°</div>
+          </div>
+          <div class="hourly-item">
+            <div class="hourly-time">6 PM</div>
+            <div class="hourly-temp">70°</div>
+          </div>
+          <div class="hourly-item">
+            <div class="hourly-time">7 PM</div>
+            <div class="hourly-temp">68°</div>
+          </div>
+          <div class="hourly-item">
+            <div class="hourly-time">8 PM</div>
+            <div class="hourly-temp">67°</div>
+          </div>
+          <div class="hourly-item">
+            <div class="hourly-time">9 PM</div>
+            <div class="hourly-temp">66°</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="weather-details">
+        <div class="detail-card">
+          <div class="detail-label">Humidity</div>
+          <div class="detail-value">65%</div>
+        </div>
+        <div class="detail-card">
+          <div class="detail-label">Wind</div>
+          <div class="detail-value">12 mph</div>
+        </div>
+        <div class="detail-card">
+          <div class="detail-label">UV Index</div>
+          <div class="detail-value">5 of 10</div>
+        </div>
+        <div class="detail-card">
+          <div class="detail-label">Feels Like</div>
+          <div class="detail-value">70°</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="forecast">
+      <div class="forecast-item" onclick="setDay('monday')" style="cursor: pointer;">
+        <div class="forecast-day">MON</div>
+        <div class="forecast-temp">74°</div>
+      </div>
+      <div class="forecast-item" onclick="setDay('today')" style="cursor: pointer;">
+        <div class="forecast-day">TUE</div>
+        <div class="forecast-temp">76°</div>
+      </div>
+      <div class="forecast-item" onclick="setDay('default')" style="cursor: pointer;">
+        <div class="forecast-day">WED</div>
+        <div class="forecast-temp">71°</div>
+      </div>
+      <div class="forecast-item" onclick="setDay('default')" style="cursor: pointer;">
+        <div class="forecast-day">THU</div>
+        <div class="forecast-temp">73°</div>
+      </div>
+      <div class="forecast-item" onclick="setDay('default')" style="cursor: pointer;">
+        <div class="forecast-day">FRI</div>
+        <div class="forecast-temp">75°</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="radar-container" id="radarPage">
+    <div class="radar-section">
+      <h3>Live Weather Radar</h3>
+      <div class="radar-animation">
+        <svg width="100%" height="100%" viewBox="0 0 100 100" class="radar-overlay">
+          <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,255,255,0.1)" />
+          <circle cx="50" cy="50" r="30" fill="none" stroke="rgba(255,255,255,0.1)" />
+          <circle cx="50" cy="50" r="15" fill="none" stroke="rgba(255,255,255,0.1)" />
+          
+          <line x1="0" y1="50" x2="100" y2="50" stroke="rgba(255,255,255,0.1)" />
+          <line x1="50" y1="0" x2="50" y2="100" stroke="rgba(255,255,255,0.1)" />
+          
+          <g class="radar-sweep">
+            <path d="M50,50 L50,5 A45,45 0 0,1 95,50 Z" fill="rgba(0,122,255,0.2)" />
+          </g>
+          
+          <g class="weather-phenomena">
+            <circle cx="25" cy="75" r="4.7" fill="#e74c3c" opacity="0.7" />
+            <circle cx="70" cy="54" r="4.5" fill="#e74c3c" opacity="0.65" />
+            <circle cx="33" cy="45" r="4.4" fill="#3498db" opacity="0.63" />
+            <circle cx="28" cy="53" r="2.9" fill="#3498db" opacity="0.66" />
+            <circle cx="46" cy="56" r="2.8" fill="#3498db" opacity="0.82" />
+            <circle cx="59" cy="38" r="5.6" fill="#3498db" opacity="0.75" />
+            <circle cx="50" cy="50" r="10" fill="none" stroke="rgba(0,122,255,0.3)" class="radar-pulse" />
+            <circle cx="50" cy="50" r="20" fill="none" stroke="rgba(0,122,255,0.2)" class="radar-pulse" style="animation-delay: 0.5s" />
+            <circle cx="50" cy="50" r="30" fill="none" stroke="rgba(0,122,255,0.1)" class="radar-pulse" style="animation-delay: 1s" />
+          </g>
+        </svg>
+      </div>
+      
+      <div class="radar-scanning-details">
+        <div class="radar-detail-card">
+          <div class="radar-detail-label">Precipitation</div>
+          <div class="radar-detail-value">Light Rain</div>
+        </div>
+        <div class="radar-detail-card">
+          <div class="radar-detail-label">Cloud Cover</div>
+          <div class="radar-detail-value">65%</div>
+        </div>
+        <div class="radar-detail-card">
+          <div class="radar-detail-label">Radar Range</div>
+          <div class="radar-detail-value">50 miles</div>
+        </div>
+        <div class="radar-detail-card">
+          <div class="radar-detail-label">Last Update</div>
+          <div class="radar-detail-value">2 min ago</div>
+        </div>
+      </div>
+
+      <div class="weather-alert" style="background: rgba(103, 58, 183, 0.08); border-left: 4px solid #673AB7;">
+        <div class="alert-title" style="color: #673AB7;">Friendly Advice</div>
+        <div class="alert-message">
+          If you are down, may be call a cheer up friend nearby 
+          <div style="margin-top: 8px; font-size: 12px; color: #666;">
+            <svg style="width: 16px; height: 16px; vertical-align: middle; margin-right: 4px;" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M12,2C6.47,2 2,6.47 2,12C2,17.53 6.47,22 12,22A10,10 0 0,0 22,12C22,6.47 17.53,2 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M13,9.94L14.06,11L15.12,9.94L16.18,11L17.24,9.94L15.12,7.82L13,9.94M8.88,9.94L9.94,11L11,9.94L8.88,7.82L6.76,9.94L7.82,11L8.88,9.94M12,17.5C14.33,17.5 16.31,16.04 17.11,14H6.89C7.69,16.04 9.67,17.5 12,17.5Z" />
+            </svg>
+            Remember: A friend's voice can brighten your day
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="leaderboard-section">
+      <h3>Weather Reporters Leaderboard</h3>
+      
+      <div class="filter-controls">
+        <select class="filter-select" id="yearFilter">
+          <option value="2024">2024</option>
+          <option value="2023">2023</option>
+        </select>
+        <select class="filter-select" id="monthFilter">
+          <option value="all">All Months</option>
+          <option value="1">January</option>
+          <option value="2">February</option>
+          <option value="3">March</option>
+          <option value="4">April</option>
+          <option value="5">May</option>
+          <option value="6">June</option>
+          <option value="7">July</option>
+          <option value="8">August</option>
+          <option value="9">September</option>
+          <option value="10">October</option>
+          <option value="11">November</option>
+          <option value="12">December</option>
+        </select>
+      </div>
+
+      <div class="leaderboard-tabs">
+        <div class="leaderboard-tab active" data-type="reports">Most Reports</div>
+        <div class="leaderboard-tab" data-type="streak">Longest Streaks</div>
+        <div class="leaderboard-tab" data-type="accuracy">Most Accurate</div>
+        <div class="leaderboard-tab" data-type="impact">Community Impact</div>
+      </div>
+
+      <div id="leaderboardContent">
+        <!-- This will be populated by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <div class="friends-container" id="friendsPage">
+    <div class="map-section">
+      <h3>Weather Reporter Locations</h3>
+      <div class="reporter-map" id="reporterMap">
+        <!-- Map will be rendered here -->
+      </div>
+      <div class="map-stats">
+        <div class="map-stat-card">
+          <div class="stat-label">Most Active City</div>
+          <div class="stat-value">San Francisco</div>
+          <div class="stat-trend">+24% this week</div>
+        </div>
+        <div class="map-stat-card">
+          <div class="stat-label">Active Reporters</div>
+          <div class="stat-value">324</div>
+          <div class="stat-trend">+12 new today</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="feed-section">
+      <h3>
+        Recent Weather Reports
+        <span class="feed-filter">Filter</span>
+      </h3>
+      
+      <div class="weather-card">
+        <div class="location">New York</div>
+        <div class="temperature">68°</div>
+        <div class="meta">
+          <div class="reporter">
+            <div class="reporter-avatar">JD</div>
+            <span>John Doe</span>
+          </div>
+          <div class="interaction-buttons">
+            <div class="interaction-button like-button">
+              <svg width="12" height="12" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/>
+              </svg>
+              24
+            </div>
+            <div class="interaction-button comment-button">
+              <svg width="12" height="12" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M20,2H4A2,2 0 0,0 2,4V22L6,18H20A2,2 0 0,0 22,16V4A2,2 0 0,0 20,2M6,9H18V11H6M14,14H6V12H14M18,8H6V6H18"/>
+              </svg>
+              5
+            </div>
+          </div>
+        </div>
+        <div class="timestamp">
+          <svg width="12" height="12" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"/>
+          </svg>
+          2 hours ago
+        </div>
+      </div>
+
+      <div class="weather-card">
+        <div class="location">Los Angeles</div>
+        <div class="temperature">75°</div>
+        <div class="meta">
+          <div class="reporter">
+            <div class="reporter-avatar">JS</div>
+            <span>Jane Smith</span>
+          </div>
+          <div class="interaction-buttons">
+            <div class="interaction-button like-button">
+              <svg width="12" height="12" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/>
+              </svg>
+              18
+            </div>
+            <div class="interaction-button comment-button">
+              <svg width="12" height="12" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M20,2H4A2,2 0 0,0 2,4V22L6,18H20A2,2 0 0,0 22,16V4A2,2 0 0,0 20,2M6,9H18V11H6M14,14H6V12H14M18,8H6V6H18"/>
+              </svg>
+              3
+            </div>
+          </div>
+        </div>
+        <div class="timestamp">
+          <svg width="12" height="12" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"/>
+          </svg>
+          3 hours ago
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="reports-container" id="reportsPage">
+    <div class="report-section">
+      <h3>Past Statistics</h3>
+      <div id="statisticsChart" class="chart-container"></div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Total Reports</div>
+          <div class="stat-value">1,248</div>
+          <div class="stat-trend positive">+12% this month</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Average Mood</div>
+          <div class="stat-value">7.5/10</div>
+          <div class="stat-trend positive">+0.8 vs last month</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="report-section">
+      <h3>Pattern Recognition</h3>
+      <div class="pattern-cards">
+        <div class="pattern-card">
+          <div class="pattern-icon">🌧️</div>
+          <div class="pattern-title">Rainy Days Impact</div>
+          <div class="pattern-desc">Your mood tends to drop by 20% during consecutive rainy days</div>
+        </div>
+        <div class="pattern-card">
+          <div class="pattern-icon">☀️</div>
+          <div class="pattern-title">Sunshine Effect</div>
+          <div class="pattern-desc">Sunny weekends correlate with 30% higher activity levels</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="report-section">
+      <h3>Recommended Reading</h3>
+      <div class="book-container">
+        <div class="book-cover">
+          <svg viewBox="0 0 100 150" class="book-svg">
+            <rect x="10" y="10" width="80" height="130" rx="2" fill="#4A90E2"/>
+            <text x="50" y="50" text-anchor="middle" fill="white" class="book-title">100 Ways</text>
+            <text x="50" y="70" text-anchor="middle" fill="white" class="book-title">to Cheer Up</text>
+          </svg>
+        </div>
+        <div class="book-details">
+          <h4>100 Methods to Cheer You Up</h4>
+          <p>A practical guide to lifting your spirits through proven psychological techniques and fun activities.</p>
+          <div class="chapter-preview">
+            <h5>Today's Recommended Chapter</h5>
+            <p>Chapter 7: The Power of Weather Walking</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="add-button" id="addButton">+</div>
+  <div class="home-indicator"></div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Select Tags</h3>
+      <button class="close-button" id="closeModal">×</button>
+    </div>
+    <div class="breadcrumb" id="breadcrumb"></div>
+    <div class="tag-group" id="tagGroup"></div>
+    
+    <div class="voice-container">
+      <button class="record-button" id="recordButton">
+        <svg class="mic-icon" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
+        </svg>
+        Start Recording
+      </button>
+      <div class="transcription-area" id="transcriptionArea">Voice transcription will appear here...</div>
+    </div>
+    
+    <button class="save-button" id="saveButton" disabled>Save</button>
+  </div>
+</div>
+
+<div class="settings-modal-overlay" id="settingsModalOverlay">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Settings</h3>
+      <button class="close-button" id="closeSettingsModal">×</button>
+    </div>
+    <div class="settings-content">
+      <div class="setting-item">
+        <label for="languageSelect">Language</label>
+        <select id="languageSelect" class="language-select">
+          <option value="en">English</option>
+          <option value="es">Español</option>
+          <option value="zh">中文</option>
+          <option value="ja">日本語</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+let db;
+let dbInitialized = false;
+
+// DuckDB initialization
+async function initDB() {
+  try {
+    const DUCKDB = await duckdb.selectBundle({
+      mainModule: 'https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.24.0/dist/duckdb-browser.mjs',
+      mainWorker: 'https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.24.0/dist/duckdb-browser-worker.mjs'
+    });
+    
+    const worker = new Worker(DUCKDB.mainWorker);
+    db = new DUCKDB.AsyncDuckDB(worker);
+    await db.instantiate(DUCKDB.mainModule);
+    
+    const conn = await db.connect();
+    
+    await conn.query(`
+      CREATE TABLE IF NOT EXISTS translations (
+        key VARCHAR,
+        lang VARCHAR,
+        value VARCHAR,
+        PRIMARY KEY (key, lang)
+      )
+    `);
+    
+    await conn.query(`
+      CREATE TABLE IF NOT EXISTS user_preferences (
+        id INTEGER PRIMARY KEY,
+        language VARCHAR DEFAULT 'en',
+        temperature_unit VARCHAR DEFAULT 'C',
+        time_format VARCHAR DEFAULT '24h'
+      )
+    `);
+    
+    await conn.query(`
+      CREATE TABLE IF NOT EXISTS weather_tags (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER,
+        tag_path VARCHAR,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
+    
+    await conn.query(`
+      CREATE TABLE IF NOT EXISTS weather_reports (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER,
+        location VARCHAR,
+        temperature FLOAT,
+        description VARCHAR,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
+    
+    await conn.query(`
+      DROP TABLE IF EXISTS reporter_rankings;
+      CREATE TABLE reporter_rankings (
+        user_id INTEGER,
+        report_count INTEGER DEFAULT 0,
+        streak_days INTEGER DEFAULT 0,
+        accuracy_score FLOAT DEFAULT 0,
+        impact_score INTEGER DEFAULT 0,
+        report_month INTEGER,
+        report_year INTEGER,
+        last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (user_id, report_month, report_year)
+      )
+    `);
+    
+    await conn.query(`
+      INSERT OR IGNORE INTO translations VALUES
+      ('location', 'en', 'San Francisco'),
+      ('location', 'es', 'San Francisco'),
+      ('location', 'zh', '旧金山'),
+      ('location', 'ja', 'サンフランシスコ'),
+      ('sunny', 'en', 'Sunny'),
+      ('sunny', 'es', 'Soleado'),
+      ('sunny', 'zh', '晴天'),
+      ('sunny', 'ja', '晴れ')
+    `);
+    
+    await conn.close();
+    dbInitialized = true;
+    console.log('Database initialized successfully');
+  } catch (error) {
+    console.error('Error initializing database:', error);
+    dbInitialized = false;
+  }
+}
+
+// Language handling
+let currentLanguage = 'en';
+
+async function changeLanguage(lang) {
+  if (!dbInitialized || !db) {
+    console.error('Database not initialized');
+    return;
+  }
+
+  try {
+    currentLanguage = lang;
+    const conn = await db.connect();
+    
+    await conn.query(`
+      INSERT OR REPLACE INTO user_preferences (id, language)
+      VALUES (1, '${lang}')
+    `);
+    
+    const result = await conn.query(`
+      SELECT key, value
+      FROM translations
+      WHERE lang = '${lang}'
+    `);
+    
+    const translations = result.toArray();
+    translations.forEach(([key, value]) => {
+      const elements = document.querySelectorAll(`[data-i18n="${key}"]`);
+      elements.forEach(el => el.textContent = value);
+    });
+    
+    await conn.close();
+  } catch (error) {
+    console.error('Error changing language:', error);
+  }
+}
+
+// Initialize database on page load
+window.addEventListener('load', async () => {
+  await initDB();
+});
+
+// Settings modal handling
+const settingsModalOverlay = document.getElementById('settingsModalOverlay');
+const closeSettingsModal = document.getElementById('closeSettingsModal');
+const languageSelect = document.getElementById('languageSelect');
+
+closeSettingsModal.onclick = () => {
+  settingsModalOverlay.style.display = 'none';
+};
+
+languageSelect.onchange = async (e) => {
+  await changeLanguage(e.target.value);
+};
+
+function setDay(day) {
+  const container = document.getElementById('weatherContainer');
+  container.classList.remove('monday', 'today', 'default');
+  container.classList.add(day);
+}
+
+document.addEventListener('click', function(event) {
+  const clickedElement = event.target;
+  const forecastItems = document.querySelector('.forecast');
+  if (!forecastItems.contains(clickedElement)) {
+    setDay('today');
+  }
+});
+
+const tagHierarchy = {
+  "Weather": {
+    "Sunny": ["Clear Sky", "Partial Sun", "Intense Heat"],
+    "Rainy": ["Light Rain", "Heavy Rain", "Thunderstorm"],
+    "Cloudy": ["Overcast", "Partly Cloudy", "Foggy"],
+  },
+  "Season": {
+    "Summer": ["Hot", "Dry", "Humid"],
+    "Winter": ["Cold", "Snowy", "Freezing"],
+    "Spring": ["Mild", "Rainy", "Windy"],
+  },
+  "Temperature": {
+    "Hot": ["Scorching", "Warm", "Pleasant"],
+    "Cold": ["Chilly", "Freezing", "Frosty"],
+    "Mild": ["Comfortable", "Cool", "Moderate"],
+  },
+  "Wind": {
+    "Strong": ["Gusty", "Stormy", "Breezy"],
+    "Calm": ["Still", "Light Breeze", "Gentle"],
+    "Variable": ["Changing", "Unstable", "Shifting"],
+  },
+  "Precipitation": {
+    "Rain": ["Drizzle", "Shower", "Downpour"],
+    "Snow": ["Flurries", "Blizzard", "Sleet"],
+    "None": ["Dry", "Clear", "Fair"],
+  },
+  "Time": {
+    "Morning": ["Dawn", "Sunrise", "Early"],
+    "Afternoon": ["Noon", "Midday", "Late"],
+    "Evening": ["Sunset", "Dusk", "Night"],
+  },
+  "Special": {
+    "Storm": ["Hurricane", "Tornado", "Cyclone"],
+    "Extreme": ["Heatwave", "Arctic Blast", "Drought"],
+    "Unusual": ["Rainbow", "Aurora", "Hail"],
+  }
+};
+
+let selectedTags = [];
+let currentLevel = 0;
+
+const addButton = document.getElementById('addButton');
+const modalOverlay = document.getElementById('modalOverlay');
+const closeModal = document.getElementById('closeModal');
+const tagGroup = document.getElementById('tagGroup');
+const breadcrumb = document.getElementById('breadcrumb');
+const saveButton = document.getElementById('saveButton');
+
+function showModal() {
+  modalOverlay.style.display = 'flex';
+  renderTags(Object.keys(tagHierarchy));
+}
+
+function hideModal() {
+  modalOverlay.style.display = 'none';
+  selectedTags = [];
+  currentLevel = 0;
+  updateBreadcrumb();
+}
+
+function renderTags(tags) {
+  tagGroup.innerHTML = '';
+  tags.forEach(tag => {
+    const tagElement = document.createElement('div');
+    tagElement.className = 'tag';
+    tagElement.textContent = tag;
+    tagElement.onclick = () => selectTag(tag);
+    tagGroup.appendChild(tagElement);
+  });
+}
+
+function selectTag(tag) {
+  selectedTags[currentLevel] = tag;
+  selectedTags = selectedTags.slice(0, currentLevel + 1);
+  currentLevel++;
+  
+  updateBreadcrumb();
+  
+  const nextLevel = currentLevel === 1 ? tagHierarchy[tag] :
+                   currentLevel === 2 ? tagHierarchy[selectedTags[0]][tag] :
+                   null;
+                   
+  if (nextLevel) {
+    renderTags(Object.keys(nextLevel));
+  }
+  
+  if (currentLevel >= 1) {
+    saveButton.disabled = false;
+  }
+}
+
+function updateBreadcrumb() {
+  breadcrumb.innerHTML = '';
+  selectedTags.forEach(tag => {
+    const breadcrumbItem = document.createElement('div');
+    breadcrumbItem.className = 'breadcrumb-item';
+    breadcrumbItem.textContent = tag;
+    breadcrumb.appendChild(breadcrumbItem);
+  });
+}
+
+function saveTags() {
+  console.log('Selected tags:', selectedTags);
+  hideModal();
+}
+
+addButton.onclick = () => {
+  showModal();
+  setupVoiceRecording();
+};
+
+closeModal.onclick = hideModal;
+saveButton.onclick = saveTags;
+
+modalOverlay.onclick = (e) => {
+  if (e.target === modalOverlay) {
+    hideModal();
+  }
+};
+
+let mediaRecorder;
+let audioChunks = [];
+let isRecording = false;
+
+const recordButton = document.getElementById('recordButton');
+const transcriptionArea = document.getElementById('transcriptionArea');
+
+async function setupVoiceRecording() {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    mediaRecorder = new MediaRecorder(stream);
+    
+    mediaRecorder.ondataavailable = (event) => {
+      audioChunks.push(event.data);
+    };
+    
+    mediaRecorder.onstop = async () => {
+      const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+      
+      try {
+        const response = await fetch('/api/ai_completion', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            prompt: 'Transcribe the audio to text',
+            data: 'Sample transcription: Weather is sunny today'
+          })
+        });
+        
+        const data = await response.json();
+        transcriptionArea.textContent = data.transcription || 'Weather is sunny today';
+        saveButton.disabled = false;
+      } catch (error) {
+        console.error('Transcription error:', error);
+        transcriptionArea.textContent = 'Error transcribing audio';
+        saveButton.disabled = false;
+      }
+      
+      audioChunks = [];
+    };
+    
+    recordButton.addEventListener('click', toggleRecording);
+  } catch (error) {
+    console.error('Error accessing microphone:', error);
+    recordButton.disabled = true;
+    recordButton.textContent = 'Microphone access denied';
+  }
+}
+
+function toggleRecording() {
+  if (!isRecording) {
+    mediaRecorder.start();
+    recordButton.classList.add('recording');
+    recordButton.innerHTML = `
+      <svg class="mic-icon" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
+      </svg>
+      Stop Recording
+    `;
+  } else {
+    mediaRecorder.stop();
+    recordButton.classList.remove('recording');
+    recordButton.innerHTML = `
+      <svg class="mic-icon" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
+      </svg>
+      Start Recording
+    `;
+  }
+  isRecording = !isRecording;
+}
+
+const menuButton = document.getElementById('menuButton');
+const menuModal = document.getElementById('menuModal');
+const weatherContainer = document.querySelector('.content');
+const radarPage = document.getElementById('radarPage');
+const friendsPage = document.getElementById('friendsPage');
+const reportsPage = document.getElementById('reportsPage');
+
+let currentPage = 'weather';
+
+menuButton.onclick = () => {
+  menuModal.style.display = menuModal.style.display === 'block' ? 'none' : 'block';
+};
+
+document.addEventListener('click', (e) => {
+  if (!menuButton.contains(e.target) && !menuModal.contains(e.target)) {
+    menuModal.style.display = 'none';
+  }
+});
+
+// Page navigation
+document.querySelectorAll('.menu-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const page = item.dataset.page;
+    if (page === 'settings') {
+      settingsModalOverlay.style.display = 'flex';
+    } else {
+      navigateToPage(page);
+    }
+    menuModal.style.display = 'none';
+  });
+});
+
+function navigateToPage(page) {
+  const weatherContainer = document.querySelector('.content');
+  const radarPage = document.getElementById('radarPage');
+  const friendsPage = document.getElementById('friendsPage');
+  const reportsPage = document.getElementById('reportsPage');
+  
+  weatherContainer.style.display = 'none';
+  radarPage.style.display = 'none';
+  friendsPage.style.display = 'none';
+  reportsPage.style.display = 'none';
+  
+  switch(page) {
+    case 'weather':
+      weatherContainer.style.display = 'flex';
+      break;
+    case 'radar':
+      radarPage.style.display = 'block';
+      break;
+    case 'friends':
+      friendsPage.style.display = 'block';
+      setTimeout(() => {
+        initializeMap();
+      }, 100);
+      break;
+    case 'report':
+      reportsPage.style.display = 'block';
+      setTimeout(() => {
+        initializeStatisticsChart();
+      }, 100);
+      break;
+  }
+}
+
+function initializeStatisticsChart() {
+  const chart = echarts.init(document.getElementById('statisticsChart'));
+  
+  const option = {
+    backgroundColor: 'transparent',
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'shadow'
+      }
+    },
+    grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true
+    },
+    xAxis: {
+      type: 'category',
+      data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+      axisLabel: {
+        color: '#333'
+      }
+    },
+    yAxis: {
+      type: 'value',
+      axisLabel: {
+        color: '#333'
+      }
+    },
+    series: [
+      {
+        name: 'Mood Score',
+        type: 'line',
+        smooth: true,
+        data: [7.2, 6.8, 7.5, 7.8, 7.3, 7.5],
+        lineStyle: {
+          color: '#007AFF'
+        },
+        areaStyle: {
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            {
+              offset: 0,
+              color: 'rgba(0, 122, 255, 0.3)'
+            },
+            {
+              offset: 1,
+              color: 'rgba(0, 122, 255, 0.1)'
+            }
+          ])
+        },
+        symbol: 'circle',
+        symbolSize: 8,
+        itemStyle: {
+          color: '#007AFF',
+          borderWidth: 2,
+          borderColor: '#fff'
+        }
+      },
+      {
+        name: 'Activity Level',
+        type: 'bar',
+        data: [65, 58, 72, 75, 68, 70],
+        itemStyle: {
+          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            {
+              offset: 0,
+              color: 'rgba(103, 58, 183, 0.8)'
+            },
+            {
+              offset: 1,
+              color: 'rgba(103, 58, 183, 0.3)'
+            }
+          ])
+        }
+      }
+    ],
+    legend: {
+      data: ['Mood Score', 'Activity Level'],
+      textStyle: {
+        color: '#333'
+      },
+      bottom: 0
+    }
+  };
+
+  chart.setOption(option);
+
+  // Handle window resize
+  window.addEventListener('resize', () => {
+    chart.resize();
+  });
+}
+
+// Also add chart resize handling when page visibility changes
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden && currentPage === 'report') {
+    const chart = echarts.init(document.getElementById('statisticsChart'));
+    chart.resize();
+  }
+});
+
+function initializeMap() {
+  const chart = echarts.init(document.getElementById('reporterMap'));
+
+  // Generate more realistic sample data points with intensity values
+  const generateRandomPoints = (center, count, radius) => {
+    const points = [];
+    for (let i = 0; i < count; i++) {
+      const angle = Math.random() * Math.PI * 2;
+      const r = Math.random() * radius;
+      // Add intensity/value as the third parameter
+      const intensity = Math.random() * 100; // Random intensity between 0-100
+      points.push([
+        center[0] + r * Math.cos(angle),
+        center[1] + r * Math.sin(angle), 
+        intensity
+      ]);
+    }
+    return points;
+  };
+
+  // Define city centers with larger datasets
+  const cityData = {
+    'San Francisco': {
+      center: [-122.4194, 37.7749],
+      points: generateRandomPoints([-122.4194, 37.7749], 200, 0.8)
+    },
+    'New York': {
+      center: [-74.0060, 40.7128],
+      points: generateRandomPoints([-74.0060, 40.7128], 180, 0.7)
+    },
+    'Chicago': {
+      center: [-87.6298, 41.8781],
+      points: generateRandomPoints([-87.6298, 41.8781], 150, 0.6)
+    },
+    'Los Angeles': {
+      center: [-118.2437, 34.0522],
+      points: generateRandomPoints([-118.2437, 34.0522], 170, 0.7)
+    },
+    'Miami': {
+      center: [-80.1918, 25.7617],
+      points: generateRandomPoints([-80.1918, 25.7617], 120, 0.5)
+    }
+  };
+
+  // Combine all points
+  const allPoints = [].concat(...Object.values(cityData).map(city => city.points));
+
+  const option = {
+    backgroundColor: 'transparent',
+    tooltip: {
+      position: 'top',
+      formatter: function (params) {
+        return `Activity Level: ${Math.round(params.value[2])}`;
+      }
+    },
+    animation: true,
+    geo: {
+      map: 'USA',
+      label: {
+        emphasis: {
+          show: false
+        }
+      },
+      roam: true,
+      itemStyle: {
+        normal: {
+          areaColor: 'rgba(255, 255, 255, 0.1)',
+          borderColor: 'rgba(0, 122, 255, 0.2)'
+        },
+        emphasis: {
+          areaColor: 'rgba(255, 255, 255, 0.3)'
+        }
+      }
+    },
+    visualMap: {
+      min: 0,
+      max: 100,
+      calculable: true,
+      inRange: {
+        color: ['blue', 'yellow', 'red']
+      },
+      textStyle: {
+        color: '#333'
+      },
+      left: 'right',
+      top: 'bottom'
+    },
+    series: [
+      {
+        name: 'Reporter Activity',
+        type: 'heatmap',
+        coordinateSystem: 'geo',
+        data: allPoints,
+        pointSize: 10,
+        blurSize: 15,
+        minOpacity: 0.3,
+        maxOpacity: 0.8,
+        progressive: 1000,
+        animation: true
+      },
+      {
+        name: 'City Centers',
+        type: 'effectScatter',
+        coordinateSystem: 'geo',
+        data: Object.entries(cityData).map(([name, data]) => ({
+          name: name,
+          value: [...data.center, data.points.length],
+          label: {
+            show: true,
+            position: 'right',
+            formatter: '{b}',
+            fontSize: 12,
+            color: '#333',
+            backgroundColor: 'rgba(255, 255, 255, 0.7)',
+            padding: [4, 8],
+            borderRadius: 4
+          }
+        })),
+        symbolSize: 8,
+        showEffectOn: 'render',
+        rippleEffect: {
+          brushType: 'stroke'
+        },
+        itemStyle: {
+          color: '#007AFF',
+          shadowBlur: 4,
+          shadowColor: '#007AFF'
+        }
+      }
+    ]
+  };
+
+  // Load USA map data and render
+  fetch('https://raw.githubusercontent.com/apache/echarts/master/map/json/USA.json')
+    .then(response => response.json())
+    .then(usaJson => {
+      echarts.registerMap('USA', usaJson);
+      chart.setOption(option);
+    });
+
+  // Handle window resize
+  window.addEventListener('resize', () => {
+    chart.resize();
+  });
+}
+
+// Update the map initialization trigger
+document.querySelector('.menu-item[data-page="friends"]').addEventListener('click', () => {
+  setTimeout(() => {
+    initializeMap();
+  }, 100);
+});
+
+// Page navigation function invocation to initialize charts
+document.querySelector('.menu-item[data-page="report"]').addEventListener('click', () => {
+  setTimeout(() => {
+    initializeStatisticsChart();
+  }, 100);
+});
+</script>
+</body></html>
