@@ -1,0 +1,852 @@
+
+<html><head><base href="https://moodweather.com/learn/basics"><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn the fundamentals of emotional tracking using weather metaphors. Understand how MoodWeather helps you express and monitor your emotional well-being naturally.">
+    <meta name="keywords" content="mood tracking, emotional awareness, weather metaphors, mental health basics, emotional intelligence, self-awareness, mood patterns">
+    <meta name="author" content="MoodWeather Team">
+
+    <title>Understanding Emotional Weather | MoodWeather Basics</title>
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Understanding Emotional Weather | MoodWeather Basics">
+    <meta property="og:description" content="Master the art of emotional awareness through weather metaphors. Learn how to track and understand your emotional patterns effectively.">
+    <meta property="og:image" content="https://moodweather.com/images/basics-guide.jpg">
+    <meta property="og:url" content="https://moodweather.com/learn/basics">
+    <meta property="og:type" content="article">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Understanding Emotional Weather">
+    <meta name="twitter:description" content="Learn how to track your emotions using intuitive weather metaphors">
+    <meta name="twitter:image" content="https://moodweather.com/images/basics-guide.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        :root {
+            --primary: #2D3250;
+            --secondary: #424769;
+            --accent: #7077A1;
+            --light: #F6B17A;
+            --text: #FFFFFF;
+            --text-secondary: rgba(255,255,255,0.8);
+            --spacing: 2rem;
+            --border-radius: 15px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            overflow: hidden;
+        }
+
+        nav {
+            background: var(--secondary);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--light);
+            text-decoration: none;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: var(--light);
+            z-index: 1000;
+        }
+
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+            background: linear-gradient(to bottom, var(--secondary), var(--primary));
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--light);
+            opacity: 1; /* Ensure visibility */
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-secondary);
+            opacity: 1; /* Ensure visibility */
+        }
+
+        .content-section {
+            padding: var(--spacing) 0;
+            clear: both;
+        }
+
+        .weather-metaphor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .weather-card {
+            background: var(--secondary);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            transition: transform 0.3s ease;
+        }
+
+        .weather-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .weather-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+
+        .weather-card h3 {
+            color: var(--light);
+            margin-bottom: 1rem;
+        }
+
+        .example-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .example-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .example-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--light);
+        }
+
+        .interactive-demo {
+            background: var(--secondary);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+        }
+
+        .mood-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--accent);
+            border-radius: var(--border-radius);
+            background: rgba(255,255,255,0.1);
+            color: var(--text);
+            margin: 1rem 0;
+            resize: vertical;
+        }
+
+        .weather-selection {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+
+        .weather-option {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 20px;
+            background: var(--accent);
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .weather-option:hover {
+            background: var(--light);
+            transform: scale(1.05);
+        }
+
+        .weather-option.selected {
+            background: var(--light);
+            transform: scale(1.1);
+        }
+
+        .tips-section {
+            background: var(--secondary);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .tip-card {
+            padding: 1.5rem;
+            background: var(--primary);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--light);
+        }
+
+        .tip-card h4 {
+            color: var(--light);
+            margin-bottom: 1rem;
+        }
+
+        .example-journal {
+            background: var(--secondary);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+        }
+
+        .journal-entry {
+            background: var(--primary);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin: 1rem 0;
+        }
+
+        .journal-date {
+            color: var(--light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .weather-timeline {
+            height: 100px;
+            background: rgba(255,255,255,0.1);
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--light);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-marker:hover {
+            transform: scale(1.5);
+        }
+
+        .resources-section {
+            padding: 2rem;
+            background: var(--secondary);
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .resource-card {
+            background: var(--primary);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            transition: transform 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(to top, var(--secondary), var(--primary));
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--light);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            background: var(--secondary);
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .weather-metaphor-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .table-of-contents {
+                float: none;
+                max-width: 100%;
+                margin: 2rem 0;
+            }
+        }
+
+        /* Reading progress bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255,255,255,0.1);
+            z-index: 1000;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--light);
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        /* Table of Contents */
+        .table-of-contents {
+            position: relative;
+            background: var(--secondary);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+            max-width: 300px;
+            float: right;
+            margin-left: 2rem;
+        }
+
+        .toc-list {
+            list-style: none;
+        }
+
+        .toc-item {
+            margin: 0.5rem 0;
+        }
+
+        .toc-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .toc-link:hover {
+            color: var(--light);
+        }
+
+        .toc-link.active {
+            color: var(--light);
+            font-weight: bold;
+        }
+
+        /* New Styles */
+        .daily-practices {
+            background: var(--secondary);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+        }
+
+        .practice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .practice-card {
+            background: var(--primary);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--light);
+            transition: transform 0.3s ease;
+        }
+
+        .practice-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .practice-card h4 {
+            color: var(--light);
+            margin-bottom: 1rem;
+        }
+
+        .weather-demo-container {
+            background: var(--secondary);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+        }
+
+        .mood-slider {
+            width: 100%;
+            margin: 1rem 0;
+            -webkit-appearance: none;
+            height: 10px;
+            border-radius: 5px;
+            background: var(--primary);
+            outline: none;
+        }
+
+        .mood-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--light);
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .mood-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        .emotion-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .emotion-tag {
+            padding: 0.5rem 1rem;
+            background: var(--accent);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .emotion-tag:hover {
+            background: var(--light);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+    </div>
+
+    <nav>
+        <div class="container">
+            <div class="nav-content">
+                <a href="/" class="logo">🌤️ MoodWeather</a>
+                <a href="/app" class="cta-button">Try MoodWeather</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="container">
+            <h1>Understanding Emotional Weather</h1>
+            <p>Learn how to express and track your emotions using intuitive weather metaphors</p>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="table-of-contents">
+            <h2>Quick Navigation</h2>
+            <ul class="toc-list">
+                <li class="toc-item"><a href="#basics" class="toc-link">Weather Metaphor Basics</a></li>
+                <li class="toc-item"><a href="#interactive" class="toc-link">Interactive Weather Demo</a></li>
+                <li class="toc-item"><a href="#tips" class="toc-link">Tracking Tips & Best Practices</a></li>
+                <li class="toc-item"><a href="#examples" class="toc-link">Example Journal Entries</a></li>
+                <li class="toc-item"><a href="#resources" class="toc-link">Additional Resources</a></li>
+                <li class="toc-item"><a href="#advanced-metaphors" class="toc-link">Advanced Weather Patterns</a></li>
+            </ul>
+        </div>
+
+        <section id="basics" class="content-section">
+            <h2>Weather Metaphor Basics</h2>
+            <div class="weather-metaphor-grid">
+                <div class="weather-card">
+                    <svg class="weather-icon" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="20" fill="#FFD700"/>
+                        <g>
+                            <line x1="50" y1="20" x2="50" y2="10" stroke="#FFD700" stroke-width="4"/>
+                            <line x1="50" y1="80" x2="50" y2="90" stroke="#FFD700" stroke-width="4"/>
+                            <line x1="20" y1="50" x2="10" y2="50" stroke="#FFD700" stroke-width="4"/>
+                            <line x1="80" y1="50" x2="90" y2="50" stroke="#FFD700" stroke-width="4"/>
+                        </g>
+                    </svg>
+                    <h3>Sunny</h3>
+                    <p>Represents positive emotions, clarity, and optimism</p>
+                    <ul class="example-list">
+                        <li>Feeling accomplished and energetic</li>
+                        <li>Experiencing joy and contentment</li>
+                        <li>Having a breakthrough moment</li>
+                    </ul>
+                </div>
+
+                <div class="weather-card">
+                    <svg class="weather-icon" viewBox="0 0 100 100">
+                        <path d="M30,50 Q40,40 50,45 Q60,35 70,45 Q80,40 85,50 Q90,60 80,65 Q75,70 65,68 Q60,75 50,70 Q40,75 35,68 Q25,70 20,65 Q15,60 20,55 Q25,50 30,50" fill="#E0E0E0"/>
+                    </svg>
+                    <h3>Cloudy</h3>
+                    <p>Indicates uncertainty, mild stress, or contemplation</p>
+                    <ul class="example-list">
+                        <li>Feeling unsure about decisions</li>
+                        <li>Mild anxiety or worry</li>
+                        <li>Processing complex emotions</li>
+                    </ul>
+                </div>
+
+                <div class="weather-card">
+                    <svg class="weather-icon" viewBox="0 0 100 100">
+                        <path d="M30,40 Q40,30 50,35 Q60,25 70,35 Q80,30 85,40 Q90,50 80,55 Q75,60 65,58 Q60,65 50,60 Q40,65 35,58 Q25,60 20,55 Q15,50 20,45 Q25,40 30,40" fill="#708090"/>
+                        <line x1="40" y1="65" x2="35" y2="80" stroke="#4682B4" stroke-width="3"/>
+                        <line x1="50" y1="65" x2="45" y2="80" stroke="#4682B4" stroke-width="3"/>
+                        <line x1="60" y1="65" x2="55" y2="80" stroke="#4682B4" stroke-width="3"/>
+                    </svg>
+                    <h3>Rainy</h3>
+                    <p>Symbolizes sadness, release, or emotional cleansing</p>
+                    <ul class="example-list">
+                        <li>Processing grief or loss</li>
+                        <li>Releasing built-up emotions</li>
+                        <li>Feeling melancholy but reflective</li>
+                    </ul>
+                </div>
+
+                <div class="weather-card">
+                    <svg class="weather-icon" viewBox="0 0 100 100">
+                        <path d="M30,40 Q40,30 50,35 Q60,25 70,35 Q80,30 85,40 Q90,50 80,55 Q75,60 65,58 Q60,65 50,60 Q40,65 35,58 Q25,60 20,55 Q15,50 20,45 Q25,40 30,40" fill="#4A4A4A"/>
+                        <polygon points="45,60 55,60 40,75 50,75 35,90" fill="#FFD700"/>
+                    </svg>
+                    <h3>Stormy</h3>
+                    <p>Represents intense emotions, conflict, or transformation</p>
+                    <ul class="example-list">
+                        <li>Experiencing intense anger</li>
+                        <li>Going through major changes</li>
+                        <li>Dealing with overwhelming stress</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="interactive" class="content-section">
+            <h2>Interactive Weather Demo</h2>
+            <div class="interactive-demo">
+                <h3>Try It Out</h3>
+                <p>Describe how you're feeling, and we'll help identify your emotional weather:</p>
+                <textarea class="mood-input" rows="4" placeholder="Express how you're feeling right now..."></textarea>
+                <div class="emotion-tags"></div>
+                <div class="weather-selection">
+                    <button class="weather-option" data-weather="sunny">☀️ Sunny</button>
+                    <button class="weather-option" data-weather="cloudy">☁️ Cloudy</button>
+                    <button class="weather-option" data-weather="rainy">🌧️ Rainy</button>
+                    <button class="weather-option" data-weather="stormy">⛈️ Stormy</button>
+                </div>
+                <div id="weather-feedback"></div>
+            </div>
+        </section>
+
+        <section id="tips" class="content-section">
+            <h2>Tracking Tips & Best Practices</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h4>Be Consistent</h4>
+                    <p>Track your emotional weather at the same times each day to establish a routine and identify patterns.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>Be Specific</h4>
+                    <p>Include details about what influenced your emotional weather - events, thoughts, or physical sensations.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>Be Honest</h4>
+                    <p>There's no "right" or "wrong" weather - your emotions are valid just as they are.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>Notice Patterns</h4>
+                    <p>Look for connections between your activities, environment, and emotional weather changes.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="daily-practices" class="content-section">
+            <h2>Daily Weather Practices</h2>
+            <div class="daily-practices">
+                <div class="practice-grid">
+                    <div class="practice-card">
+                        <h4>🌅 Morning Check-in</h4>
+                        <p>Start your day with a 5-minute weather reading. Note your emotional forecast and any factors that might influence it.</p>
+                    </div>
+                    <div class="practice-card">
+                        <h4>📔 Weather Journal</h4>
+                        <p>Document your emotional weather changes throughout the day, including any patterns or triggers you notice.</p>
+                    </div>
+                    <div class="practice-card">
+                        <h4>🌙 Evening Reflection</h4>
+                        <p>Review your day's emotional weather pattern and plan for tomorrow's forecast.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="examples" class="content-section">
+            <h2>Example Journal Entries</h2>
+            <div class="example-journal">
+                <div class="journal-entry">
+                    <div class="journal-date">Monday, 9:00 AM</div>
+                    <h4>☀️ Sunny with Light Breeze</h4>
+                    <p>"Starting the week with a clear mind after a restful weekend. The morning meditation helped set a positive tone. Feeling optimistic about the upcoming project deadlines."</p>
+                </div>
+                <div class="journal-entry">
+                    <div class="journal-date">Wednesday, 3:00 PM</div>
+                    <h4>🌥️ Partially Cloudy</h4>
+                    <p>"Mixed feelings about the team meeting. Some uncertainty about new responsibilities, but also excited about growth opportunities. Taking deep breaths and reminding myself that clouds often bring necessary change."</p>
+                </div>
+                <div class="journal-entry">
+                    <div class="journal-date">Friday, 7:00 PM</div>
+                    <h4>🌧️ Gentle Rain</h4>
+                    <p>"Processing some disappointment about the cancelled plans. Allowing myself to feel the sadness while remembering that rain helps things grow. Planning a cozy evening of self-care."</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="advanced-metaphors" class="content-section">
+            <h2>Advanced Weather Patterns</h2>
+            <div class="weather-metaphor-grid">
+                <div class="weather-card">
+                    <svg class="weather-icon" viewBox="0 0 100 100">
+                        <defs>
+                            <linearGradient id="rainbow" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#ff0000"/>
+                                <stop offset="50%" style="stop-color:#00ff00"/>
+                                <stop offset="100%" style="stop-color:#0000ff"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M20,60 Q50,20 80,60" stroke="url(#rainbow)" stroke-width="4" fill="none"/>
+                        <circle cx="50" cy="50" r="15" fill="#FFD700"/>
+                    </svg>
+                    <h3>Rainbow After Rain</h3>
+                    <p>Represents emotional breakthrough or healing after difficult times</p>
+                </div>
+                <div class="weather-card">
+                    <svg class="weather-icon" viewBox="0 0 100 100">
+                        <path d="M30,50 Q50,20 70,50" fill="none" stroke="#E0E0E0" stroke-width="3"/>
+                        <circle cx="50" cy="60" r="20" fill="#E0E0E0"/>
+                    </svg>
+                    <h3>Morning Fog</h3>
+                    <p>Symbolizes temporary confusion or unclear direction that will eventually clear</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="resources" class="content-section">
+            <h2>Additional Resources</h2>
+            <div class="resources-section">
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h3>Weather Tracking Guide</h3>
+                        <p>Download our comprehensive guide to emotional weather tracking, including daily prompts and reflection exercises.</p>
+                        <a href="https://moodweather.com/downloads/guide" class="cta-button">Download Guide</a>
+                    </div>
+                    <div class="resource-card">
+                        <h3>Community Support</h3>
+                        <p>Join our supportive community to share experiences and learn from others on their emotional weather journey.</p>
+                        <a href="https://community.moodweather.com" class="cta-button">Join Community</a>
+                    </div>
+                    <div class="resource-card">
+                        <h3>Expert Insights</h3>
+                        <p>Access articles and videos from mental health professionals about emotional awareness and well-being.</p>
+                        <a href="https://moodweather.com/experts" class="cta-button">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="cta-section">
+        <div class="container">
+            <h2>Ready to Start Your Weather Journey?</h2>
+            <p>Track your emotional weather with our intuitive app</p>
+            <a href="https://app.moodweather.com/signup" class="cta-button">Get Started Free</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>© 2023 MoodWeather. All rights reserved.</p>
+                <nav>
+                    <a href="/privacy">Privacy Policy</a> |
+                    <a href="/terms">Terms of Service</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize GSAP ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Interactive weather demo
+        const moodInput = document.querySelector('.mood-input');
+        const weatherOptions = document.querySelectorAll('.weather-option');
+        const weatherFeedback = document.getElementById('weather-feedback');
+
+        weatherOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                // Remove selected class from all options
+                weatherOptions.forEach(btn => btn.classList.remove('selected'));
+                // Add selected class to clicked option
+                option.classList.add('selected');
+                
+                // Provide feedback based on selection
+                const weather = option.dataset.weather;
+                const feedback = getFeedbackForWeather(weather);
+                weatherFeedback.innerHTML = `
+                    <div style="margin-top: 1rem; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: var(--border-radius);">
+                        <h4 style="color: var(--light); margin-bottom: 0.5rem;">Your Emotional Weather:</h4>
+                        <p>${feedback}</p>
+                    </div>
+                `;
+            });
+        });
+
+        function getFeedbackForWeather(weather) {
+            const feedbackMap = {
+                sunny: "You're experiencing positive emotions and clarity. This is a great time for setting goals and taking action on projects.",
+                cloudy: "You're in a reflective state with some uncertainty. Take time to process your thoughts and practice self-compassion.",
+                rainy: "You're releasing emotions and possibly feeling low. Remember that this weather is temporary and can lead to growth.",
+                stormy: "You're dealing with intense emotions. Consider reaching out for support and using grounding techniques."
+            };
+            return feedbackMap[weather] || "Invalid weather selection";
+        }
+
+        // Table of Contents active state
+        const tocLinks = document.querySelectorAll('.toc-link');
+        const sections = document.querySelectorAll('section');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize Emotion Tags
+        function initEmotionTags() {
+            const tags = ['Energetic', 'Calm', 'Anxious', 'Peaceful', 'Frustrated', 'Hopeful', 'Tired', 'Inspired'];
+            const tagContainer = document.createElement('div');
+            tagContainer.className = 'emotion-tags';
+            
+            tags.forEach(tag => {
+                const tagElement = document.createElement('span');
+                tagElement.className = 'emotion-tag';
+                tagElement.textContent = tag;
+                tagElement.addEventListener('click', () => {
+                    const currentText = moodInput.value;
+                    moodInput.value = currentText + (currentText ? ', ' : '') + tag.toLowerCase();
+                    moodInput.dispatchEvent(new Event('input'));
+                });
+                tagContainer.appendChild(tagElement);
+            });
+            
+            document.querySelector('.interactive-demo').insertBefore(
+                tagContainer,
+                document.querySelector('.weather-selection')
+            );
+        }
+    </script>
+</body>
+</html>
