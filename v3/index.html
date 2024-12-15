@@ -122,6 +122,29 @@
             color: var(--light);
         }
 
+        .locale-picker {
+            padding: 8px 12px;
+            border-radius: 20px;
+            border: 2px solid var(--light);
+            background: var(--secondary);
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .locale-picker:hover {
+            background: var(--primary);
+            border-color: var(--accent);
+        }
+
+        .locale-picker option {
+            background: var(--primary);
+            color: white;
+            padding: 8px;
+        }
+
         .hero-section {
             text-align: center;
             padding: 60px 20px;
@@ -1453,7 +1476,15 @@
 <body>
     <nav>
         <div class="logo">🌤️ MoodWeather</div>
-        <div id="user-score">Mood Score: --</div>
+        <select id="locale-picker" class="locale-picker">
+            <option value="en">English</option>
+            <option value="zh">中文</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="de">Deutsch</option>
+            <option value="ja">日本語</option>
+            <option value="ko">한국어</option>
+        </select>
     </nav>
 
     <div class="container">
@@ -1461,8 +1492,8 @@
             <h1>Track Your Mood Like Weather</h1>
             <p>Experience a revolutionary way to understand your emotional climate. Using intuitive weather metaphors and AI-powered analysis, MoodWeather transforms your feelings into weather patterns, making emotional tracking natural and engaging.</p>
             <div class="hero-buttons">
-                <a href="https://app.moodweather.com/signup" class="cta-button primary">Track Your Weather</a>
-                <a href="https://app.moodweather.com/demo" class="cta-button secondary">See How It Works</a>
+                <a href="https://moodweather.heytcm.com/signup" class="cta-button primary">Track Your Weather</a>
+                <a href="https://moodweather.heytcm.com/demo" class="cta-button secondary">See How It Works</a>
             </div>
         </div>
 
@@ -1484,7 +1515,7 @@
                         <h3>Ready to start your emotional weather journey?</h3>
                         <div class="cta-buttons">
                             <a href="/app" class="cta-button primary">Try It Now</a>
-                            <a href="https://app.moodweather.com/signup" class="cta-button secondary">Sign Up Free</a>
+                            <a href="https://moodweather.heytcm.com/signup" class="cta-button secondary">Sign Up Free</a>
                         </div>
                     </div>
                 </div>
@@ -1576,12 +1607,12 @@
                         <div class="resource-card">
                             <h3>Understanding Emotional Weather</h3>
                             <p>Learn how weather metaphors can help you better understand and express your feelings</p>
-                            <a href="https://moodweather.com/learn/basics" class="learn-more">Read More</a>
+                            <a href="https://moodweather.heytcm.com/learn/basics" class="learn-more">Read More</a>
                         </div>
                         <div class="resource-card">
                             <h3>Mood Tracking Guide</h3>
                             <p>Discover effective strategies for consistent mood tracking and emotional awareness</p>
-                            <a href="https://moodweather.com/learn/guide" class="learn-more">Read More</a>
+                            <a href="https://moodweather.heytcm.com/learn/guide" class="learn-more">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -1642,6 +1673,17 @@
                             <p>Our advanced AI analyzes your journal entries in real-time, automatically detecting your emotional weather and calculating your mood score.</p>
                         </div>
                         <div class="feature-card">
+                            <div class="feature-icon">📖</div>
+                            <h3>Story Mood Journal</h3>
+                            <p>Transform your daily emotions into beautiful weather-themed stories. Our AI crafts personalized narratives that help you understand your emotional journey through engaging metaphors and visualizations.</p>
+                            <ul style="text-align: left; margin-top: 10px; list-style: none;">
+                                <li>• Daily weather-themed entries</li>
+                                <li>• AI-generated emotional insights</li>
+                                <li>• Visual mood timelines</li>
+                                <li>• Shareable story highlights</li>
+                            </ul>
+                        </div>
+                        <div class="feature-card">
                             <div class="feature-icon">🎨</div>
                             <h3>Dynamic Wallpapers</h3>
                             <p>Watch as your app's background transforms to match your emotional weather, creating an immersive and responsive experience.</p>
@@ -1655,6 +1697,37 @@
                             <div class="feature-icon">👥</div>
                             <h3>Inspiring Connections</h3>
                             <p>Connect with others who share similar emotional weather patterns and find inspiration in their journey.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📚</div>
+                            <h3>Journal Templates</h3>
+                            <p>Choose from various weather-themed templates to express your emotions in different ways. From quick check-ins to deep reflections, find the perfect format for your mood storytelling.</p>
+                        </div>
+                    </div>
+
+                    <!-- Add a preview of the story mood journal -->
+                    <div class="story-preview" style="margin-top: 40px; background: var(--primary); padding: 30px; border-radius: 15px;">
+                        <h3 style="color: var(--light); margin-bottom: 20px; text-align: center;">Story Mood Journal Preview</h3>
+                        <div class="journal-entry" style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                            <div class="entry-header" style="display: flex; align-items: center; margin-bottom: 15px;">
+                                <div class="weather-icon" style="font-size: 2rem; margin-right: 15px;">🌅</div>
+                                <div class="entry-meta">
+                                    <h4 style="color: var(--light);">Morning Reflection</h4>
+                                    <span style="color: rgba(255,255,255,0.7);">Today's Weather: Partly Cloudy with Breaking Sunshine</span>
+                                </div>
+                            </div>
+                            <p style="color: rgba(255,255,255,0.9); line-height: 1.6;">
+                                "Like the morning sun breaking through scattered clouds, today began with moments of clarity piercing through lingering thoughts. Each ray of light represents a small victory, a reminder that even cloudy moments can hold beautiful possibilities."
+                            </p>
+                            <div class="ai-insight" style="margin-top: 15px; padding: 15px; background: rgba(246,177,122,0.1); border-radius: 8px;">
+                                <h5 style="color: var(--light); margin-bottom: 10px;">AI Weather Insight</h5>
+                                <p style="color: rgba(255,255,255,0.8);">
+                                    Your emotional weather is showing signs of improvement. The mix of clouds and sunshine suggests a balanced perspective, with growing optimism breaking through periodic uncertainty.
+                                </p>
+                            </div>
+                        </div>
+                        <div style="text-align: center;">
+                            <a href="/journal" class="cta-button" style="display: inline-block; margin-top: 20px;">Start Your Weather Story</a>
                         </div>
                     </div>
                 </div>
@@ -1944,7 +2017,7 @@
                 <div class="section-content">
                     <div class="timeline-grid">
                         <div class="timeline-item">
-                            <div class="timeline-date">Q4 2023</div>
+                            <div class="timeline-date">Q1 2025</div>
                             <div class="timeline-content">
                                 <h3>Advanced AI Integration</h3>
                                 <p>Enhanced mood prediction and personalized recommendations using machine learning</p>
@@ -1956,7 +2029,7 @@
                             </div>
                         </div>
                         <div class="timeline-item">
-                            <div class="timeline-date">Q1 2024</div>
+                            <div class="timeline-date">Q2 2025</div>
                             <div class="timeline-content">
                                 <h3>Social Features</h3>
                                 <p>Safe and private community features for shared growth</p>
@@ -1968,7 +2041,7 @@
                             </div>
                         </div>
                         <div class="timeline-item">
-                            <div class="timeline-date">Q2 2024</div>
+                            <div class="timeline-date">Q3 2025</div>
                             <div class="timeline-content">
                                 <h3>Extended Platform Support</h3>
                                 <p>Bringing MoodWeather to more platforms and devices</p>
@@ -1980,7 +2053,7 @@
                             </div>
                         </div>
                         <div class="timeline-item">
-                            <div class="timeline-date">Q3 2024</div>
+                            <div class="timeline-date">Q4 2025</div>
                             <div class="timeline-content">
                                 <h3>Research Integration</h3>
                                 <p>Expanding our evidence-based approach through partnerships with leading mental health research institutions</p>
@@ -2073,7 +2146,7 @@
                                 <li>Basic analytics</li>
                                 <li>Community access</li>
                             </ul>
-                            <a href="https://app.moodweather.com/signup" class="cta-button">Get Started</a>
+                            <a href="https://moodweather.heytcm.com/signup" class="cta-button">Get Started</a>
                         </div>
                         <div class="pricing-card popular">
                             <div class="popular-badge">Most Popular</div>
@@ -2087,7 +2160,7 @@
                                 <li>Expert resources</li>
                                 <li>Integration features</li>
                             </ul>
-                            <a href="https://app.moodweather.com/premium" class="cta-button">Try Premium</a>
+                            <a href="https://moodweather.heytcm.com/premium" class="cta-button">Try Premium</a>
                         </div>
                         <div class="pricing-card">
                             <h3>Enterprise</h3>
@@ -2100,7 +2173,7 @@
                                 <li>Team management</li>
                                 <li>Advanced security</li>
                             </ul>
-                            <a href="https://app.moodweather.com/enterprise" class="cta-button">Contact Sales</a>
+                            <a href="https://moodweather.heytcm.com/enterprise" class="cta-button">Contact Sales</a>
                         </div>
                     </div>
                 </div>
@@ -2305,41 +2378,41 @@
                 <div class="footer-col">
                     <h4>Product</h4>
                     <ul>
-                        <li><a href="https://app.moodweather.com/features">Features</a></li>
-                        <li><a href="https://app.moodweather.com/pricing">Pricing</a></li>
-                        <li><a href="https://app.moodweather.com/enterprise">Enterprise</a></li>
+                        <li><a href="https://moodweather.heytcm.com/features">Features</a></li>
+                        <li><a href="https://moodweather.heytcm.com/pricing">Pricing</a></li>
+                        <li><a href="https://moodweather.heytcm.com/enterprise">Enterprise</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Resources</h4>
                     <ul>
-                        <li><a href="https://app.moodweather.com/blog">Blog</a></li>
-                        <li><a href="https://app.moodweather.com/help">Help Center</a></li>
-                        <li><a href="https://app.moodweather.com/api">API Docs</a></li>
+                        <li><a href="https://moodweather.heytcm.com/blog">Blog</a></li>
+                        <li><a href="https://moodweather.heytcm.com/help">Help Center</a></li>
+                        <li><a href="https://moodweather.heytcm.com/api">API Docs</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Research</h4>
                     <ul>
-                        <li><a href="https://app.moodweather.com/research">Research Papers</a></li>
-                        <li><a href="https://app.moodweather.com/studies">Case Studies</a></li>
-                        <li><a href="https://app.moodweather.com/partners">Research Partners</a></li>
+                        <li><a href="https://moodweather.heytcm.com/research">Research Papers</a></li>
+                        <li><a href="https://moodweather.heytcm.com/studies">Case Studies</a></li>
+                        <li><a href="https://moodweather.heytcm.com/partners">Research Partners</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Company</h4>
                     <ul>
-                        <li><a href="https://app.moodweather.com/about">About</a></li>
-                        <li><a href="https://app.moodweather.com/careers">Careers</a></li>
-                        <li><a href="https://app.moodweather.com/contact">Contact</a></li>
+                        <li><a href="https://moodweather.heytcm.com/about">About</a></li>
+                        <li><a href="https://moodweather.heytcm.com/careers">Careers</a></li>
+                        <li><a href="https://moodweather.heytcm.com/contact">Contact</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2023 MoodWeather. All rights reserved.</p>
                 <div class="legal-links">
-                    <a href="https://app.moodweather.com/privacy">Privacy Policy</a>
-                    <a href="https://app.moodweather.com/terms">Terms of Service</a>
+                    <a href="https://moodweather.heytcm.com/privacy">Privacy Policy</a>
+                    <a href="https://moodweather.heytcm.com/terms">Terms of Service</a>
                 </div>
             </div>
         </footer>
@@ -2802,12 +2875,43 @@
 
         // Call the initWeatherTimeline function
         initWeatherTimeline();
+        
+        // Locale Picker Initialization
+        function initLocalePicker() {
+            const localePicker = document.getElementById('locale-picker');
+            
+            // Get current locale from URL
+            const getCurrentLocale = () => {
+                const path = window.location.pathname;
+                const matches = path.match(/\/([a-z]{2})\//);
+                return matches ? matches[1] : 'en';
+            };
+
+            // Set initial value based on URL
+            const currentLocale = getCurrentLocale();
+            localePicker.value = currentLocale;
+
+            // Handle locale change
+            localePicker.addEventListener('change', (e) => {
+                const newLocale = e.target.value;
+                const currentPath = window.location.pathname;
+                
+                // If current path already has locale
+                if (currentPath.match(/\/[a-z]{2}\//)) {
+                    window.location.pathname = currentPath.replace(/\/[a-z]{2}\//, `/${newLocale}/`);
+                } else {
+                    // If no locale in path, add it
+                    window.location.pathname = `/${newLocale}${currentPath}`;
+                }
+            });
+        }
 
         document.addEventListener('DOMContentLoaded', () => {
             initMetaphorPoll();
             initFAQ();
             initAchievements();
             updateMoodDisplay('cloudy'); // Default mood
+            initLocalePicker(); // Add this line
             
             // Video Demo Initialization
             const video = document.getElementById('demo-video');
