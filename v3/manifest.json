@@ -1,0 +1,22 @@
+{
+  "name": "mood weather-mood tracker app",
+  "short_name": "mood weather mood tracker",
+  "description" :"Track your emotional well-being with MoodWeather - an innovative mood tracking app using weather metaphors. Get personalized insights, analytics, and support for better mental health.",
+  
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
