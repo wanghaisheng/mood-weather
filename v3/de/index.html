@@ -1,0 +1,2959 @@
+
+<html><head><base href="/de" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Verfolgen Sie Ihre emotionale Gesundheit mit MoodWeather - einer innovativen Emotions-Tracking-App, die Ihnen hilft, Ihre Stimmungsschwankungen durch Wetter-Metaphern besser zu verstehen.">
+    <meta name="keywords" content="Emotionstracking,emotionale Gesundheit,mentale Gesundheits-App,Wettermetaphern,EQ,Selbstwahrnehmung,Emotionstagebuch,digitales Emotionstracking,mentale Gesundheitswerkzeuge,emotionales Wohlbefinden">
+    <meta name="author" content="MoodWeatherチーム">
+    <meta http-equiv="Content-Language" content="de">
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://moodweather.heytcm.com" />
+
+    <!-- Open Graph for Social Media -->
+    <meta property="og:title" content="MoodWeather - Verfolgen Sie Ihr emotionales Klima">
+    <meta property="og:description" content="Erleben Sie innovatives emotionales Verständnis mit intuitiven Wettermetaphern und KI-Analyse.">
+    <meta property="og:image" content="https://moodweather.heytcm.com/social-preview.jpg">
+    <meta property="og:url" content="https://moodweather.heytcm.com">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MoodWeather - Verfolgen Sie Ihr emotionales Klima">
+    <meta name="twitter:description" content="Erleben Sie innovatives emotionales Verständnis mit intuitiven Wettermetaphern und KI-Analyse.">
+    <meta name="twitter:image" content="https://moodweather.heytcm.com/social-preview.jpg">
+    <meta name="twitter:creator" content="@moodweather">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://moodweather.heytcm.com/favicon.ico" type="image/x-icon">
+
+    <!-- PWA -->
+    <link rel="manifest" href="https://moodweather.heytcm.com/manifest.json">
+    <meta name="theme-color" content="#2D3250">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-XXXXX-Y');
+    </script>
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=document.createElement('script');t.async=1;t.src=
+            "https://www.clarity.ms/tag/"+i;y=document.getElementsByTagName('script')[0];
+            y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "XXXXXX");
+    </script>
+
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <title>MoodWeather - Verfolgen Sie Ihr emotionales Klima</title>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "MoodWeather",
+      "applicationCategory": "HealthApplication",
+      "description": "Eine Anwendung innovativer emotionaler Verfolgung, die den Nutzern hilft, ihre emotionale Gesundheit durch Wetter-Metaphern zu verstehen.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "1250"
+      }
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary: #2D3250;
+            --secondary: #424769;
+            --accent: #7077A1;
+            --light: #F6B17A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: var(--primary);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: var(--secondary);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--light);
+        }
+
+        .locale-picker {
+            padding: 8px 12px;
+            border-radius: 20px;
+            border: 2px solid var(--light);
+            background: var(--secondary);
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .locale-picker:hover {
+            background: var(--primary);
+            border-color: var(--accent);
+        }
+
+        .locale-picker option {
+            background: var(--primary);
+            color: white;
+            padding: 8px;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 60px 20px;
+            margin-bottom: 40px;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            color: var(--light);
+            margin-bottom: 20px;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--light);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid var(--light);
+            color: var(--light);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(246,177,122,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        .section-container {
+            display: grid;
+            gap: 40px;
+            padding: 20px;
+        }
+
+        .section-wrapper {
+            background: var(--secondary);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .section-wrapper:hover {
+            transform: translateY(-5px);
+        }
+
+        .section-header {
+            padding: 30px;
+            background: rgba(0,0,0,0.1);
+        }
+
+        .section-content {
+            padding: 30px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 40px 20px;
+        }
+
+        .feature-card {
+            background: var(--secondary);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            color: var(--light);
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .onboarding-section,
+        .features-section,
+        .resources-section,
+        .challenges-section,
+        .research-section,
+        .future-development-section,
+        .case-studies-section,
+        .pricing-section,
+        .impact-section,
+        .integration-section,
+        .ai-analysis-section,
+        .metaphor-poll-section,
+        .mood-story-section {
+            margin: 0;
+            padding: 0;
+            background: transparent;
+        }
+
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--light);
+        }
+
+        .onboarding-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .step {
+            text-align: center;
+            padding: 30px;
+            background: var(--primary);
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--light);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        .weather-container {
+            position: relative;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .mood-input {
+            position: relative;
+            z-index: 2;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border: none;
+            background: rgba(255,255,255,0.9);
+            font-size: 16px;
+            resize: none;
+        }
+
+        .weather-icons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .weather-icon {
+            cursor: pointer;
+            transition: transform 0.3s;
+            width: 50px;
+            height: 50px;
+        }
+
+        .weather-icon:hover {
+            transform: scale(1.2);
+        }
+
+        .mood-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .floating-cloud {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .faq-section {
+            padding: 60px 20px;
+            margin: 40px 0;
+            border-radius: 15px;
+        }
+
+        .faq-grid {
+            display: grid;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--primary);
+            border-radius: 10px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            transform: translateX(10px);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            color: var(--light);
+        }
+
+        .faq-answer {
+            margin-top: 15px;
+            display: none;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .testimonials-section {
+            padding: 60px 20px;
+            margin: 40px 0;
+            border-radius: 15px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .testimonial-card {
+            background: var(--primary);
+            padding: 30px;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .author-info h4 {
+            color: var(--light);
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+
+        .achievements-section {
+            padding: 60px 20px;
+            margin: 40px 0;
+            border-radius: 15px;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .achievement-card {
+            background: var(--primary);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .achievement-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .progress-bar {
+            background: rgba(255,255,255,0.1);
+            height: 10px;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: var(--light);
+            transition: width 0.3s ease;
+        }
+
+        .feature-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 30%, rgba(246, 177, 122, 0.1) 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .feature-card:hover::after {
+            opacity: 1;
+        }
+
+        .resources-section {
+            padding: 60px 20px;
+            margin: 40px 0;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .resource-card {
+            background: var(--secondary);
+            padding: 30px;
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .learn-more {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--light);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .challenges-section {
+            padding: 60px 20px;
+            margin: 40px 0;
+            border-radius: 15px;
+        }
+
+        .challenges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .challenge-card {
+            background: var(--primary);
+            padding: 30px;
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+
+        .challenge-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .challenge-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .challenge-content {
+            margin-top: 15px;
+        }
+
+        .challenge-desc {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .solution {
+            background: rgba(246, 177, 122, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .solution h4 {
+            color: var(--light);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .solution p {
+            color: rgba(255,255,255,0.9);
+            line-height: 1.6;
+        }
+
+        .research-section {
+            padding: 60px 20px;
+            margin: 40px 0;
+            border-radius: 15px;
+        }
+
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .research-card {
+            background: var(--primary);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .research-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            border: 3px solid var(--light);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--light);
+        }
+
+        .research-card h3 {
+            color: var(--light);
+            margin-bottom: 15px;
+        }
+
+        .research-card p {
+            color: rgba(255,255,255,0.9);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .source {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+            font-style: italic;
+        }
+
+        .research-highlights {
+            background: var(--primary);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        .highlight-card {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .findings-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .findings-list li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background: rgba(246, 177, 122, 0.1);
+            border-radius: 8px;
+            color: rgba(255,255,255,0.9);
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .findings-list li:before {
+            content: "→";
+            position: absolute;
+            left: 10px;
+            color: var(--light);
+        }
+
+        .future-development-section {
+            padding: 60px 20px;
+            margin: 40px 0;
+            border-radius: 15px;
+        }
+
+        .timeline-grid {
+            display: grid;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            background: var(--primary);
+            padding: 30px;
+            border-radius: 15px;
+            position: relative;
+            border-left: 4px solid var(--light);
+        }
+
+        .timeline-date {
+            color: var(--light);
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .timeline-content h3 {
+            color: var(--light);
+            margin-bottom: 10px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            color: rgba(255,255,255,0.9);
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .feature-list li:before {
+            content: "•";
+            color: var(--light);
+            position: absolute;
+            left: 0;
+        }
+
+        .case-studies-section {
+            padding: 60px 20px;
+            margin: 40px 0;
+            border-radius: 15px;
+        }
+
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .case-study-card {
+            background: var(--primary);
+            padding: 30px;
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+
+        .case-study-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: rgba(246, 177, 122, 0.1);
+            border-radius: 10px;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            color: var(--light);
+            font-weight: bold;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            margin-top: 5px;
+        }
+
+        .case-study-text {
+            margin: 20px 0;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .key-findings {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .key-findings h4 {
+            color: var(--light);
+            margin-bottom: 10px;
+        }
+
+        .key-findings ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .key-findings li {
+            padding: 8px 0;
+            color: rgba(255,255,255,0.9);
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .key-findings li:before {
+            content: "→";
+            color: var(--light);
+            position: absolute;
+            left: 0;
+        }
+
+        .pricing-section {
+            padding: 60px 20px;
+            margin: 40px 0;
+            border-radius: 15px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .pricing-card {
+            background: var(--primary);
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pricing-card.popular {
+            border: 2px solid var(--light);
+            transform: scale(1.05);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--light);
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: var(--light);
+            margin: 20px 0 5px;
+        }
+
+        .period {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 30px;
+        }
+
+        .features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+
+        .features li {
+            padding: 10px 0;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .newsletter-section {
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--secondary);
+            margin: 40px 0;
+            border-radius: 15px;
+        }
+
+        .newsletter-form {
+            max-width: 500px;
+            margin: 30px auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 20px;
+            border-radius: 25px;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .footer {
+            background: var(--secondary);
+            padding: 60px 20px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-col h3, .footer-col h4 {
+            color: var(--light);
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--light);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .legal-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .comparison-section {
+            padding: 60px 20px;
+            margin: 40px 0;
+            border-radius: 15px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .comparison-card {
+            background: var(--primary);
+            padding: 30px;
+            border-radius: 15px;
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .comparison-card h3 {
+            color: var(--light);
+            margin-bottom: 25px;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .comparison-content {
+            display: grid;
+            gap: 20px;
+        }
+
+        .comparison-item {
+            padding: 15px;
+            background: rgba(246, 177, 122, 0.1);
+            border-radius: 10px;
+        }
+
+        .comparison-item h4 {
+            color: var(--light);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .comparison-item p {
+            color: rgba(255,255,255,0.9);
+            line-height: 1.6;
+        }
+
+        .bullet-journal {
+            border-left: 4px solid #A5D6A7;
+        }
+
+        .moodweather {
+            border-left: 4px solid var(--light);
+        }
+
+        /* Add these styles for SEO-rich content */
+        .research-intro {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 20px;
+        }
+
+        .findings-list li {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .research-source {
+            font-style: italic;
+            color: var(--light);
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        /* Add to existing CSS */
+        .ai-analysis-section {
+            background: var(--secondary);
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 40px;
+        }
+
+        .mood-patterns {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .weather-calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .calendar-day::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .metaphor-poll-section {
+            padding: 60px 20px;
+            margin: 40px 0;
+        }
+
+        .metaphor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .metaphor-card {
+            background: var(--primary);
+            padding: 25px;
+            border-radius: 15px;
+            transition: transform 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .metaphor-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .metaphor-card.voted {
+            border: 2px solid var(--light);
+        }
+
+        .metaphor-text {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .vote-count {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--light);
+        }
+
+        .vote-btn {
+            background: var(--accent);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .vote-btn:hover {
+            background: var(--light);
+        }
+
+        .poll-results {
+            background: var(--secondary);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 40px;
+        }
+
+        .poll-chart {
+            margin-top: 20px;
+            display: grid;
+            gap: 15px;
+        }
+
+        .poll-bar {
+            background: var(--primary);
+            padding: 15px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .poll-bar-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: var(--light);
+            opacity: 0.3;
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        .poll-bar-text {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* Add new styles for mood story section */
+        .mood-story-section {
+            background: var(--secondary);
+            padding: 60px 20px;
+            color: white;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--light);
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+        }
+
+        .story-preview {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .story-cover {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .story-cover h3 {
+            font-size: 2rem;
+            color: var(--light);
+            margin-bottom: 20px;
+        }
+
+        .weather-timeline {
+            height: 100px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-chapters {
+            display: grid;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .chapter {
+            background: var(--primary);
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .chapter h4 {
+            color: var(--light);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .day-entry {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .weather-icon {
+            font-size: 2rem;
+        }
+
+        .entry-content h5 {
+            color: var(--light);
+            margin-bottom: 10px;
+        }
+
+        .entry-content p {
+            color: rgba(255,255,255,0.9);
+            line-height: 1.6;
+        }
+
+        .story-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 30px;
+            background: var(--primary);
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .feature h4 {
+            color: var(--light);
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            color: rgba(255,255,255,0.9);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .story-chapters {
+                grid-template-columns: 1fr;
+            }
+
+            .day-entry {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .weather-icon {
+                margin-bottom: 10px;
+            }
+        }
+
+        /* Add styles for video demo section */
+        .video-demo-section {
+            padding: 60px 20px;
+            margin: 40px 0;
+            background: var(--secondary);
+            border-radius: 15px;
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto 40px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .demo-cta {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .demo-cta h3 {
+            color: var(--light);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .video-container {
+                margin: 0 -20px 40px;
+                border-radius: 0;
+            }
+        }
+
+        /* Add hover effect for video container */
+        .video-container:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+
+        /* New styles for the weather timeline */
+        .weather-timeline {
+            position: relative;
+            height: 100px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            margin-top: 20px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .timeline-marker {
+            cursor: pointer;
+            box-shadow: 0 0 5px rgba(255,255,255,0.3);
+        }
+
+        .timeline-marker:hover {
+            box-shadow: 0 0 10px rgba(255,255,255,0.5);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">🌤️ MoodWeather</div>
+        <select id="locale-picker" class="locale-picker">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="ja">日本語</option>
+            <option value="de" selected>Deutsch</option>
+            <option value="ko">한국어</option>
+        </select>
+    </nav>
+
+    <div class="container">
+        <div class="hero-section">
+            <h1>Verfolgen Sie Ihren Geist wie das Wetter</h1>
+            <p>Entdecken Sie einen innovativen Weg, Ihre emotionalen Veränderungen zu verstehen. MoodWeather nutzt intuitive Wettermetaphern und KI-Analyse, um Ihre Emotionen in Wettermuster zu verwandeln und macht emotionales Tracking natürlich und angenehm.</p>
+            <div class="hero-buttons">
+                <a href="https://moodweather.heytcm.com/signup" class="cta-button primary">Tracking starten</a>
+                <a href="https://moodweather.heytcm.com/demo" class="cta-button secondary">Demo ansehen</a>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-wrapper video-demo-section">
+                <div class="section-header">
+                    <h2 class="section-title">Erleben Sie MoodWeather</h2>
+                    <p class="section-subtitle">Sehen Sie, wie Sie das Klima Ihrer Emotionen einfach verfolgen und verstehen können</p>
+                </div>
+                <div class="section-content">
+                    <div class="video-container">
+                        <iframe 
+                            id="demo-video"
+                            width="100%" 
+                            height="100%" 
+                            src="https://www.youtube.com/embed/wZMjUcgZZlI"
+                            title="MoodWeather Demo" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                        ></iframe>
+                    </div>
+                    <div class="demo-cta">
+                        <h3>Bereit, Ihre emotionale Reise zu beginnen?</h3>
+                        <div class="cta-buttons">
+                            <a href="/app" class="cta-button primary">Jetzt erleben</a>
+                            <a href="https://moodweather.heytcm.com/signup" class="cta-button secondary">Kostenlose Registrierung</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-wrapper onboarding-section">
+                <div class="section-header">
+                    <h2 class="section-title">Beginnen Sie in wenigen Minuten</h2>
+                </div>
+                <div class="section-content">
+                    <div class="onboarding-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <h3>Personalisierte Erfahrung</h3>
+                            <p>Personalisieren Sie Ihre Verfolgungserfahrung durch eine kurze Bewertung und setzen Sie bedeutungsvolle Ziele.</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <h3>Verfolgen Sie Ihr inneres Klima</h3>
+                            <p>Aufzeichnen von Gefühlen mit intuitiven Wettermetaphern, die den emotionalen Ausdruck natürlich machen.</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <h3>Erhalten Sie umsetzbare Einblicke</h3>
+                            <p>Erhalten Sie personalisierte Empfehlungen und visualisieren Sie intuitiv emotionale Muster.</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <h3>Personalisieren Sie Ihre Erfahrung</h3>
+                            <p>Setzen Sie persönliche Ziele, personalisieren Sie Benachrichtigungen und wählen Sie Ihre bevorzugte Verfolgungsmethode.</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">5</div>
+                            <h3>Verbinden Sie sich mit Ihrem Unterstützungsnetzwerk</h3>
+                            <p>Optional mit Gesundheitsdienstleistern und Unterstützungsgruppen integrieren.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-wrapper features-section">
+                <div class="section-header">
+                    <h2 class="section-title">Lebensverändernde Funktionen</h2>
+                </div>
+                <div class="section-content">
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🎯</div>
+                            <h3>SMART-Zielsetzung</h3>
+                            <p>Setzen Sie persönliche emotionale Ziele, überwachen Sie Ihren Fortschritt und erleben Sie das Gefühl der Erfüllung.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📊</div>
+                            <h3>Fortgeschrittene Analyse</h3>
+                            <p>Visualisieren Sie Ihre emotionalen Muster durch visuelle Diagramme und entdecken Sie emotionale Auslöser.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🧘</div>
+                            <h3>Achtsamkeitswerkzeuge</h3>
+                            <p>Greifen Sie auf geführte Meditationen und Übungen zu, die auf Ihr aktuelles emotionales Klima abgestimmt sind.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">👥</div>
+                            <h3>Gemeinschaftliche Unterstützung</h3>
+                            <p>Verbinden Sie sich mit anderen in einem sicheren Gemeinschaftsraum und teilen Sie Ihre gemeinsame Reise.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🧠</div>
+                            <h3>Wissenschaftlich fundierter Ansatz</h3>
+                            <p>Basierend auf bewährten psychologischen Prinzipien, unterstützt durch umfangreiche Forschung zur emotionalen Intelligenz und mentaler Gesundheit. Unser Wettermetapher-System wurde in Zusammenarbeit mit Fachleuten der psychischen Gesundheit entwickelt.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-wrapper resources-section">
+                <div class="section-header">
+                    <h2 class="section-title">Lernen und Wachsen</h2>
+                </div>
+                <div class="section-content">
+                    <div class="resources-grid">
+                        <div class="resource-card">
+                            <h3>Verstehen des emotionalen Klimas</h3>
+                            <p>Erfahren Sie, wie Wettermetaphern helfen können, Emotionen zu verstehen und auszudrücken.</p>
+                            <a href="https://moodweather.heytcm.com/learn/basics" class="learn-more">Mehr lesen</a>
+                        </div>
+                        <div class="resource-card">
+                            <h3>Leitfaden für emotionales Tracking</h3>
+                            <p>Entdecken Sie effektive Strategien, um emotionales Tracking und emotionale Anerkennung fortzusetzen.</p>
+                            <a href="https://moodweather.heytcm.com/learn/guide" class="learn-more">Mehr lesen</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="weather-container">
+            <svg class="mood-particles" id="mood-particles"></svg>
+            
+            <div class="mood-input">
+                <h2>Wie ist das Wetter in Ihrem Geist heute?</h2>
+                <textarea id="mood-text" rows="4" placeholder="Drücken Sie Ihre Gefühle aus..."></textarea>
+                
+                <div class="weather-icons">
+                    <!-- Sunny -->
+                    <svg class="weather-icon" viewBox="0 0 100 100" data-mood="sunny">
+                        <circle cx="50" cy="50" r="20" fill="#FFD700"/>
+                        <g id="rays">
+                            <line x1="50" y1="20" x2="50" y2="10" stroke="#FFD700" stroke-width="4"/>
+                            <line x1="50" y1="80" x2="50" y2="90" stroke="#FFD700" stroke-width="4"/>
+                            <line x1="20" y1="50" x2="10" y2="50" stroke="#FFD700" stroke-width="4"/>
+                            <line x1="80" y1="50" x2="90" y2="50" stroke="#FFD700" stroke-width="4"/>
+                        </g>
+                    </svg>
+
+                    <!-- Cloudy -->
+                    <svg class="weather-icon" viewBox="0 0 100 100" data-mood="cloudy">
+                        <path d="M30,50 Q40,40 50,45 Q60,35 70,45 Q80,40 85,50 Q90,60 80,65 Q75,70 65,68 Q60,75 50,70 Q40,75 35,68 Q25,70 20,65 Q15,60 20,55 Q25,50 30,50" fill="#E0E0E0"/>
+                    </svg>
+
+                    <!-- Rainy -->
+                    <svg class="weather-icon" viewBox="0 0 100 100" data-mood="rainy">
+                        <path d="M30,40 Q40,30 50,35 Q60,25 70,35 Q80,30 85,40 Q90,50 80,55 Q75,60 65,58 Q60,65 50,60 Q40,65 35,58 Q25,60 20,55 Q15,50 20,45 Q25,40 30,40" fill="#708090"/>
+                        <line x1="40" y1="65" x2="35" y2="80" stroke="#4682B4" stroke-width="3"/>
+                        <line x1="50" y1="65" x2="45" y2="80" stroke="#4682B4" stroke-width="3"/>
+                        <line x1="60" y1="65" x2="55" y2="80" stroke="#4682B4" stroke-width="3"/>
+                    </svg>
+
+                    <!-- Stormy -->
+                    <svg class="weather-icon" viewBox="0 0 100 100" data-mood="stormy">
+                        <path d="M30,40 Q40,30 50,35 Q60,25 70,35 Q80,30 85,40 Q90,50 80,55 Q75,60 65,58 Q60,65 50,60 Q40,65 35,58 Q25,60 20,55 Q15,50 20,45 Q25,40 30,40" fill="#4A4A4A"/>
+                        <polygon points="45,60 55,60 40,75 50,75 35,90" fill="#FFD700"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-wrapper ai-analysis-section">
+                <div class="section-header">
+                    <h2 class="section-title">Intelligente Emotionserkennung</h2>
+                </div>
+                <div class="section-content">
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🤖</div>
+                            <h3>KI-gestützte Analyse</h3>
+                            <p>Unsere fortschrittliche KI analysiert Journal-Eingaben in Echtzeit, erkennt automatisch Ihr emotionales Klima und berechnet Ihren emotionalen Score.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📖</div>
+                            <h3>Emotionale Journal-Erzählungen</h3>
+                            <p>Verwandeln Sie Ihre täglichen Emotionen in schöne thematische Geschichten über das Wetter. Unsere KI generiert personalisierte Erzählungen, die Ihnen helfen, Ihre emotionale Reise durch ansprechende Metaphern und Visualisierungen zu verstehen.</p>
+                            <ul style="text-align: left; margin-top: 10px; list-style: none;">
+                                <li>• Tägliche thematische Wetter-Einträge</li>
+                                <li>• KI-generierte emotionale Einblicke</li>
+                                <li>• Visualisierte emotionale Chronologie</li>
+                                <li>• Teilbare Höhepunkte von Geschichten</li>
+                            </ul>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🎨</div>
+                            <h3>Dynamischer Hintergrund</h3>
+                            <p>Sehen Sie, wie der Hintergrund Ihrer App sich entsprechend dem emotionalen Klima ändert und eine immersive Erfahrung schafft.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📊</div>
+                            <h3>Emotionale Kalender</h3>
+                            <p>Visualisieren Sie Ihre emotionalen Muster durch einen wetterbasierten Kalender, der das Erkennen von Trends erleichtert.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">👥</div>
+                            <h3>Inspirierende Verbindungen</h3>
+                            <p>Verbinden Sie sich mit anderen, die ähnliche emotionale Muster haben, und finden Sie Inspiration in ihren Reisen.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📚</div>
+                            <h3>Journal-Vorlagen</h3>
+                            <p>Wählen Sie aus verschiedenen thematischen Wettervorlagen, um Ihre Emotionen auf unterschiedliche Weise auszudrücken. Von schnellen Checks bis hin zu tiefen Reflexionen finden Sie das perfekte Format für Ihre emotionale Geschichte.</p>
+                        </div>
+                    </div>
+
+                    <!-- Add a preview of the story mood journal -->
+                    <div class="story-preview" style="margin-top: 40px; background: var(--primary); padding: 30px; border-radius: 15px;">
+                        <h3 style="color: var(--light); margin-bottom: 20px; text-align: center;">Vorschau auf das emotionale Journal</h3>
+                        <div class="journal-entry" style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                            <div class="entry-header" style="display: flex; align-items: center; margin-bottom: 15px;">
+                                <div class="weather-icon" style="font-size: 2rem; margin-right: 15px;">🌅</div>
+                                <div class="entry-meta">
+                                    <h4 style="color: var(--light);">Morgenreflexion</h4>
+                                    <span style="color: rgba(255,255,255,0.7);">Heutiges Klima: Teilweise bewölkt, gelegentlich sonnig</span>
+                                </div>
+                            </div>
+                            <p style="color: rgba(255,255,255,0.9); line-height: 1.6;">
+                                "Das Licht des Morgens hat die Wolken durchbrochen und einen Neuanfang gebracht. Jeder Lichtstrahl symbolisiert einen kleinen Sieg und erinnert mich daran, dass selbst an dunklen Tagen wunderbare Möglichkeiten warten."
+                            </p>
+                            <div class="ai-insight" style="margin-top: 15px; padding: 15px; background: rgba(246,177,122,0.1); border-radius: 8px;">
+                                <h5 style="color: var(--light); margin-bottom: 10px;">Emotionale Perspektive von KI</h5>
+                                <p style="color: rgba(255,255,255,0.8);">
+                                    Ihr emotionales Klima zeigt Anzeichen von Verbesserung. Die Mischung aus Wolken und Sonne deutet auf ein ausgewogenes Spektrum in einer Phase des Wandels hin, das Sie in einen zunehmend optimistischen Zustand führt.
+                                </p>
+                            </div>
+                        </div>
+                        <div style="text-align: center;">
+                            <a href="/journal" class="cta-button" style="display: inline-block; margin-top: 20px;">Beginnen Sie Ihre Wettergeschichte</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-wrapper faq-section">
+                <div class="section-header">
+                    <h2 class="section-title">Häufig Gestellte Fragen</h2>
+                </div>
+                <div class="section-content">
+                    <div class="faq-grid">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Wie verfolgt MoodWeather meine Emotionen?</span>
+                                <span class="toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                MoodWeather nutzt fortschrittliche KI, um Ihre Texteingaben zu analysieren und in Wettermetaphern zu verwandeln. Sie können auch manuell ein Wettermuster auswählen, das zu Ihren Emotionen passt.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Sind meine emotionalen Daten privat?</span>
+                                <span class="toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                Ja, Ihre Privatsphäre hat für uns oberste Priorität. Alle Ihre emotionalen Einträge und persönlichen Daten sind verschlüsselt und sicher gespeichert. Sie haben die volle Kontrolle darüber, was Sie teilen und mit wem.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Kann ich Muster über die Zeit verfolgen?</span>
+                                <span class="toggle">+</span>
+                            </div>
+                            <div class="faq-answer">
+                                Natürlich. Unser emotionaler Kalender bietet visualisierte Einblicke in emotionale Muster über die Zeit, die Ihnen helfen, die Trends Ihres inneren Klimas zu verstehen und positive Veränderungen zu fördern.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-wrapper testimonials-section">
+                <div class="section-header">
+                    <h2 class="section-title">Benutzerbewertungen</h2>
+                </div>
+                <div class="section-content">
+                    <div class="testimonials-grid">
+                        <div class="testimonial-card">
+                            <div class="testimonial-text">
+                                "MoodWeather hat meine Art verändert, meine Emotionen zu verstehen. Die Wettermetaphern machen es mir sehr intuitiv und natürlich, meine Gefühle auszudrücken."
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">👤</div>
+                                <div class="author-info">
+                                    <h4>Sarah K</h4>
+                                    <p>Nutze MoodWeather seit 6 Monaten</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-text">
+                                "Die visuelle Verfolgung von Emotionen hat mir geholfen, Muster zu erkennen, die ich nie bemerkt hätte. Es ist wie ein persönlicher emotionaler Wetterdienst!"
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">👤</div>
+                                <div class="author-info">
+                                    <h4>Marcus T</h4>
+                                    <p>Nutze MoodWeather seit 3 Monaten</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-wrapper challenges-section">
+                <div class="section-header">
+                    <h2 class="section-title">Häufige Herausforderungen und Lösungen</h2>
+                </div>
+                <div class="section-content">
+                    <div class="challenges-grid">
+                        <div class="challenge-card">
+                            <div class="challenge-icon">😔</div>
+                            <h3>Schwierigkeit, Emotionen auszudrücken</h3>
+                            <div class="challenge-content">
+                                <p class="challenge-desc">Viele Benutzer haben Schwierigkeiten, ihre Emotionen auszudrücken oder ihre wahren Gefühle zu erkennen.</p>
+                                <div class="solution">
+                                    <h4>Unsere Lösung</h4>
+                                    <p>Die intuitiven Wettermetaphern von MoodWeather und die KI-gestützte Analyse helfen, Emotionen auf natürliche Weise auszudrücken, ohne dass ein komplexes emotionales Vokabular erforderlich ist.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="challenge-card">
+                            <div class="challenge-icon">📊</div>
+                            <h3>Inkonsequente Verfolgung</h3>
+                            <div class="challenge-content">
+                                <p class="challenge-desc">Benutzer vergessen oft, ihre Emotionen aufzuzeichnen oder verlieren die Motivation, dies konsequent zu tun.</p>
+                                <div class="solution">
+                                    <h4>Unsere Lösung</h4>
+                                    <p>Mit sanften Erinnerungen, einem Belohnungssystem und schnellen Aufzeichnungsoptionen können Sie eine stressfreie emotionale Verfolgung aufrechterhalten.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="challenge-card">
+                            <div class="challenge-icon">🤔</div>
+                            <h3>Verständnis von Mustern</h3>
+                            <div class="challenge-content">
+                                <p class="challenge-desc">Viele Menschen haben Schwierigkeiten, den Zusammenhang zwischen Aktivitäten, Umgebungen und ihrem emotionalen Zustand zu erkennen.</p>
+                                <div class="solution">
+                                    <h4>Unsere Lösung</h4>
+                                    <p>Fortgeschrittene Analysen und KI-gestützte Perspektiven, die Ihre emotionalen Klimamuster und Auslöser identifizieren, erleichtern das Verständnis Ihres mentalen Klimas.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="challenge-card">
+                            <div class="challenge-icon">🔐</div>
+                            <h3>Datenschutzprobleme</h3>
+                            <div class="challenge-content">
+                                <p class="challenge-desc">Benutzer machen sich Sorgen um die Privatsphäre und Sicherheit ihrer emotionalen Daten.</p>
+                                <div class="solution">
+                                    <h4>Unsere Lösung</h4>
+                                    <p>Mit Ende-zu-Ende-Verschlüsselung, anonymen Verfolgungsoptionen und strengen Datenschutzrichtlinien halten wir Ihre emotionale Reise privat und sicher.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="challenge-card">
+                            <div class="challenge-icon">📱</div>
+                            <h3>Digitale Überlastung</h3>
+                            <div class="challenge-content">
+                                <p class="challenge-desc">Viele Benutzer berichten, dass sie sich von mentalen Gesundheits-Apps oder komplexen Tracking-Systemen überwältigt fühlen.</p>
+                                <div class="solution">
+                                    <h4>Unsere innovative Lösung</h4>
+                                    <p>Die intuitive, wetterbasierte Benutzeroberfläche von MoodWeather macht emotionales Tracking so natürlich wie das Wetter. Unser KI-gesteuertes System bietet personalisierte Einblicke basierend auf Ihren Mustern, ohne überwältigend zu sein.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-wrapper comparison-section">
+                <div class="section-header">
+                    <h2 class="section-title">Bullet Journal vs MoodWeather</h2>
+                </div>
+                <div class="section-content">
+                    <div class="comparison-grid">
+                        <div class="comparison-card bullet-journal">
+                            <h3>Traditionelles Bullet Journal</h3>
+                            <div class="comparison-content">
+                                <div class="comparison-item">
+                                    <h4>Investitionszeit</h4>
+                                    <p>Erfordert viel Zeit für die Einrichtung und tägliche manuelle Einträge.</p>
+                                </div>
+                                <div class="comparison-item">
+                                    <h4>Analyse</h4>
+                                    <p>Manuelle Mustererkennung, mit Einschränkungen in der Wahrnehmung.</p>
+                                </div>
+                                <div class="comparison-item">
+                                    <h4>Flexibilität</h4>
+                                    <p>Hochgradig anpassbar, erfordert jedoch künstlerische Fähigkeiten.</p>
+                                </div>
+                                <div class="comparison-item">
+                                    <h4>Zugänglichkeit</h4>
+                                    <p>Erfordert ein physisches Journal, das transportiert werden kann.</p>
+                                </div>
+                                <div class="comparison-item">
+                                    <h4>Datensicherheit</h4>
+                                    <p>Physische Sicherheitsrisiken, Möglichkeit von Verlust oder Beschädigung.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comparison-card moodweather">
+                            <h3>MoodWeather-App</h3>
+                            <div class="comparison-content">
+                                <div class="comparison-item">
+                                    <h4>Investitionszeit</h4>
+                                    <p>Schnelle Einträge dank KI-Unterstützung und Wettermetaphern.</p>
+                                </div>
+                                <div class="comparison-item">
+                                    <h4>Analyse</h4>
+                                    <p>Fortgeschrittene KI-gesteuerte Analyse und Mustererkennung.</p>
+                                </div>
+                                <div class="comparison-item">
+                                    <h4>Flexibilität</h4>
+                                    <p>Intuitive Benutzeroberfläche und anpassbare Tracking-Optionen.</p>
+                                </div>
+                                <div class="comparison-item">
+                                    <h4>Zugänglichkeit</h4>
+                                    <p>Auf Mobilgeräten und Webanwendungen jederzeit und überall verfügbar.</p>
+                                </div>
+                                <div class="comparison-item">
+                                    <h4>Datensicherheit</h4>
+                                    <p>Ende-zu-Ende-Verschlüsselung und sichere Cloud-Speicherung.</p>
+                                </div>
+                                <div class="comparison-item">
+                                    <h4>Integration mit Psychologen</h4>
+                                    <p>MoodWeather bietet sichere Optionen zum Teilen von Daten mit Psychologen, was evidenzbasierte Behandlungen und Pläne erleichtert.</p>
+                                </div>
+                                <div class="comparison-item">
+                                    <h4>Wissenschaftliche Validierung</h4>
+                                    <p>Der Ansatz von MoodWeather wird durch peer-reviewed Forschung im Bereich emotionale Intelligenz und mentale Gesundheit unterstützt, während traditionelle Methoden an Validität mangeln.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-wrapper research-section">
+                <div class="section-header">
+                    <h2 class="section-title">Forschung und Perspektiven</h2>
+                </div>
+                <div class="section-content">
+                    <div class="research-grid">
+                        <div class="research-card">
+                            <div class="stat-circle">
+                                <span class="stat-number">78%</span>
+                            </div>
+                            <h3>Verbesserung des Selbstbewusstseins</h3>
+                            <p>Benutzer berichten von einem bemerkenswerten Verständnis ihrer emotionalen Muster nach kontinuierlichem Tracking über 3 Monate.</p>
+                            <div class="source">Quelle: Interne Benutzerforschung 2023</div>
+                        </div>
+
+                        <div class="research-card">
+                            <div class="stat-circle">
+                                <span class="stat-number">3x</span>
+                            </div>
+                            <h3>Bessere Stressbewältigung</h3>
+                            <p>Benutzer, die Wettermetaphern verwenden, sind dreimal wahrscheinlicher, effektive Bewältigungsstrategien umzusetzen.</p>
+                            <div class="source">Psychology Today, 2023</div>
+                        </div>
+
+                        <div class="research-card">
+                            <div class="stat-circle">
+                                <span class="stat-number">92%</span>
+                            </div>
+                            <h3>Benutzersatisfaction</h3>
+                            <p>Aktive Benutzer empfehlen MoodWeather zur emotionalen Verfolgung ihren Freunden und ihrer Familie.</p>
+                            <div class="source">Analyse des Benutzerfeedbacks</div>
+                        </div>
+                    </div>
+
+                    <div class="research-highlights">
+                        <div class="highlight-card">
+                            <h3>Wichtige Erkenntnisse aus der Forschung</h3>
+                            <ul class="findings-list">
+                                <li>Wettermetaphern erhöhen den emotionalen Wortschatz um 45%</li>
+                                <li>Tägliches emotionales Tracking senkt Stresslevel um 32%</li>
+                                <li>Visuelle Darstellungen verbessern die Mustererkennung um 67%</li>
+                                <li>89% der Benutzer berichten von einer Verbesserung ihrer emotionalen Regulierung</li>
+                            </ul>
+                        </div>
+                        <div class="highlight-card">
+                            <h3>Forschung zur emotionalen Intelligenz</h3>
+                            <p class="research-intro">Aktuelle Forschung zur emotionalen Intelligenz und zum Tracking der mentalen Gesundheit zeigt, dass die regelmäßige Überwachung von Emotionen signifikant mit der Verbesserung der emotionalen Gesundheit verbunden ist.</p>
+                            <ul class="findings-list">
+                                <li>Forschung im "Mental Health Journal" (2023) zeigt, dass das Tracking des emotionalen Bewusstseins mit Metaphern um 72% verbessert</li>
+                                <li>Klinische Studien zeigen, dass die Verwendung digitaler emotionaler Tracking-Tools um 45% verbessert</li>
+                                <li>Harvard Mental Health Letter berichtet, dass die kontinuierliche Überwachung von Emotionen die Fähigkeit zur Selbstregulation um 63% erhöht</li>
+                                <li>Forschung von Psychology Today zeigt, dass Wettermetaphern den emotionalen Wortschatz um 85% erhöhen</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-wrapper future-development-section">
+                <div class="section-header">
+                    <h2 class="section-title">Zukünftige Entwicklungs-Roadmap</h2>
+                </div>
+                <div class="section-content">
+                    <div class="timeline-grid">
+                        <div class="timeline-item">
+                            <div class="timeline-date">Q1 2025</div>
+                            <div class="timeline-content">
+                                <h3>Erweiterte KI-Integration</h3>
+                                <p>Verbesserungen in der emotionalen Vorhersage und personalisierten Empfehlungen durch maschinelles Lernen.</p>
+                                <ul class="feature-list">
+                                    <li>Emotionale Predictive Analytics</li>
+                                    <li>Personalisierte Interventionsstrategien</li>
+                                    <li>Vorschlagen von emotionalen Anpassungen in Echtzeit</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">Q2 2025</div>
+                            <div class="timeline-content">
+                                <h3>Soziale Funktionen</h3>
+                                <p>Implementierung sicherer und privater Gemeinschaftsfunktionen zur Förderung des Wachstums.</p>
+                                <ul class="feature-list">
+                                    <li>Anonyme Unterstützungsgruppen</li>
+                                    <li>Verbindung zu zertifizierten Therapeuten</li>
+                                    <li>Gemeinschaftliche Herausforderungen und Veranstaltungen</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">Q3 2025</div>
+                            <div class="timeline-content">
+                                <h3>Erweiterung der Plattformunterstützung</h3>
+                                <p>Erweiterung von MoodWeather auf mehr Plattformen und Geräte.</p>
+                                <ul class="feature-list">
+                                    <li>Integration mit Smartwatches</li>
+                                    <li>Unterstützung für Sprachassistenten</li>
+                                    <li>Desktop-Anwendung</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">Q4 2025</div>
+                            <div class="timeline-content">
+                                <h3>Integration von Forschung</h3>
+                                <p>Erweiterung des evidenzbasierten Ansatzes durch Zusammenarbeit mit renommierten Einrichtungen der psychischen Gesundheit.</p>
+                                <ul class="feature-list">
+                                    <li>Integration mit klinischen Studien</li>
+                                    <li>Erweiterung der Forschungsvalidierung</li>
+                                    <li>Akademisches Partnerschaftsprogramm</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-wrapper case-studies-section">
+                <div class="section-header">
+                    <h2 class="section-title">Fallstudien</h2>
+                </div>
+                <div class="section-content">
+                    <div class="case-studies-grid">
+                        <div class="case-study-card">
+                            <h3>Psychiatrische Klinik</h3>
+                            <div class="stats-container">
+                                <div class="stat-item">
+                                    <div class="stat-value">156%</div>
+                                    <div class="stat-label">Erhöhung der Patiententeilnahme</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value">45%</div>
+                                    <div class="stat-label">Verbesserung der Behandlungsergebnisse</div>
+                                </div>
+                            </div>
+                            <p class="case-study-text">
+                                Die Implementierung von MoodWeather in 12 psychiatrischen Kliniken führte zu signifikanten Verbesserungen bei der Patiententeilnahme und den Behandlungsergebnissen.
+                            </p>
+                            <div class="key-findings">
+                                <h4>Wichtige Erkenntnisse</h4>
+                                <ul>
+                                    <li>Erhöhung der Produktivität der Behandlungssitzungen</li>
+                                    <li>Besserer Nachverfolgung zwischen den Sitzungen</li>
+                                    <li>Stärkung der Kommunikation zwischen Patienten und Therapeuten</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="case-study-card">
+                            <h3>Unternehmensgesundheitsprogramme</h3>
+                            <div class="stats-container">
+                                <div class="stat-item">
+                                    <div class="stat-value">32%</div>
+                                    <div class="stat-label">Stressreduktion</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value">28%</div>
+                                    <div class="stat-label">Verbesserung der Teamkommunikation</div>
+                                </div>
+                            </div>
+                            <p class="case-study-text">
+                                Nach der Implementierung von MoodWeather in 5 Fortune 500-Unternehmen wurden signifikante Verbesserungen im Mitarbeiterwohlbefinden und in der Teamdynamik beobachtet.
+                            </p>
+                            <div class="key-findings">
+                                <h4>Wichtige Erkenntnisse</h4>
+                                <ul>
+                                    <li>Erhöhung des Bewusstseins für das Gleichgewicht zwischen Beruf und Privatleben</li>
+                                    <li>Verbesserung der emotionalen Intelligenz</li>
+                                    <li>Verbesserungen in der Teamarbeit</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-wrapper pricing-section">
+                <div class="section-header">
+                    <h2 class="section-title">Wählen Sie Ihren Plan</h2>
+                </div>
+                <div class="section-content">
+                    <div class="pricing-grid">
+                        <div class="pricing-card">
+                            <h3>Kostenlos</h3>
+                            <div class="price">$0</div>
+                            <div class="period">Für immer</div>
+                            <ul class="features">
+                                <li>Grundlegendes emotionales Tracking</li>
+                                <li>Wettermetaphern-System</li>
+                                <li>Grundlegende Analyse</li>
+                                <li>Zugang zur Gemeinschaft</li>
+                            </ul>
+                            <a href="https://moodweather.heytcm.com/signup" class="cta-button">Jetzt starten</a>
+                        </div>
+                        <div class="pricing-card popular">
+                            <div class="popular-badge">Am beliebtesten</div>
+                            <h3>Premium</h3>
+                            <div class="price">$9.99</div>
+                            <div class="period">Monatlich</div>
+                            <ul class="features">
+                                <li>Fortgeschrittene emotionale Analyse</li>
+                                <li>KI-gestützte Einblicke</li>
+                                <li>Priorisierter Support</li>
+                                <li>Expertenressourcen</li>
+                                <li>Integrationsfunktionen</li>
+                            </ul>
+                            <a href="https://moodweather.heytcm.com/premium" class="cta-button">Premium testen</a>
+                        </div>
+                        <div class="pricing-card">
+                            <h3>Unternehmensversion</h3>
+                            <div class="price">Anpassbar</div>
+                            <div class="period">Kontaktieren Sie uns</div>
+                            <ul class="features">
+                                <li>Maßgeschneiderte Implementierung</li>
+                                <li>Zugang zur API</li>
+                                <li>Dedizierter Support</li>
+                                <li>Teammanagement</li>
+                                <li>Erweiterte Sicherheit</li>
+                            </ul>
+                            <a href="https://moodweather.heytcm.com/enterprise" class="cta-button">Vertrieb kontaktieren</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-wrapper integration-section">
+                <div class="section-header">
+                    <h2 class="section-title">Nahtlose Integration</h2>
+                </div>
+                <div class="section-content">
+                    <div class="integration-grid features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🏥</div>
+                            <h3>Gesundheitsdienstleister</h3>
+                            <p>Teilen Sie Ihre Daten sicher mit Ihrem Gesundheitsteam, um bessere Behandlungsergebnisse zu erzielen.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">⌚</div>
+                            <h3>Tragbare Geräte</h3>
+                            <p>Synchronisieren Sie mit beliebten Fitness-Trackern und Smartwatches für ein ganzheitliches Gesundheits-Tracking.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📱</div>
+                            <h3>Mobile Gesundheits-Apps</h3>
+                            <p>Verbinden Sie sich mit anderen Gesundheits- und Fitness-Apps, um ein einheitliches Dashboard für Ihre Gesundheit zu erhalten.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📊</div>
+                            <h3>Analyse-Plattformen</h3>
+                            <p>Exportieren Sie Daten zu beliebten Analyse-Tools für tiefere Einblicke.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-wrapper impact-section">
+                <div class="section-header">
+                    <h2 class="section-title">Echter Einfluss</h2>
+                </div>
+                <div class="section-content">
+                    <div class="research-grid">
+                        <div class="research-card">
+                            <div class="stat-circle">
+                                <span class="stat-number">2M+</span>
+                            </div>
+                            <h3>Aktive Benutzer</h3>
+                            <p>Eine Gemeinschaft von emotionalen Gesundheitsprofis, die weltweit wächst.</p>
+                        </div>
+                        <div class="research-card">
+                            <div class="stat-circle">
+                                <span class="stat-number">150+</span>
+                            </div>
+                            <h3>Klinische Partner</h3>
+                            <p>Gesundheitsdienstleister, die MoodWeather zur Betreuung ihrer Patienten nutzen.</p>
+                        </div>
+                        <div class="research-card">
+                            <div class="stat-circle">
+                                <span class="stat-number">89%</span>
+                            </div>
+                            <h3>Benutzerzufriedenheit</h3>
+                            <p>Benutzer berichten von Verbesserungen in ihrem emotionalen Bewusstsein.</p>
+                        </div>
+                    </div>
+                    <div class="research-highlights">
+                        <div class="highlight-card">
+                            <h3>Globale Einflüsse</h3>
+                            <ul class="findings-list">
+                                <li>Unterstützung von Initiativen zur psychischen Gesundheit in 45 Ländern.</li>
+                                <li>Zusammenarbeit mit der Weltgesundheitsorganisation zur Verbesserung des Zugangs zur psychischen Gesundheit.</li>
+                                <li>Beitrag zu akademischen Forschungen zur emotionalen Intelligenz.</li>
+                                <li>Kostenfreier Zugang für unterversorgte Gemeinschaften.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="newsletter-section">
+            <h2>Immer informiert bleiben</h2>
+            <p>Erhalten Sie die neuesten Updates und Ratschläge zur emotionalen Gesundheit von MoodWeather.</p>
+            <form id="newsletter-form" class="newsletter-form">
+                <input type="email" placeholder="Geben Sie Ihre E-Mail ein" required>
+                <button type="submit" class="cta-button">Abonnieren</button>
+            </form>
+        </div>
+
+        <div class="section-container">
+            <div class="section-wrapper metaphor-poll-section">
+                <div class="section-header">
+                    <h2 class="section-title">Stimmen Sie für Ihre Lieblings-Wettermetapher ab</h2>
+                </div>
+                <div class="section-content">
+                    <div id="metaphor-examples" class="metaphor-grid">
+                    </div>
+                    <div class="poll-results">
+                        <h3>Beliebteste Metapher</h3>
+                        <div id="poll-chart" class="poll-chart">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div class="section-wrapper mood-story-section">
+                <div class="section-header">
+                    <h2 class="section-title">Ihre emotionale Geschichte in 30 Tagen</h2>
+                    <p class="section-subtitle">Erleben Sie Ihre emotionale Reise durch Wettermetaphern</p>
+                </div>
+                <div class="section-content">
+                    <div class="story-preview">
+                        <div class="story-cover">
+                            <h3>Inneres Klima: Eine 30-tägige Reise</h3>
+                            <div class="weather-timeline">
+                            </div>
+                        </div>
+                        
+                        <div class="story-chapters">
+                            <div class="chapter">
+                                <h4>Woche Eins: Auf der Suche nach sonnigen Himmeln</h4>
+                                <div class="day-entry">
+                                    <div class="weather-icon">🌞</div>
+                                    <div class="entry-content">
+                                        <h5>Tag 1: Strahlender Start</h5>
+                                        <p>"Eine neue Woche, neue Hoffnung. Heute fühle ich mich strahlend, wie das Licht des Morgens."</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="chapter">
+                                <h4>Woche Zwei: Herausforderungen im Sturm</h4>
+                                <div class="day-entry">
+                                    <div class="weather-icon">⛈️</div>
+                                    <div class="entry-content">
+                                        <h5>Tag 8: Elektrischer Sturm</h5>
+                                        <p>"Der Stress häuft sich wie Sturmwolken, aber ich weiß, dass nach dem Regen ein Regenbogen kommen wird."</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="chapter">
+                                <h4>Woche Drei: Die Ruhe finden</h4>
+                                <div class="day-entry">
+                                    <div class="weather-icon">✨</div>
+                                    <div class="entry-content">
+                                        <h5>Tag 15: Funkelnde Sterne</h5>
+                                        <p>"Nach einem geschäftigen Tag bringt das Betrachten der Sterne einen Sinn in alles."</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="chapter">
+                                <h4>Woche Vier: Barrieren durchbrechen</h4>
+                                <div class="day-entry">
+                                    <div class="weather-icon">🌈</div>
+                                    <div class="entry-content">
+                                        <h5>Tag 25: Träume der Auferstehung</h5>
+                                        <p>"Heute habe ich ein wichtiges Ziel erreicht und fühle mich strahlend wie eine Auferstehung."</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="story-features">
+                            <div class="feature">
+                                <i class="feature-icon">🎥</i>
+                                <h4>Dynamisches Resümee</h4>
+                                <p>Erleben Sie, wie Ihre emotionale Reise in einem wunderschönen Video mit Montage präsentiert wird.</p>
+                            </div>
+                            <div class="feature">
+                                <i class="feature-icon">🎨</i>
+                                <h4>Personalisierte Abdeckung</h4>
+                                <p>Wählen Sie einen Ihrer Lieblingsmomente als Cover für Ihre Geschichte.</p>
+                            </div>
+                            <div class="feature">
+                                <i class="feature-icon">🏆</i>
+                                <h4>Leistungsabzeichen</h4>
+                                <p>Schalten Sie spezielle emotionale Abzeichen frei, indem Sie ein konstantes Journal führen.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>MoodWeather</h3>
+                    <p>Drücken Sie Ihre Emotionen natürlich aus</p>
+                    <div class="social-links">
+                        <a href="https://twitter.com/moodweather">Twitter</a>
+                        <a href="https://facebook.com/moodweather">Facebook</a>
+                        <a href="https://instagram.com/moodweather">Instagram</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Produkt</h4>
+                    <ul>
+                        <li><a href="https://moodweather.heytcm.com/features">Funktionen</a></li>
+                        <li><a href="https://moodweather.heytcm.com/pricing">Preise</a></li>
+                        <li><a href="https://moodweather.heytcm.com/enterprise">Unternehmen</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Ressourcen</h4>
+                    <ul>
+                        <li><a href="https://moodweather.heytcm.com/blog">Blog</a></li>
+                        <li><a href="https://moodweather.heytcm.com/help">Hilfe-Center</a></li>
+                        <li><a href="https://moodweather.heytcm.com/api">API-Dokumentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Forschung</h4>
+                    <ul>
+                        <li><a href="https://moodweather.heytcm.com/research">Forschungs-Publikationen</a></li>
+                        <li><a href="https://moodweather.heytcm.com/studies">Fallstudien</a></li>
+                        <li><a href="https://moodweather.heytcm.com/partners">Forschungspartner</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Unternehmen</h4>
+                    <ul>
+                        <li><a href="https://moodweather.heytcm.com/about">Über uns</a></li>
+                        <li><a href="https://moodweather.heytcm.com/careers">Karrieremöglichkeiten</a></li>
+                        <li><a href="https://moodweather.heytcm.com/contact">Kontaktieren Sie uns</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 MoodWeather. Alle Rechte vorbehalten.</p>
+                <div class="legal-links">
+                    <a href="https://moodweather.heytcm.com/privacy">Datenschutzerklärung</a>
+                    <a href="https://moodweather.heytcm.com/terms">Nutzungsbedingungen</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize metaphor poll functionality
+        function initMetaphorPoll() {
+            const metaphorExamples = [
+                { id: 1, text: "Sonnige Tage repräsentieren Momente von Freude und Erfolg", votes: 245 },
+                { id: 2, text: "Der stürmische Himmel erfasst intensive emotionale Turbulenzen", votes: 189 },
+                { id: 3, text: "Der sanfte Regen spiegelt Zeiten ruhiger Reflexion wider", votes: 167 },
+                { id: 4, text: "Momentan des Regenbogens symbolisieren Hoffnung nach Schwierigkeiten", votes: 203 },
+                { id: 5, text: "Verschleierte Morgen repräsentieren Unsicherheit und Übergang", votes: 156 },
+                { id: 6, text: "Klarer Sternenhimmel zeigt Frieden und Klarheit", votes: 198 }
+            ];
+
+            // Populate metaphor examples
+            const metaphorGrid = document.getElementById('metaphor-examples');
+            metaphorExamples.forEach(metaphor => {
+                const card = document.createElement('div');
+                card.className = 'metaphor-card';
+                card.setAttribute('data-id', metaphor.id);
+                
+                card.innerHTML = `
+                    <p class="metaphor-text">${metaphor.text}</p>
+                    <div class="vote-count">
+                        <span>${metaphor.votes} Stimmen</span>
+                        <button class="vote-btn">Abstimmen</button>
+                    </div>
+                `;
+                
+                metaphorGrid.appendChild(card);
+            });
+
+            // Update poll chart
+            function updatePollChart() {
+                const pollChart = document.getElementById('poll-chart');
+                pollChart.innerHTML = '';
+                
+                const totalVotes = metaphorExamples.reduce((sum, item) => sum + item.votes, 0);
+                
+                metaphorExamples.forEach(metaphor => {
+                    const percentage = ((metaphor.votes / totalVotes) * 100).toFixed(1);
+                    
+                    const pollBar = document.createElement('div');
+                    pollBar.className = 'poll-bar';
+                    pollBar.innerHTML = `
+                        <div class="poll-bar-fill" style="width: ${percentage}%"></div>
+                        <div class="poll-bar-text">
+                            <span>${metaphor.text}</span>
+                            <span>${percentage}%</span>
+                        </div>
+                    `;
+                    
+                    pollChart.appendChild(pollBar);
+                });
+            }
+
+            // Handle voting
+            metaphorGrid.addEventListener('click', (e) => {
+                const voteBtn = e.target.closest('.vote-btn');
+                if (!voteBtn) return;
+
+                const card = voteBtn.closest('.metaphor-card');
+                const metaphorId = parseInt(card.dataset.id);
+                
+                // Find and update the metaphor votes
+                const metaphor = metaphorExamples.find(m => m.id === metaphorId);
+                if (metaphor) {
+                    metaphor.votes++;
+                    
+                    // Update vote count display
+                    const voteCount = card.querySelector('.vote-count span');
+                    voteCount.textContent = `${metaphor.votes} Stimmen`;
+                    
+                    // Add voted class
+                    card.classList.add('voted');
+                    
+                    // Disable vote button
+                    voteBtn.disabled = true;
+                    voteBtn.textContent = 'Abgestimmt';
+                    
+                    // Update chart
+                    updatePollChart();
+
+                    // Optional: Send vote to server
+                    try {
+                        fetch('/api/metaphor/vote', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ metaphorId })
+                        });
+                    } catch (error) {
+                        console.error('Fehler beim Aufzeichnen der Stimme:', error);
+                    }
+                }
+            });
+
+            // Initial chart update
+            updatePollChart();
+        }
+
+        document.documentElement.style.scrollBehavior = 'smooth';
+        
+        let currentMood = '';
+        const moodScores = {
+            sunny: 1,
+            cloudy: 0.5,
+            rainy: 0,
+            stormy: -0.5
+        };
+
+        // Initialize mood analysis API
+        async function analyzeMood(text) {
+            try {
+                const response = await fetch('/api/ai_completion', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        prompt: `Analysieren Sie den folgenden Text und bestimmen Sie:
+                        1. Die primäre Wetterstimmung (sonnig, bewölkt, regnerisch oder stürmisch)
+                        2. Einen Stimmungsscore zwischen -1 und 1
+                        3. Schlüsselmuster oder Auslöser
+                        4. Vorgeschlagenes Hintergrundthema
+                        
+                        <typescript-interface>
+                        interface Response {
+                            weather: string;
+                            score: number;
+                            analysis: string;
+                            patterns: string[];
+                            wallpaper: string;
+                        }
+                        </typescript-interface>
+                        
+                        <example>
+                        {
+                            "weather": "sunny",
+                            "score": 0.8,
+                            "analysis": "Der Text zeigt eine positive und optimistische Stimmung an",
+                            "patterns": ["soziale Interaktion", "Erfolg", "Aktivitäten im Freien"],
+                            "wallpaper": "sunny_meadow"
+                        }
+                        </example>`,
+                        data: text
+                    })
+                });
+                return await response.json();
+            } catch (error) {
+                console.error('Fehler bei der Stimmungserkennung:', error);
+                return {
+                    weather: 'cloudy',
+                    score: 0,
+                    analysis: 'Stimmung konnte nicht analysiert werden',
+                    patterns: [],
+                    wallpaper: 'default'
+                };
+            }
+        }
+
+        // Add wallpaper updating function
+        function updateWallpaper(theme) {
+            document.body.style.backgroundImage = `url(/wallpapers/${theme}.jpg)`;
+        }
+
+        // Setup weather icons interaction
+        document.querySelectorAll('.weather-icon').forEach(icon => {
+            icon.addEventListener('click', () => {
+                currentMood = icon.dataset.mood;
+                updateMoodDisplay(currentMood);
+            });
+        });
+
+        // Setup mood text analysis
+        const moodText = document.getElementById('mood-text');
+        let typingTimer = null;
+        
+        moodText.addEventListener('keyup', () => {
+            clearTimeout(typingTimer);
+            typingTimer = setTimeout(async () => {
+                const analysis = await analyzeMood(moodText.value);
+                currentMood = analysis.weather;
+                updateMoodScore(analysis.score);
+                updateMoodDisplay(currentMood);
+                updateWallpaper(analysis.wallpaper);
+                
+                // Update pattern recognition display
+                if (analysis.patterns.length > 0) {
+                    document.getElementById('mood-patterns').innerHTML = analysis.patterns
+                        .map(pattern => `<li>${pattern}</li>`)
+                        .join('');
+                }
+            }, 1000);
+        });
+
+        function updateMoodScore(score) {
+            document.getElementById('user-score').textContent = `Stimmungsscore: ${Math.round(score * 100)}`;
+        }
+
+        function updateMoodDisplay(mood) {
+            const particles = document.getElementById('mood-particles');
+            particles.innerHTML = ''; // Clear existing particles
+
+            switch(mood) {
+                case 'sunny':
+                    createSunnyEffect();
+                    break;
+                case 'cloudy':
+                    createCloudyEffect();
+                    break;
+                case 'rainy':
+                    createRainyEffect();
+                    break;
+                case 'stormy':
+                    createStormyEffect();
+                    break;
+            }
+        }
+
+        // Particle effects
+        function createSunnyEffect() {
+            const svg = document.getElementById('mood-particles');
+            for(let i = 0; i < 20; i++) {
+                const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                circle.setAttribute("cx", Math.random() * 100 + "%");
+                circle.setAttribute("cy", Math.random() * 100 + "%");
+                circle.setAttribute("r", Math.random() * 3);
+                circle.setAttribute("fill", "#FFD700");
+                svg.appendChild(circle);
+
+                gsap.to(circle, {
+                    duration: 2 + Math.random() * 2,
+                    y: -100,
+                    opacity: 0,
+                    repeat: -1,
+                    ease: "none"
+                });
+            }
+        }
+
+        function createCloudyEffect() {
+            const svg = document.getElementById('mood-particles');
+            for(let i = 0; i < 5; i++) {
+                const cloud = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                cloud.setAttribute("d", "M30,50 Q40,40 50,45 Q60,35 70,45 Q80,40 85,50 Q90,60 80,65 Q75,70 65,68 Q60,75 50,70 Q40,75 35,68 Q25,70 20,65 Q15,60 20,55 Q25,50 30,50");
+                cloud.setAttribute("fill", "rgba(255,255,255,0.3)");
+                cloud.setAttribute("transform", `translate(${Math.random() * 100},${Math.random() * 100}) scale(0.5)`);
+                cloud.classList.add("floating-cloud");
+                svg.appendChild(cloud);
+            }
+        }
+
+        function createRainyEffect() {
+            const svg = document.getElementById('mood-particles');
+            for(let i = 0; i < 50; i++) {
+                const drop = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                drop.setAttribute("x1", Math.random() * 100 + "%");
+                drop.setAttribute("y1", -10);
+                drop.setAttribute("x2", Math.random() * 100 + "%");
+                drop.setAttribute("y2", 0);
+                drop.setAttribute("stroke", "#4682B4");
+                drop.setAttribute("stroke-width", "2");
+                svg.appendChild(drop);
+
+                gsap.to(drop, {
+                    duration: 1 + Math.random(),
+                    y: 500,
+                    repeat: -1,
+                    ease: "none"
+                });
+            }
+        }
+
+        function createStormyEffect() {
+            const svg = document.getElementById('mood-particles');
+            for(let i = 0; i < 3; i++) {
+                const lightning = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
+                lightning.setAttribute("points", "45,60 55,60 40,75 50,75 35,90");
+                lightning.setAttribute("fill", "#FFD700");
+                lightning.setAttribute("transform", `translate(${Math.random() * 100},${Math.random() * 100})`);
+                svg.appendChild(lightning);
+
+                gsap.to(lightning, {
+                    duration: 0.1,
+                    opacity: 0,
+                    repeat: -1,
+                    repeatDelay: Math.random() * 2,
+                    ease: "none"
+                });
+            }
+        }
+
+        function initFAQ() {
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const wasActive = item.classList.contains('active');
+                    
+                    // Close all FAQs
+                    document.querySelectorAll('.faq-item').forEach(faq => {
+                        faq.classList.remove('active');
+                        faq.querySelector('.toggle').textContent = '+';
+                    });
+                    
+                    // Toggle clicked FAQ
+                    if (!wasActive) {
+                        item.classList.add('active');
+                        item.querySelector('.toggle').textContent = '-';
+                    }
+                });
+            });
+        }
+
+        function initAchievements() {
+            document.querySelectorAll('.achievement-card').forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    const progress = card.querySelector('.progress');
+                    progress.style.transition = 'width 1s ease';
+                    progress.style.width = progress.style.width;
+                });
+            });
+        }
+
+        // Newsletter form handling
+        document.getElementById('newsletter-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = e.target.querySelector('input[type="email"]').value;
+            
+            try {
+                const response = await fetch('/api/newsletter/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email })
+                });
+                
+                if (response.ok) {
+                    alert('Danke für Ihre Anmeldung!');
+                    e.target.reset();
+                } else {
+                    throw new Error('Anmeldung fehlgeschlagen');
+                }
+            } catch (error) {
+                alert('Entschuldigung, es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.');
+            }
+        });
+
+        const sections = document.querySelectorAll('.section-wrapper');
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        sections.forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            sectionObserver.observe(section);
+        });
+
+        // Initialize the weather timeline
+        function initWeatherTimeline() {
+            const timeline = document.querySelector('.weather-timeline');
+            if (!timeline) return;
+
+            // Generate 30 days of sample weather data
+            const weatherTypes = ['sunny', 'cloudy', 'rainy', 'stormy', 'starry', 'aurora'];
+            const weatherColors = {
+                sunny: '#FFD700',
+                cloudy: '#E0E0E0',
+                rainy: '#4682B4',
+                stormy: '#4A4A4A',
+                starry: '#191970',
+                aurora: '#98FB98'
+            };
+
+            // Create timeline markers
+            for (let i = 0; i < 30; i++) {
+                const marker = document.createElement('div');
+                marker.classList.add('timeline-marker');
+                
+                // Randomly select weather type for demo
+                const weatherType = weatherTypes[Math.floor(Math.random() * weatherTypes.length)];
+                
+                marker.style.cssText = `
+                    position: absolute;
+                    left: ${(i / 29) * 100}%;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background-color: ${weatherColors[weatherType]};
+                    transition: transform 0.3s ease;
+                `;
+
+                // Add hover effect
+                marker.addEventListener('mouseenter', () => {
+                    marker.style.transform = 'translateY(-50%) scale(1.5)';
+                    marker.style.zIndex = '2';
+                });
+
+                marker.addEventListener('mouseleave', () => {
+                    marker.style.transform = 'translateY(-50%) scale(1)';
+                    marker.style.zIndex = '1';
+                });
+
+                timeline.appendChild(marker);
+            }
+
+            // Add connecting line
+            const connectionLine = document.createElement('div');
+            connectionLine.style.cssText = `
+                position: absolute;
+                top: 50%;
+                left: 0;
+                right: 0;
+                height: 2px;
+                background: rgba(255,255,255,0.2);
+                transform: translateY(-50%);
+            `;
+            timeline.insertBefore(connectionLine, timeline.firstChild);
+
+            // Add timeline labels
+            const startLabel = document.createElement('div');
+            startLabel.textContent = 'Tag 1';
+            startLabel.style.cssText = `
+                position: absolute;
+                left: 0;
+                bottom: -25px;
+                font-size: 12px;
+                color: rgba(255,255,255,0.7);
+            `;
+
+            const endLabel = document.createElement('div');
+            endLabel.textContent = 'Tag 30';
+            endLabel.style.cssText = `
+                position: absolute;
+                right: 0;
+                bottom: -25px;
+                font-size: 12px;
+                color: rgba(255,255,255,0.7);
+            `;
+
+            timeline.appendChild(startLabel);
+            timeline.appendChild(endLabel);
+        }
+
+        // Call the initWeatherTimeline function
+        initWeatherTimeline();
+        
+        // Locale Picker Initialization
+        function initLocalePicker() {
+            const localePicker = document.getElementById('locale-picker');
+            
+            // Get current locale from URL
+            const getCurrentLocale = () => {
+                const path = window.location.pathname;
+                const matches = path.match(/\/([a-z]{2})\//);
+                return matches ? matches[1] : 'en';
+            };
+
+            // Set initial value based on URL
+            const currentLocale = getCurrentLocale();
+            localePicker.value = currentLocale;
+
+            // Handle locale change
+            localePicker.addEventListener('change', (e) => {
+                const newLocale = e.target.value;
+                const currentPath = window.location.pathname;
+                
+                // If current path already has locale
+                if (currentPath.match(/\/[a-z]{2}\//)) {
+                    window.location.pathname = currentPath.replace(/\/[a-z]{2}\//, `/${newLocale}/`);
+                } else {
+                    // If no locale in path, add it
+                    window.location.pathname = `/${newLocale}${currentPath}`;
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initMetaphorPoll();
+            initFAQ();
+            initAchievements();
+            updateMoodDisplay('cloudy'); // Default mood
+            initLocalePicker(); // Add this line
+            
+            // Video Demo Initialization with YouTube
+            const videoFrame = document.getElementById('demo-video');
+            
+            // Track video visibility
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        // Post message to pause the video when out of view
+                        try {
+                            videoFrame.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+                        } catch (error) {
+                            console.error('Fehler beim Pausieren des Videos:', error);
+                        }
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            observer.observe(videoFrame);
+
+            // Track video engagement
+            window.addEventListener('message', (event) => {
+                if (event.origin !== "https://www.youtube.com") return;
+                
+                try {
+                    const data = JSON.parse(event.data);
+                    if (data.event === "onStateChange" && data.info === 1) { // 1 means playing
+                        fetch('/api/analytics/video-play', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                videoId: 'demo',
+                                timestamp: new Date().toISOString()
+                            })
+                        });
+                    }
+                } catch (error) {
+                    console.error('Fehler beim Verfolgen des Video-Spiels:', error);
+                }
+            });
+        });
+    </script>
+</body></html>
