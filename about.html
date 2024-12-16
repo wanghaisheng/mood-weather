@@ -1,0 +1,687 @@
+
+<html><head><base href="https://moodweather.heytcm.com/about"><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About MoodWeather - Our Story & Mission</title>
+
+    <meta name="description" content="Learn about MoodWeather's mission to transform emotional health tracking through innovative weather metaphors and advanced AI technology.">
+    <meta name="keywords" content="MoodWeather,emotional health,mental wellness,company mission,emotional tracking,weather metaphors">
+    
+    <!-- OpenGraph Meta Tags -->
+    <meta property="og:title" content="About MoodWeather - Transforming Emotional Health">
+    <meta property="og:description" content="Discover how MoodWeather is revolutionizing emotional health tracking with weather metaphors and AI technology.">
+    <meta property="og:image" content="https://moodweather.heytcm.com/images/about-preview.jpg">
+    <meta property="og:url" content="https://moodweather.heytcm.com/about">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About MoodWeather - Our Story & Mission">
+    <meta name="twitter:description" content="Join us in revolutionizing emotional health tracking with innovative technology.">
+    <meta name="twitter:image" content="https://moodweather.heytcm.com/images/about-preview.jpg">
+
+    <!-- Favicons -->
+    <link rel="icon" href="https://moodweather.heytcm.com/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://moodweather.heytcm.com/apple-touch-icon.png">
+
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <style>
+        :root {
+            --primary: #2D3250;
+            --secondary: #424769;
+            --accent: #7077A1;
+            --light: #F6B17A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: var(--primary);
+            color: white;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: var(--secondary);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--light);
+            text-decoration: none;
+        }
+
+        .locale-picker {
+            padding: 8px 12px;
+            border-radius: 20px;
+            border: 2px solid var(--light);
+            background: var(--secondary);
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 80px 20px;
+            background: var(--secondary);
+            margin-bottom: 40px;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            color: var(--light);
+            margin-bottom: 20px;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .founder-story-section {
+            padding: 60px 20px;
+            background: var(--secondary);
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .story-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .story-content {
+            background: rgba(45, 50, 80, 0.3);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .story-text {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            text-align: left;
+        }
+
+        .story-text:last-child {
+            margin-bottom: 0;
+        }
+
+        .mission-section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .section-title {
+            color: var(--light);
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .mission-card {
+            background: var(--secondary);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .mission-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .mission-card h3 {
+            color: var(--light);
+            margin-bottom: 15px;
+        }
+
+        .team-section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .team-member {
+            background: var(--secondary);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .member-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+
+        .member-name {
+            color: var(--light);
+            margin-bottom: 10px;
+        }
+
+        .member-role {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 15px;
+        }
+
+        .timeline-section {
+            padding: 60px 20px;
+        }
+
+        .timeline {
+            max-width: 800px;
+            margin: 40px auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: var(--light);
+        }
+
+        .timeline-item {
+            margin-bottom: 40px;
+            position: relative;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 40px;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 40px;
+        }
+
+        .timeline-content {
+            background: var(--secondary);
+            padding: 20px;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--light);
+            border-radius: 50%;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -50px;
+            top: 20px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -50px;
+            top: 20px;
+        }
+
+        .timeline-date {
+            color: var(--light);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .values-section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .value-card {
+            background: var(--secondary);
+            padding: 30px;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .vision-section {
+            padding: 60px 20px;
+            text-align: center;
+            background: var(--secondary);
+            margin: 40px 0;
+        }
+
+        .vision-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .stats-section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-card {
+            background: var(--secondary);
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            color: var(--light);
+            margin-bottom: 10px;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 80px 20px;
+            background: var(--secondary);
+            margin-top: 40px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: var(--light);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+        }
+
+        footer {
+            background: var(--secondary);
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .social-links a {
+            color: var(--light);
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                padding-left: 30px !important;
+                padding-right: 0 !important;
+            }
+
+            .timeline-item .timeline-content::before {
+                left: -40px !important;
+                right: auto !important;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .social-links {
+                margin-top: 20px;
+            }
+
+            .social-links a {
+                margin: 0 10px;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">🌤️ MoodWeather</a>
+        <select id="locale-picker" class="locale-picker">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="ja">日本語</option>
+            <option value="de">Deutsch</option>
+            <option value="zh">中文</option>
+        </select>
+    </nav>
+
+    <div class="hero-section fade-in">
+        <h1>Transforming Emotional Health</h1>
+        <p>A pioneering startup reimagining emotional understanding through the universal language of weather.</p>
+    </div>
+
+    <section class="founder-story-section fade-in">
+        <h2 class="section-title">The Story Behind MoodWeather</h2>
+        <div class="story-container">
+            <div class="story-content">
+                <p class="story-text">
+                    Growing up in an unconventional family environment and facing numerous developmental challenges in early life, our founder Dr. Werner Heisenberg experienced firsthand the impact of emotional health on personal development. His journey of overcoming developmental delays and academic challenges led him to a deep fascination with human potential and inner strength.
+                </p>
+                <p class="story-text">
+                    "The quest to understand and enhance inner power - what I call mental force - has been a constant thread throughout my life," explains Dr. Heisenberg. "Through my personal struggles and academic journey, I discovered that our emotional state profoundly influences our ability to tap into our inner resources. This realization became the foundation of MoodWeather."
+                </p>
+                <p class="story-text">
+                    After dedicating 15 years to healthcare technology and data interoperability, Dr. Heisenberg recognized a crucial gap in emotional health tracking. His experience with traditional Chinese medicine's holistic approach to well-being, combined with his expertise in AI and modern technology, led to a revolutionary insight: weather patterns could serve as a universal metaphor for emotional states and inner strength.
+                </p>
+                <p class="story-text">
+                    "Just as weather patterns influence our daily lives, our emotional states shape our experiences and our capacity for growth," he notes. "By translating complex emotional experiences into familiar weather metaphors, we can not only track our emotional health but also build our mental resilience. MoodWeather is more than an app - it's a fresh approach to understanding and developing our inner power."
+                </p>
+                <p class="story-text">
+                    "Another key insight came from observing how games captivate people and create positive emotions. We've incorporated gamification elements into MoodWeather to make emotional tracking fun and engaging. Just as weather changes create a dynamic environment, our playful features - like achievement badges for consistent tracking, challenges for developing new emotional awareness skills, and interactive visualizations - help users stay motivated while building their mental force. It's about making personal growth an enjoyable journey rather than a tedious task."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="mission-section fade-in">
+            <h2 class="section-title">Our Mission</h2>
+            <div class="mission-grid">
+                <div class="mission-card">
+                    <h3>Innovative Approach</h3>
+                    <p>We combine weather metaphors with advanced AI to create an intuitive emotional tracking experience that resonates with people worldwide.</p>
+                </div>
+                <div class="mission-card">
+                    <h3>Universal Access</h3>
+                    <p>Making emotional health tools accessible to everyone, regardless of their background or experience with mental health tracking.</p>
+                </div>
+                <div class="mission-card">
+                    <h3>Inner Power Development</h3>
+                    <p>Helping users understand and strengthen their mental force through intuitive weather metaphors and mindful tracking.</p>
+                </div>
+                <div class="mission-card">
+                    <h3>Scientific Foundation</h3>
+                    <p>Building on proven psychological principles and continuous research to ensure our approach delivers meaningful results.</p>
+                </div>
+                <div class="mission-card">
+                    <h3>Personal Experience</h3>
+                    <p>Founded on real-life experience and understanding of emotional health challenges, we're committed to creating tools that make a genuine difference in people's lives.</p>
+                </div>
+                <div class="mission-card">
+                    <h3>Playful Experience</h3>
+                    <p>Integrating game elements and rewards to make emotional tracking engaging, fun, and motivating for lasting positive habits.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="team-section fade-in">
+            <h2 class="section-title">Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-avatar">👨‍🔬</div>
+                    <h3 class="member-name">Dr. Werner Heisenberg</h3>
+                    <p class="member-role">Founder & CEO</p>
+                    <p>Leading the vision of emotional health innovation with a scientific approach to uncertainty and measurement</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="timeline-section fade-in">
+            <h2 class="section-title">Our Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023</div>
+                        <h3>The Beginning</h3>
+                        <p>MoodWeather was founded with a vision to revolutionize emotional health tracking</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2024</div>
+                        <h3>Development Phase</h3>
+                        <p>Currently developing our core weather metaphor system and AI technology</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="values-section fade-in">
+            <h2 class="section-title">Our Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🎯</div>
+                    <h3>Innovation</h3>
+                    <p>Pushing boundaries in emotional health technology</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3>Empathy</h3>
+                    <p>Understanding and supporting our users' journeys</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">💪</div>
+                    <h3>Mental Resilience</h3>
+                    <p>Fostering inner strength through emotional awareness</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🔒</div>
+                    <h3>Privacy</h3>
+                    <p>Protecting user data with the highest security standards</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">📚</div>
+                    <h3>Education</h3>
+                    <p>Promoting emotional literacy and understanding</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🎮</div>
+                    <h3>Playful Growth</h3>
+                    <p>Making emotional development engaging through gamification and interactive elements</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="vision-section fade-in">
+            <div class="vision-content">
+                <h2 class="section-title">Our Vision</h2>
+                <p>Drawing from personal experience and professional expertise, we're building a future where emotional understanding and inner power development are as natural and accessible as checking the weather. We believe that by combining traditional wisdom with modern technology and engaging game elements, we can create tools that not only track emotions but also help people discover and strengthen their mental force - their capacity for resilience, growth, and positive change. Our gamified approach transforms the challenging journey of emotional development into an engaging, rewarding experience that keeps users motivated and happy while making meaningful progress.</p>
+            </div>
+        </section>
+
+        <section class="stats-section fade-in">
+            <h2 class="section-title">Our Early Progress</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">500+</div>
+                    <p>Beta Users</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5+</div>
+                    <p>Countries Reached</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4.5⭐</div>
+                    <p>Beta Testing Rating</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">85%</div>
+                    <p>User Satisfaction</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">12+</div>
+                    <p>Interactive Features</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section fade-in">
+            <h2 class="section-title">Join Our Beta Program</h2>
+            <p>Be among the first to experience the future of emotional health tracking</p>
+            <a href="https://moodweather.heytcm.com/signup" class="cta-button">Join Beta Testing</a>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 MoodWeather. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://twitter.com/moodweather">Twitter</a>
+                <a href="https://linkedin.com/company/moodweather">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            root: null,
+            threshold: 0.1,
+            rootMargin: '0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Locale Picker Functionality
+        function initLocalePicker() {
+            const localePicker = document.getElementById('locale-picker');
+            
+            // Get current locale from URL
+            const getCurrentLocale = () => {
+                const path = window.location.pathname;
+                const matches = path.match(/\/([a-z]{2})\//);
+                return matches ? matches[1] : 'en';
+            };
+
+            // Set initial value based on URL
+            const currentLocale = getCurrentLocale();
+            localePicker.value = currentLocale;
+
+            // Handle locale change
+            localePicker.addEventListener('change', (e) => {
+                const newLocale = e.target.value;
+                const currentPath = window.location.pathname;
+                
+                // If current path already has locale
+                if (currentPath.match(/\/[a-z]{2}\//)) {
+                    window.location.pathname = currentPath.replace(/\/[a-z]{2}\//, `/${newLocale}/`);
+                } else {
+                    // If no locale in path, add it
+                    window.location.pathname = `/${newLocale}${currentPath}`;
+                }
+            });
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            initLocalePicker();
+        });
+    </script>
+</body>
+</html>
