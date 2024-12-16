@@ -2,7 +2,14 @@ const fs = require('fs');
 const path = require('path');
 
 // Import configuration
-const config = require('./config.json');
+let config;
+try {
+    const configPath = path.resolve(__dirname, 'config.json');
+    const config = require(configPath);
+} catch (error) {
+    console.error('Error reading config.json:', error.message);
+    process.exit(1); // Exit the process with a failure code
+}
 
 const locales = ['', 'fr', 'zh', 'es', 'de']; // Define available locales
 const baseDir = path.join(__dirname, '/'); // Base directory where the files are located
