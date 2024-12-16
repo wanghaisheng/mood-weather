@@ -1,0 +1,588 @@
+
+<html><head><base href="https://moodweather.heytcm.com/blog"><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodWeather Blog - Insights on Emotional Wellbeing</title>
+    
+    <meta name="description" content="Explore the latest insights on emotional health, weather metaphors, and mental wellbeing with MoodWeather's blog.">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="MoodWeather Blog - Emotional Wellbeing Insights">
+    <meta property="og:description" content="Discover expert advice and the latest research on emotional health and mental wellbeing.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://moodweather.heytcm.com/blog">
+
+    <style>
+        :root {
+            --primary: #2D3250;
+            --secondary: #424769;
+            --accent: #7077A1;
+            --light: #F6B17A;
+            --text: #333333;
+            --background: #f5f5f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        nav {
+            background: var(--primary);
+            padding: 1rem;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--light);
+            text-decoration: none;
+        }
+
+        .locale-picker {
+            padding: 0.5rem;
+            border-radius: 4px;
+            border: 1px solid var(--light);
+            background: transparent;
+            color: white;
+            cursor: pointer;
+        }
+
+        .locale-picker option {
+            background: var(--primary);
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .blog-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .blog-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .blog-header p {
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+
+        .categories {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .category-tag {
+            padding: 0.5rem 1rem;
+            background: var(--secondary);
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .category-tag:hover, .category-tag.active {
+            background: var(--light);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .card-excerpt {
+            color: var(--text);
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        .featured-posts {
+            margin-bottom: 3rem;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .featured-card {
+            position: relative;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            color: white;
+        }
+
+        .featured-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .featured-content {
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .featured-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .search-box {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--accent);
+            border-radius: 25px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent);
+            cursor: pointer;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .page-btn {
+            padding: 0.5rem 1rem;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .page-btn:hover, .page-btn.active {
+            background: var(--light);
+        }
+
+        .newsletter-section {
+            background: var(--primary);
+            color: white;
+            padding: 3rem;
+            border-radius: 10px;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .newsletter-form {
+            max-width: 500px;
+            margin: 2rem auto 0;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .subscribe-btn {
+            padding: 0.8rem 1.5rem;
+            background: var(--light);
+            color: var(--primary);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: opacity 0.3s ease;
+        }
+
+        .subscribe-btn:hover {
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .blog-header h1 {
+                font-size: 2rem;
+            }
+
+            .featured-posts {
+                margin-bottom: 2rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .featured-card {
+                height: 300px;
+            }
+
+            .featured-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">🌤️ MoodWeather</a>
+        <select id="locale-picker" class="locale-picker">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="de">Deutsch</option>
+            <option value="ja">日本語</option>
+            <option value="zh">中文</option>
+        </select>
+    </nav>
+
+    <div class="container">
+        <header class="blog-header">
+            <h1>Understanding Your Emotional Climate</h1>
+            <p>Explore insights, research, and stories about emotional wellbeing</p>
+        </header>
+
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="Search articles...">
+            <svg class="search-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+        </div>
+
+        <div class="categories">
+            <div class="category-tag active">All</div>
+            <div class="category-tag">Emotional Health</div>
+            <div class="category-tag">Research</div>
+            <div class="category-tag">Tips & Guides</div>
+            <div class="category-tag">Case Studies</div>
+            <div class="category-tag">Weather Metaphors</div>
+        </div>
+
+        <section class="featured-posts">
+            <div class="featured-grid">
+                <article class="featured-card">
+                    <div class="featured-image" style="background-image: url('https://images.unsplash.com/photo-1523978591478-c753949ff840?auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="featured-content">
+                        <h2 class="featured-title">Understanding Your Inner Weather Patterns</h2>
+                        <p>Discover how weather metaphors can help you better understand and express your emotions</p>
+                        <div class="card-meta">
+                            <span>By Dr. Sarah Johnson</span>
+                            <span>5 min read</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="featured-card">
+                    <div class="featured-image" style="background-image: url('https://images.unsplash.com/photo-1534088568595-a066f410bcda?auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="featured-content">
+                        <h2 class="featured-title">The Science Behind Emotional Tracking</h2>
+                        <p>Latest research on the benefits of regular emotional monitoring</p>
+                        <div class="card-meta">
+                            <span>By Prof. Michael Chen</span>
+                            <span>8 min read</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <main class="blog-grid">
+            <article class="blog-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1517483000871-1dbf64a6e1c6?auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="card-content">
+                    <h3 class="card-title">5 Ways to Navigate Emotional Storms</h3>
+                    <p class="card-excerpt">Learn effective strategies to manage intense emotions and find your way back to calm waters.</p>
+                    <div class="card-meta">
+                        <span>By Emma Wilson</span>
+                        <span>4 min read</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Finding Your Emotional Sunshine</h3>
+                    <p class="card-excerpt">Explore techniques to cultivate positivity and maintain emotional brightness in your daily life.</p>
+                    <div class="card-meta">
+                        <span>By David Park</span>
+                        <span>6 min read</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="card-content">
+                    <h3 class="card-title">The Power of Emotional Awareness</h3>
+                    <p class="card-excerpt">Discover how being attuned to your emotional climate can transform your life and relationships.</p>
+                    <div class="card-meta">
+                        <span>By Dr. Lisa Thompson</span>
+                        <span>7 min read</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1500740516770-92bd004b996e?auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="card-content">
+                    <h3 class="card-title">Seasonal Changes in Emotional Health</h3>
+                    <p class="card-excerpt">Understanding how seasonal changes affect our emotional wellbeing and strategies to maintain balance.</p>
+                    <div class="card-meta">
+                        <span>By Dr. James Miller</span>
+                        <span>5 min read</span>
+                    </div>
+                </div>
+            </article>
+        </main>
+
+        <div class="pagination">
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">...</button>
+            <button class="page-btn">Next →</button>
+        </div>
+
+        <section class="newsletter-section">
+            <h2>Stay Updated with Latest Insights</h2>
+            <p>Subscribe to our newsletter for weekly emotional health tips and research updates</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+                <button type="submit" class="subscribe-btn">Subscribe</button>
+            </form>
+        </section>
+    </div>
+
+    <script>
+        // Initialize locale picker
+        function initLocalePicker() {
+            const localePicker = document.getElementById('locale-picker');
+            
+            // Get current locale from URL
+            const getCurrentLocale = () => {
+                const path = window.location.pathname;
+                const matches = path.match(/\/([a-z]{2})\//);
+                return matches ? matches[1] : 'en';
+            };
+
+            // Set initial value based on URL
+            const currentLocale = getCurrentLocale();
+            localePicker.value = currentLocale;
+
+            // Handle locale change
+            localePicker.addEventListener('change', (e) => {
+                const newLocale = e.target.value;
+                const currentPath = window.location.pathname;
+                
+                // If current path already has locale
+                if (currentPath.match(/\/[a-z]{2}\//)) {
+                    window.location.pathname = currentPath.replace(/\/[a-z]{2}\//, `/${newLocale}/`);
+                } else {
+                    // If no locale in path, add it
+                    window.location.pathname = `/${newLocale}${currentPath}`;
+                }
+            });
+        }
+
+        // Initialize category filtering
+        function initCategories() {
+            const categories = document.querySelectorAll('.category-tag');
+            categories.forEach(category => {
+                category.addEventListener('click', () => {
+                    // Remove active class from all categories
+                    categories.forEach(c => c.classList.remove('active'));
+                    // Add active class to clicked category
+                    category.classList.add('active');
+                    
+                    // Filter posts (to be implemented with actual data)
+                    filterPosts(category.textContent);
+                });
+            });
+        }
+
+        // Initialize search functionality
+        function initSearch() {
+            const searchInput = document.querySelector('.search-input');
+            let timeout = null;
+
+            searchInput.addEventListener('input', (e) => {
+                clearTimeout(timeout);
+                
+                timeout = setTimeout(() => {
+                    searchPosts(e.target.value);
+                }, 500);
+            });
+        }
+
+        // Initialize newsletter form
+        function initNewsletterForm() {
+            const form = document.querySelector('.newsletter-form');
+            
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email = form.querySelector('input[type="email"]').value;
+
+                try {
+                    const response = await fetch('/api/newsletter/subscribe', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ email })
+                    });
+
+                    if (response.ok) {
+                        alert('Successfully subscribed to newsletter!');
+                        form.reset();
+                    } else {
+                        throw new Error('Subscription failed');
+                    }
+                } catch (error) {
+                    alert('Error subscribing to newsletter. Please try again.');
+                }
+            });
+        }
+
+        // Filter posts based on category
+        async function filterPosts(category) {
+            try {
+                const response = await fetch(`/api/posts?category=${encodeURIComponent(category)}`);
+                const posts = await response.json();
+                updatePosts(posts);
+            } catch (error) {
+                console.error('Error filtering posts:', error);
+            }
+        }
+
+        // Search posts
+        async function searchPosts(query) {
+            try {
+                const response = await fetch(`/api/posts/search?q=${encodeURIComponent(query)}`);
+                const posts = await response.json();
+                updatePosts(posts);
+            } catch (error) {
+                console.error('Error searching posts:', error);
+            }
+        }
+
+        // Update posts in the DOM
+        function updatePosts(posts) {
+            const blogGrid = document.querySelector('.blog-grid');
+            blogGrid.innerHTML = posts.map(post => `
+                <article class="blog-card">
+                    <div class="card-image" style="background-image: url('${post.image}');"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">${post.title}</h3>
+                        <p class="card-excerpt">${post.excerpt}</p>
+                        <div class="card-meta">
+                            <span>By ${post.author}</span>
+                            <span>${post.readTime} min read</span>
+                        </div>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            initLocalePicker();
+            initCategories();
+            initSearch();
+            initNewsletterForm();
+        });
+    </script>
+</body>
+</html>

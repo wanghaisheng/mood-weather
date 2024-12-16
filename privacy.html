@@ -1,0 +1,515 @@
+
+<html><head><base href="https://moodweather.heytcm.com/privacy"><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodWeather - Privacy Policy</title>
+    
+    <style>
+    :root {
+      --primary: #2D3250;
+      --secondary: #424769;
+      --accent: #7077A1;
+      --light: #F6B17A;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background: var(--primary);
+      color: white;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background: var(--secondary);
+    }
+    
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--light);
+    }
+    
+    .locale-picker {
+      padding: 8px 12px;
+      border-radius: 20px;
+      border: 2px solid var(--light);
+      background: var(--secondary);
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+    
+    .locale-picker:hover {
+      background: var(--primary);
+      border-color: var(--accent);
+    }
+    
+    .locale-picker option {
+      background: var(--primary);
+      color: white;
+      padding: 8px;
+    }
+    
+    .privacy-header {
+      text-align: center;
+      padding: 60px 20px;
+      background: var(--secondary);
+      margin-bottom: 40px;
+    }
+    
+    .privacy-header h1 {
+      font-size: 2.5rem;
+      color: var(--light);
+      margin-bottom: 20px;
+    }
+    
+    .privacy-header p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      color: rgba(255,255,255,0.9);
+    }
+    
+    .privacy-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 250px 1fr; /* Keep the two-column layout */
+      gap: 30px;
+    }
+    
+    .privacy-sections-container {
+      display: flex;
+      flex-direction: column;
+      gap: 30px; /* Space between sections */
+    }
+    
+    .privacy-section {
+      width: 100%; /* Ensure all sections have same width */
+      margin-bottom: 0; /* Remove margin since we're using gap */
+      padding: 30px;
+      background: var(--secondary);
+      border-radius: 15px;
+      transition: transform 0.3s ease;
+    }
+    
+    .privacy-section:hover {
+      transform: translateY(-5px);
+    }
+    
+    .privacy-section h2 {
+      color: var(--light);
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+    
+    .privacy-section h3 {
+      color: var(--light);
+      margin: 20px 0 10px;
+      font-size: 1.4rem;
+    }
+    
+    .privacy-section p {
+      margin-bottom: 15px;
+      color: rgba(255,255,255,0.9);
+    }
+    
+    .privacy-section ul {
+      margin: 15px 0;
+      padding-left: 20px;
+    }
+    
+    .privacy-section li {
+      margin-bottom: 10px;
+      color: rgba(255,255,255,0.9);
+    }
+    
+    .contact-section {
+      width: 100%;
+      margin-top: 0; /* Remove top margin */
+      padding: 40px;
+      background: var(--secondary);
+      border-radius: 15px;
+      text-align: center;
+    }
+    
+    .contact-section h2 {
+      color: var(--light);
+      margin-bottom: 20px;
+    }
+    
+    .contact-button {
+      display: inline-block;
+      padding: 12px 30px;
+      background: var(--light);
+      color: var(--primary);
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: transform 0.3s ease;
+    }
+    
+    .contact-button:hover {
+      transform: translateY(-3px);
+    }
+    
+    .last-updated {
+      width: 100%;
+      text-align: center;
+      margin-top: 30px;
+      color: rgba(255,255,255,0.7);
+      font-style: italic;
+    }
+    
+    footer {
+      margin-top: 60px;
+      padding: 40px 20px;
+      background: var(--secondary);
+      text-align: center;
+    }
+    
+    footer p {
+      color: rgba(255,255,255,0.7);
+    }
+    
+    footer a {
+      color: var(--light);
+      text-decoration: none;
+    }
+    
+    footer a:hover {
+      text-decoration: underline;
+    }
+    
+    .highlight-box {
+      background: rgba(246, 177, 122, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+      border-left: 4px solid var(--light);
+    }
+    
+    .highlight-box h4 {
+      color: var(--light);
+      margin-bottom: 10px;
+    }
+    
+    .privacy-navigation {
+      position: sticky;
+      top: 20px;
+      height: fit-content;
+      background: var(--secondary);
+      padding: 20px;
+      border-radius: 10px;
+      max-height: calc(100vh - 40px); /* Prevent nav from being taller than viewport */
+      overflow-y: auto; /* Allow scrolling if nav is too tall */
+    }
+    
+    .privacy-navigation h3 {
+      color: var(--light);
+      margin-bottom: 15px;
+    }
+    
+    .privacy-navigation ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .privacy-navigation li {
+      margin-bottom: 10px;
+    }
+    
+    .privacy-navigation a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .privacy-navigation a:hover {
+      color: var(--light);
+    }
+    
+    @media (max-width: 768px) {
+      .privacy-content {
+        grid-template-columns: 1fr; /* Stack vertically on mobile */
+      }
+      
+      .privacy-navigation {
+        position: static;
+        margin-bottom: 20px;
+      }
+    
+      .privacy-header h1 {
+        font-size: 2rem;
+      }
+      
+      .privacy-section {
+        padding: 20px;
+      }
+      
+      .privacy-section h2 {
+        font-size: 1.5rem;
+      }
+    }
+    </style>
+    </head>
+    <body>
+      <nav>
+        <div class="logo">🌤️ MoodWeather</div>
+        <select id="locale-picker" class="locale-picker">
+          <option value="en" selected>English</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+          <option value="ja">日本語</option>
+          <option value="de">Deutsch</option>
+          <option value="ko">한국어</option>
+        </select>
+      </nav>
+    
+      <div class="container">
+        <div class="privacy-header">
+          <h1>Privacy Policy</h1>
+          <p>Your privacy is our top priority. Learn how we protect and handle your data.</p>
+        </div>
+    
+        <div class="privacy-content">
+          <div class="privacy-navigation">
+            <h3>Quick Navigation</h3>
+            <ul>
+              <li><a href="#information-collection">Information Collection</a></li>
+              <li><a href="#data-usage">Data Usage</a></li>
+              <li><a href="#data-protection">Data Protection</a></li>
+              <li><a href="#user-rights">Your Rights</a></li>
+              <li><a href="#data-retention">Data Retention</a></li>
+              <li><a href="#third-parties">Third-Party Services</a></li>
+              <li><a href="#cookies">Cookies Policy</a></li>
+              <li><a href="#children">Children's Privacy</a></li>
+              <li><a href="#changes">Policy Changes</a></li>
+              <li><a href="#contact">Contact Us</a></li>
+            </ul>
+          </div>
+    
+          <div class="privacy-sections-container">
+            <div id="information-collection" class="privacy-section">
+              <h2>Information Collection</h2>
+              <p>We collect information to provide and improve our emotional tracking services. The types of information we collect include:</p>
+              <ul>
+                <li><strong>Account Information:</strong> Email address, password, and profile details</li>
+                <li><strong>Emotional Data:</strong> Your mood entries, weather metaphors, and journal content</li>
+                <li><strong>Usage Data:</strong> How you interact with our app, including features used and time spent</li>
+                <li><strong>Device Information:</strong> Device type, operating system, and browser type</li>
+              </ul>
+              
+              <div class="highlight-box">
+                <h4>Important Note</h4>
+                <p>All emotional data is encrypted and stored securely. You have complete control over what you share and with whom.</p>
+              </div>
+            </div>
+    
+            <div id="data-usage" class="privacy-section">
+              <h2>Data Usage</h2>
+              <p>We use your information to:</p>
+              <ul>
+                <li>Provide and personalize our services</li>
+                <li>Generate insights about your emotional patterns</li>
+                <li>Improve our weather metaphor system</li>
+                <li>Send important notifications and updates</li>
+                <li>Maintain and enhance app security</li>
+              </ul>
+              
+              <h3>AI Analysis</h3>
+              <p>Our AI systems analyze your emotional data to provide personalized insights. This analysis is automated and confidential.</p>
+            </div>
+    
+            <div id="data-protection" class="privacy-section">
+              <h2>Data Protection</h2>
+              <p>We implement robust security measures to protect your data:</p>
+              <ul>
+                <li>End-to-end encryption for all emotional data</li>
+                <li>Regular security audits and updates</li>
+                <li>Secure data centers with 24/7 monitoring</li>
+                <li>Employee training on data protection</li>
+              </ul>
+              
+              <div class="highlight-box">
+                <h4>Security Measures</h4>
+                <p>We use industry-standard encryption protocols and regularly update our security practices to ensure your data remains protected.</p>
+              </div>
+            </div>
+    
+            <div id="user-rights" class="privacy-section">
+              <h2>Your Rights</h2>
+              <p>You have the right to:</p>
+              <ul>
+                <li>Access your personal data</li>
+                <li>Correct inaccurate data</li>
+                <li>Delete your account and associated data</li>
+                <li>Export your data in a readable format</li>
+                <li>Opt-out of data processing for research</li>
+              </ul>
+            </div>
+    
+            <div id="data-retention" class="privacy-section">
+              <h2>Data Retention</h2>
+              <p>We retain your data for as long as your account is active or as needed to provide services. When you delete your account:</p>
+              <ul>
+                <li>Personal information is deleted within 30 days</li>
+                <li>Anonymized data may be retained for research</li>
+                <li>Backup data is removed within 90 days</li>
+              </ul>
+            </div>
+    
+            <div id="third-parties" class="privacy-section">
+              <h2>Third-Party Services</h2>
+              <p>We work with trusted third-party services for:</p>
+              <ul>
+                <li>Cloud storage and processing</li>
+                <li>Analytics and performance monitoring</li>
+                <li>User authentication</li>
+              </ul>
+              
+              <div class="highlight-box">
+                <h4>Third-Party Privacy</h4>
+                <p>All third-party services are contractually bound to protect your privacy and comply with data protection regulations.</p>
+              </div>
+            </div>
+    
+            <div id="cookies" class="privacy-section">
+              <h2>Cookies Policy</h2>
+              <p>We use cookies to:</p>
+              <ul>
+                <li>Keep you logged in</li>
+                <li>Remember your preferences</li>
+                <li>Analyze app performance</li>
+                <li>Improve user experience</li>
+              </ul>
+              
+              <p>You can control cookie settings through your browser preferences.</p>
+            </div>
+    
+            <div id="children" class="privacy-section">
+              <h2>Children's Privacy</h2>
+              <p>Our service is not intended for children under 13. We do not knowingly collect data from children under 13.</p>
+              
+              <div class="highlight-box">
+                <h4>Age Restriction</h4>
+                <p>If we discover we have collected data from a child under 13, we will delete this information immediately.</p>
+              </div>
+            </div>
+    
+            <div id="changes" class="privacy-section">
+              <h2>Policy Changes</h2>
+              <p>We may update this privacy policy periodically. We will notify you of any significant changes through:</p>
+              <ul>
+                <li>Email notifications</li>
+                <li>App notifications</li>
+                <li>Website announcements</li>
+              </ul>
+            </div>
+    
+            <div id="contact" class="contact-section">
+              <h2>Contact Us</h2>
+              <p>If you have questions about our privacy policy or data practices, please contact us:</p>
+              <p style="margin: 20px 0;">
+                <a href="mailto:privacy@moodweather.com" class="contact-button">Email Privacy Team</a>
+              </p>
+            </div>
+    
+            <p class="last-updated">Last updated: January 1, 2024</p>
+          </div>
+        </div>
+      </div>
+    
+      <footer>
+        <p>&copy; 2024 MoodWeather. All rights reserved. | <a href="terms">Terms of Service</a> | <a href="privacy">Privacy Policy</a></p>
+      </footer>
+    
+      <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+              behavior: 'smooth'
+            });
+          });
+        });
+    
+        // Highlight current section in navigation
+        const sections = document.querySelectorAll('.privacy-section');
+        const navLinks = document.querySelectorAll('.privacy-navigation a');
+    
+        window.addEventListener('scroll', () => {
+          let current = '';
+          
+          sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            if (pageYOffset >= sectionTop - 60) {
+              current = section.getAttribute('id');
+            }
+          });
+    
+          navLinks.forEach(link => {
+            link.style.color = link.getAttribute('href').slice(1) === current 
+              ? 'var(--light)'
+              : 'rgba(255,255,255,0.9)';
+          });
+        });
+    
+        // Initialize locale picker
+        function initLocalePicker() {
+          const localePicker = document.getElementById('locale-picker');
+          
+          // Get current locale from URL
+          const getCurrentLocale = () => {
+            const path = window.location.pathname;
+            const matches = path.match(/\/([a-z]{2})\//);
+            return matches ? matches[1] : 'en';
+          };
+    
+          // Set initial value based on URL
+          const currentLocale = getCurrentLocale();
+          localePicker.value = currentLocale;
+    
+          // Handle locale change
+          localePicker.addEventListener('change', (e) => {
+            const newLocale = e.target.value;
+            const currentPath = window.location.pathname;
+            
+            // If current path already has locale
+            if (currentPath.match(/\/[a-z]{2}\//)) {
+              window.location.pathname = currentPath.replace(/\/[a-z]{2}\//, `/${newLocale}/`);
+            } else {
+              // If no locale in path, add it
+              window.location.pathname = `/${newLocale}${currentPath}`;
+            }
+          });
+        }
+    
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+          initLocalePicker();
+        });
+      </script>
+    </body>
+    </html>

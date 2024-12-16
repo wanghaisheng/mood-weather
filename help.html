@@ -1,0 +1,810 @@
+
+<html><head><base href="https://moodweather.heytcm.com/help"><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Learn how to use MoodWeather, our support resources, and FAQs for emotional health tracking.">
+    <meta name="keywords" content="mood tracking help, emotional health support, mood tracking FAQ, weather metaphors, MoodWeather support">
+    <meta name="author" content="MoodWeather Team">
+    <meta http-equiv="Content-Language" content="en">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="MoodWeather Help Center - Support & Resources">
+    <meta property="og:description" content="Get help with MoodWeather's emotional tracking features and learn how to make the most of your emotional health journey.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://moodweather.heytcm.com/help">
+
+    <title>MoodWeather Help Center - Support & Resources</title>
+
+    <style>
+        :root {
+            --primary: #2D3250;
+            --secondary: #424769;
+            --accent: #7077A1;
+            --light: #F6B17A;
+            --text: #FFFFFF;
+            --sidebar-width: 250px;
+            --header-height: 60px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--header-height);
+            background: var(--secondary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .locale-picker {
+            padding: 8px 12px;
+            border-radius: 20px;
+            border: 2px solid var(--light);
+            background: var(--secondary);
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .locale-picker:hover {
+            background: var(--primary);
+            border-color: var(--accent);
+        }
+
+        .locale-picker option {
+            background: var(--primary);
+            color: white;
+            padding: 8px;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: var(--header-height);
+            left: 0;
+            width: var(--sidebar-width);
+            height: calc(100vh - var(--header-height));
+            background: var(--secondary);
+            padding: 20px;
+            overflow-y: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar-category {
+            margin-bottom: 20px;
+        }
+
+        .sidebar-category h3 {
+            color: var(--light);
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .sidebar-links {
+            list-style: none;
+        }
+
+        .sidebar-links li {
+            margin-bottom: 8px;
+        }
+
+        .sidebar-links a {
+            color: var(--text);
+            text-decoration: none;
+            display: block;
+            padding: 8px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .sidebar-links a:hover {
+            background: var(--accent);
+        }
+
+        .main-content {
+            margin-left: var(--sidebar-width);
+            margin-top: var(--header-height);
+            padding: 40px;
+            max-width: 1200px;
+        }
+
+        .help-section {
+            background: var(--secondary);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .help-section h2 {
+            color: var(--light);
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .help-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .help-card {
+            background: var(--primary);
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .help-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .help-card h3 {
+            color: var(--light);
+            margin-bottom: 15px;
+        }
+
+        .help-card p {
+            margin-bottom: 15px;
+        }
+
+        .help-card a {
+            color: var(--light);
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background: var(--primary);
+            color: var(--text);
+            font-size: 16px;
+        }
+
+        .search-box button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            background: var(--light);
+            color: var(--primary);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-box button:hover {
+            background: var(--accent);
+            color: var(--text);
+        }
+
+        .faq-item {
+            background: var(--primary);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--light);
+            font-weight: bold;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 15px 20px;
+            max-height: 500px;
+        }
+
+        .tutorial-steps {
+            list-style: none;
+            counter-reset: step;
+        }
+
+        .tutorial-step {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 20px;
+            counter-increment: step;
+        }
+
+        .tutorial-step::before {
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background: var(--light);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .contact-form {
+            background: var(--primary);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--light);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background: var(--secondary);
+            color: var(--text);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            background: var(--light);
+            color: var(--primary);
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent);
+            color: var(--text);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        .video-tutorials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .video-card {
+            background: var(--primary);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .video-thumbnail {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 aspect ratio */
+        }
+
+        .video-thumbnail iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-info {
+            padding: 15px;
+        }
+
+        .video-info h3 {
+            color: var(--light);
+            margin-bottom: 10px;
+        }
+
+        .search-results {
+            display: none;
+            background: var(--secondary);
+            border-radius: 10px;
+            margin-top: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .search-results.active {
+            display: block;
+        }
+
+        .result-item {
+            padding: 15px;
+            border-bottom: 1px solid var(--primary);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .result-item:hover {
+            background: var(--accent);
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--light);
+            color: var(--primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s;
+            text-decoration: none;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">
+            <span>🌤️ MoodWeather</span>
+        </a>
+        <select id="locale-picker" class="locale-picker">
+            <option value="en" selected>English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="ja">日本語</option>
+            <option value="de">Deutsch</option>
+            <option value="zh">中文</option>
+        </select>
+    </nav>
+
+    <aside class="sidebar">
+        <div class="sidebar-category">
+            <h3>Getting Started</h3>
+            <ul class="sidebar-links">
+                <li><a href="#quick-start">Quick Start Guide</a></li>
+                <li><a href="#basics">Weather Metaphor Basics</a></li>
+                <li><a href="#setup">Account Setup</a></li>
+            </ul>
+        </div>
+
+        <div class="sidebar-category">
+            <h3>Features</h3>
+            <ul class="sidebar-links">
+                <li><a href="#tracking">Mood Tracking</a></li>
+                <li><a href="#analysis">AI Analysis</a></li>
+                <li><a href="#journal">Weather Journal</a></li>
+                <li><a href="#reports">Custom Reports</a></li>
+            </ul>
+        </div>
+
+        <div class="sidebar-category">
+            <h3>Troubleshooting</h3>
+            <ul class="sidebar-links">
+                <li><a href="#common-issues">Common Issues</a></li>
+                <li><a href="#account">Account Problems</a></li>
+                <li><a href="#sync">Sync Issues</a></li>
+            </ul>
+        </div>
+
+        <div class="sidebar-category">
+            <h3>Support</h3>
+            <ul class="sidebar-links">
+                <li><a href="#contact">Contact Support</a></li>
+                <li><a href="#feedback">Submit Feedback</a></li>
+                <li><a href="#community">Community Support</a></li>
+            </ul>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <div class="search-box">
+            <input type="text" placeholder="Search help articles..." id="search-input">
+            <button>Search</button>
+        </div>
+
+        <div class="search-results" id="search-results"></div>
+
+        <section id="quick-start" class="help-section">
+            <h2>Quick Start Guide</h2>
+            <div class="tutorial-steps">
+                <div class="tutorial-step">
+                    <h3>Create Your Account</h3>
+                    <p>Sign up with your email or social media account to get started with MoodWeather.</p>
+                </div>
+                <div class="tutorial-step">
+                    <h3>Set Up Your Profile</h3>
+                    <p>Customize your preferences and set your emotional tracking goals.</p>
+                </div>
+                <div class="tutorial-step">
+                    <h3>Start Tracking</h3>
+                    <p>Begin recording your emotions using our intuitive weather metaphor system.</p>
+                </div>
+                <div class="tutorial-step">
+                    <h3>Explore Insights</h3>
+                    <p>Review your emotional patterns and receive AI-powered recommendations.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="basics" class="help-section">
+            <h2>Weather Metaphor Basics</h2>
+            <div class="help-grid">
+                <div class="help-card">
+                    <h3>Sunny Days</h3>
+                    <p>Represents positive emotions, happiness, and success. Use this when you're feeling optimistic and energetic.</p>
+                </div>
+                <div class="help-card">
+                    <h3>Cloudy Weather</h3>
+                    <p>Indicates neutral or mixed emotions. Choose this when your feelings are unclear or transitioning.</p>
+                </div>
+                <div class="help-card">
+                    <h3>Rainy Days</h3>
+                    <p>Symbolizes sadness or emotional release. Select this when you need to express feelings of melancholy.</p>
+                </div>
+                <div class="help-card">
+                    <h3>Stormy Weather</h3>
+                    <p>Represents intense emotions or turbulent feelings. Use when experiencing strong emotional reactions.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="video-tutorials" class="help-section">
+            <h2>Video Tutorials</h2>
+            <div class="video-tutorials">
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <iframe src="https://www.youtube.com/embed/wZMjUcgZZlI" title="Getting Started with MoodWeather" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Getting Started Guide</h3>
+                        <p>Learn the basics of using MoodWeather in this comprehensive tutorial.</p>
+                    </div>
+                </div>
+                <!-- Add more video cards as needed -->
+            </div>
+        </section>
+
+        <section id="faq" class="help-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <div class="faq-question">
+                    How often should I track my mood?
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    We recommend tracking your mood at least once daily, ideally at the same time each day. However, you can track more frequently if you experience significant emotional changes throughout the day.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Is my data private and secure?
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Yes, your privacy is our top priority. All data is encrypted and stored securely. You have complete control over what you share and can delete your data at any time.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Can I export my mood data?
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Yes, you can export your mood data in various formats (CSV, PDF, JSON) from your account settings. This is useful for sharing with healthcare providers or for personal analysis.
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="help-section">
+            <h2>Contact Support</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <a href="#" class="back-to-top" id="back-to-top">↑</a>
+
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const wasActive = item.classList.contains('active');
+                
+                // Close all FAQs
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    faq.classList.remove('active');
+                    faq.querySelector('.toggle').textContent = '+';
+                });
+                
+                // Toggle clicked FAQ
+                if (!wasActive) {
+                    item.classList.add('active');
+                    question.querySelector('.toggle').textContent = '-';
+                }
+            });
+        });
+
+        // Search functionality
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
+        let searchTimeout;
+
+        searchInput.addEventListener('input', () => {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(async () => {
+                const query = searchInput.value.trim();
+                if (query.length < 2) {
+                    searchResults.classList.remove('active');
+                    return;
+                }
+
+                try {
+                    const response = await fetch('/api/ai_completion', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            prompt: `Search for help articles related to: "${query}"
+                            
+                            <typescript-interface>
+                            interface SearchResult {
+                                title: string;
+                                excerpt: string;
+                                url: string;
+                            }
+
+                            interface Response {
+                                results: SearchResult[];
+                            }
+                            </typescript-interface>
+
+                            <example>
+                            {
+                                "results": [
+                                    {
+                                        "title": "Getting Started with Weather Metaphors",
+                                        "excerpt": "Learn how to use weather metaphors to track your emotions...",
+                                        "url": "/help/basics"
+                                    }
+                                ]
+                            }
+                            </example>`,
+                            data: query
+                        })
+                    });
+
+                    const data = await response.json();
+                    
+                    searchResults.innerHTML = '';
+                    data.results.forEach(result => {
+                        const resultItem = document.createElement('div');
+                        resultItem.className = 'result-item';
+                        resultItem.innerHTML = `
+                            <h3>${result.title}</h3>
+                            <p>${result.excerpt}</p>
+                        `;
+                        resultItem.addEventListener('click', () => {
+                            window.location.href = result.url;
+                        });
+                        searchResults.appendChild(resultItem);
+                    });
+                    
+                    searchResults.classList.add('active');
+                } catch (error) {
+                    console.error('Search error:', error);
+                }
+            }, 300);
+        });
+
+        // Back to Top button
+        const backToTop = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Contact Form
+        document.querySelector('.contact-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+
+            try {
+                const response = await fetch('/api/support/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    alert('Thank you for your message. We will respond shortly.');
+                    e.target.reset();
+                } else {
+                    throw new Error('Failed to send message');
+                }
+            } catch (error) {
+                alert('Sorry, there was an error sending your message. Please try again later.');
+                console.error('Contact form error:', error);
+            }
+        });
+
+        // Locale Picker
+        function initLocalePicker() {
+            const localePicker = document.getElementById('locale-picker');
+            
+            // Get current locale from URL
+            const getCurrentLocale = () => {
+                const path = window.location.pathname;
+                const matches = path.match(/\/([a-z]{2})\//);
+                return matches ? matches[1] : 'en';
+            };
+
+            // Set initial value based on URL
+            const currentLocale = getCurrentLocale();
+            localePicker.value = currentLocale;
+
+            // Handle locale change
+            localePicker.addEventListener('change', (e) => {
+                const newLocale = e.target.value;
+                const currentPath = window.location.pathname;
+                
+                // If current path already has locale
+                if (currentPath.match(/\/[a-z]{2}\//)) {
+                    window.location.pathname = currentPath.replace(/\/[a-z]{2}\//, `/${newLocale}/`);
+                } else {
+                    // If no locale in path, add it
+                    window.location.pathname = `/${newLocale}${currentPath}`;
+                }
+            });
+        }
+
+        // Mobile sidebar toggle
+        const menuToggle = document.createElement('button');
+        menuToggle.className = 'menu-toggle';
+        menuToggle.innerHTML = '☰';
+        menuToggle.style.cssText = `
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+
+            @media (max-width: 768px) {
+                display: block;
+            }
+        `;
+
+        document.querySelector('nav').insertBefore(menuToggle, document.querySelector('.logo'));
+
+        menuToggle.addEventListener('click', () => {
+            document.querySelector('.sidebar').classList.toggle('active');
+        });
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            initLocalePicker();
+        });
+    </script>
+</body>
+</html>

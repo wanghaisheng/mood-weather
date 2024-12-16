@@ -30,7 +30,7 @@
     <link rel="icon" href="https://moodweather.heytcm.com/favicon.ico" type="image/x-icon">
 
     <!-- PWA -->
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="https://moodweather.heytcm.com/manifest.json">
     <meta name="theme-color" content="#2D3250">
 
     <!-- Google Analytics -->
@@ -1514,7 +1514,7 @@
                     <div class="demo-cta">
                         <h3>Ready to start your emotional weather journey?</h3>
                         <div class="cta-buttons">
-                            <a href="/app" class="cta-button primary">Try It Now</a>
+                            <a href="moodweather.heytcm.com/app" class="cta-button primary">Try It Now</a>
                             <a href="https://moodweather.heytcm.com/signup" class="cta-button secondary">Sign Up Free</a>
                         </div>
                     </div>
