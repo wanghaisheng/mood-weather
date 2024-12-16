@@ -5,7 +5,7 @@ self.addEventListener('install', (event) => {
         '/',
         '/index.html',
         '/manifest.json',
-        '/favicon.ico',
+        '//images/favicon.ico',
         '/style.css'
       ]);
     })
