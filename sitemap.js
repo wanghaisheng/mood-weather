@@ -7,6 +7,10 @@ const config = require('./config.json');
 const locales = ['', 'fr', 'zh', 'es', 'de']; // Define available locales
 const baseDir = path.join(__dirname, '/'); // Base directory where the files are located
 const baseUrl = config.baseUrl; // Read baseUrl from config.json
+if(!baseUrl){
+    console.log('domain is not load from config.json')
+    return 
+}
 const ignoreFolders = ['node_modules', 'assets', 'temp']; // Folders to ignore
 
 // Function to list all HTML files recursively in a given directory
