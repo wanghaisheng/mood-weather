@@ -15,7 +15,7 @@
     <!-- Open Graph for Social Media -->
     <meta property="og:title" content="MoodWeather - 追踪您的内心气候">
     <meta property="og:description" content="通过直观的天气隐喻和AI智能分析，体验革命性的情绪理解方式。">
-    <meta property="og:image" content="https://moodweather.heytcm.com/social-preview.jpg">
+    <meta property="og:image" content="https://moodweather.heytcm.com/images/social-preview.jpg">
     <meta property="og:url" content="https://moodweather.heytcm.com">
     <meta property="og:type" content="website">
 
@@ -23,7 +23,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="MoodWeather - 追踪您的内心气候">
     <meta name="twitter:description" content="通过直观的天气隐喻和AI智能分析，体验革命性的情绪理解方式。">
-    <meta name="twitter:image" content="https://moodweather.heytcm.com/social-preview.jpg">
+    <meta name="twitter:image" content="https://moodweather.heytcm.com/images/social-preview.jpg">
     <meta name="twitter:creator" content="@moodweather">
 
     <!-- Favicon -->
@@ -32,7 +32,23 @@
     <!-- PWA -->
     <link rel="manifest" href="https://moodweather.heytcm.com/manifest.json">
     <meta name="theme-color" content="#2D3250">
+    <script>
 
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+      .register('./service-worker.js')
+      .then(registration => {
+        console.log('Service Worker registered with scope:', registration.scope);
+      })
+      .catch(error => {
+        console.error('Service Worker registration failed:', error);
+      });
+  });
+} else {
+  console.warn('Service Workers are not supported in this browser.');
+}
+</script>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
     <script>
