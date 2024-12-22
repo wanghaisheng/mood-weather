@@ -200,34 +200,14 @@ def submit_radar(browser,
     logger.info("use proxy_url:{}", proxy_url)
 
     logger.info("querying:{}", query_url)
+    logger.info("domain:{}", domain,url)
+
     try:
         headless
     except:
         headless=True
         
     try:
-
-        # from DPhelper import DPHelper 
-
-        # page=None
-        # browser=None
-        # if os.path.exists(cookiepath):
-
-        #     if proxy_url:
-        #         browser=DPHelper(browser_path=None,HEADLESS=True,proxy_server=f'http://{proxy_url}')
-                    
-        #     else:
-        #         browser=DPHelper(browser_path=None,HEADLESS=True)
-        #     browser.loadCookie(cookiepath)
-        #     page=browser.driver
-
-        # else:            
-        #     if proxy_url:
-        #         browser=DPHelper(browser_path=None,HEADLESS=False,proxy_server=f'https://{proxy_url}')
-                    
-        #     else:
-        #         browser=DPHelper(browser_path=None,HEADLESS=False)
-        #     page=browser.driver
 
         page.get(query_url)    
 
