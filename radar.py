@@ -30,6 +30,7 @@ import threading
 
 # Replace this with your actual test URL
 test_url = "http://example.com"
+donedomains=[]
 
 # Replace this with your actual outfile object and method for adding data
 # outfile = YourOutfileClass()
