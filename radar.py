@@ -395,7 +395,7 @@ def process_domains_screensht(browser,domains, outfile,counts):
 
                     try:
 
-                        task = threading.Thread(target=submit_radar_with_retry, args=(browser, domain,domain,[], proxy,outfile))
+                        task = threading.Thread(target=submit_radar, args=(browser, domain,domain,[],outfile))
 
                         tasks.append(task)
                         task.start()
