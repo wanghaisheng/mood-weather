@@ -1,6 +1,7 @@
 import xml.etree.ElementTree as ET
 import asyncio
 from loguru import logger
+from setup_chrome import getbrowser
 
 # Assuming the 'submit_radar_with_retry' and 'Recorder' are defined elsewhere in your code.
 # Replace this with your actual method for submitting URLs to Radar.
@@ -43,7 +44,8 @@ def main():
     outfile = Recorder()  # Replace with your actual Recorder or similar object
 
     # Submit URLs to Radar
-    asyncio.run(submit_urls_to_radar(urls, outfile))
+    browser=setup_chrome()
+    asyncio.run(submit_urls_to_radar(browser,urls, outfile))
 
 if __name__ == '__main__':
     main()
