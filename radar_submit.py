@@ -5,7 +5,7 @@ from getbrowser import  setup_chrome
 
 # Assuming the 'submit_radar_with_retry' and 'Recorder' are defined elsewhere in your code.
 # Replace this with your actual method for submitting URLs to Radar.
-from radar import submit_radar_with_retry  
+from radar import process_domains_screensht  
 from DataRecorder import Recorder  
 
 def parse_sitemap(sitemap_file):
@@ -23,15 +23,6 @@ def parse_sitemap(sitemap_file):
     logger.info(f"Found {len(urls)} URLs in the sitemap.")
     return urls
 
-async def submit_urls_to_radar(urls, outfile):
-    """Submit URLs to Radar asynchronously."""
-    for url in urls:
-        try:
-            logger.info(f"Submitting {url} to Radar...")
-            # Replace this with your actual Radar submission method
-            await submit_radar_with_retry(None, url, None, [], None, outfile)
-        except Exception as e:
-            logger.error(f"Failed to submit {url} to Radar: {e}")
 
 def main():
     # Load the sitemap XML file
@@ -39,13 +30,14 @@ def main():
 
     # Parse the sitemap and extract URLs
     urls = parse_sitemap(sitemap_file)
+    outfile = Recorder('radar.csv', cache_size=50)
 
     # Assuming 'Recorder' is your method for storing submission logs or tracking
     outfile = Recorder()  # Replace with your actual Recorder or similar object
 
     # Submit URLs to Radar
     browser=setup_chrome()
-    asyncio.run(submit_urls_to_radar(browser,urls, outfile))
+    process_domains_screensht(browser,urls, outfile,len(urls))
 
 if __name__ == '__main__':
     main()
