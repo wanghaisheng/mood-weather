@@ -380,9 +380,7 @@ async def fetch_cloudflare_radar_data(domain):
                 print(f"Failed to get 200 OK status code, status code: {response.status}")
                 return False
 
-def process_domains_screensht(domains, outfile,counts):
-        from setup_chrome import getbrowser
-        browser = setup_chrome()
+def process_domains_screensht(browser,domains, outfile,counts):
         print('==========setup browser',browser)
 
         concurrency=5
