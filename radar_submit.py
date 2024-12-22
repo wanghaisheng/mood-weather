@@ -6,10 +6,11 @@ from loguru import logger
 # Assuming the 'submit_radar_with_retry' and 'Recorder' are defined elsewhere in your code.
 # Replace this with your actual method for submitting URLs to Radar.
 from radar import process_domains_screensht  
-# from Recorder import Recorder  
+from DataRecorder import Recorder  
 
 # This function will parse the sitemap and return the URLs
 def parse_sitemap(sitemap_file):
+    print('parsing====',sitemap_file)
     """Parse the sitemap.xml and extract all URLs."""
     tree = ET.parse(sitemap_file)
     root = tree.getroot()
