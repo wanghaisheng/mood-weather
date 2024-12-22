@@ -187,9 +187,9 @@ def submit_radar(browser,
     :param semaphore: The semaphore to use for concurrency limiting.
     """
 
-    tab=browser.driver.new_tab()
+    tab=browser.new_tab()
 
-    page = browser.driver.get_tab(tab)
+    page = browser.get_tab(tab)
 
 
 
@@ -383,6 +383,7 @@ async def fetch_cloudflare_radar_data(domain):
 def process_domains_screensht(domains, outfile,counts):
         from setup_chrome import getbrowser
         browser = setup_chrome()
+        print('==========setup browser',browser)
 
         concurrency=5
 
