@@ -70,14 +70,19 @@
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
           form.reset();
-          var formElements = form.querySelector(".form-elements")
-          if (formElements) {
-            formElements.style.display = "none"; // hide form
-          }
-          var thankYouMessage = form.querySelector(".thankyou_message");
-          if (thankYouMessage) {
-            thankYouMessage.style.display = "block";
-          }
+var successMessage = document.getElementById("success-message");
+if (successMessage) {
+    successMessage.style.display = "block"; // show success message
+}
+          
+          // var formElements = form.querySelector(".form-elements")
+          // if (formElements) {
+            // formElements.style.display = "none"; // hide form
+          // }
+          // var thankYouMessage = form.querySelector(".thankyou_message");
+          // if (thankYouMessage) {
+            // thankYouMessage.style.display = "block";
+          // }
         }
     };
     // url encode form data for sending as post data
