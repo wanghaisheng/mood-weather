@@ -317,7 +317,7 @@
                 <div id="error-message" class="error-message">
                     Something went wrong. Please try again later.
                 </div>
-                <form class="gform" id="contact-form" method='POST' action='https://script.google.com/macros/s/AKfycbyFJ81qZGUPTvY9loK9Pqq8M3v3QCfpKYcYokYOjfWpCzUTayhxfVpHE0TPq81PZAkq/exec'>
+                <form class="gform1" id="contact-form" method='POST' action='https://script.google.com/macros/s/AKfycbyFJ81qZGUPTvY9loK9Pqq8M3v3QCfpKYcYokYOjfWpCzUTayhxfVpHE0TPq81PZAkq/exec'>
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" required>
@@ -330,6 +330,7 @@
                         <label for="subject">Subject</label>
                         <select id="subject" name="subject" required>
                             <option value="">Select a subject</option>
+                            <option value="newuser">New User</option>
                             <option value="support">General Support</option>
                             <option value="feedback">Feedback</option>
                             <option value="partnership">Partnership Inquiry</option>
@@ -473,7 +474,7 @@
                     message: form.message.value
                 };
 
-                const response = await fetch('/api/contact', {
+                const response = await fetch('https://script.google.com/macros/s/AKfycbyFJ81qZGUPTvY9loK9Pqq8M3v3QCfpKYcYokYOjfWpCzUTayhxfVpHE0TPq81PZAkq/exec', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
