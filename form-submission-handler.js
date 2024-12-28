@@ -74,6 +74,12 @@ var successMessage = document.getElementById("success-message");
 if (successMessage) {
     successMessage.style.display = "block"; // show success message
 }
+                              form.reset();
+
+                              setTimeout(() => {
+                        successMessage.style.display = 'none';
+                    }, 5000);
+
           
           // var formElements = form.querySelector(".form-elements")
           // if (formElements) {
@@ -83,7 +89,10 @@ if (successMessage) {
           // if (thankYouMessage) {
             // thankYouMessage.style.display = "block";
           // }
-        }
+                } else {
+                    throw new Error('Failed to send message');
+                }
+      
     };
     // url encode form data for sending as post data
     var encoded = Object.keys(data).map(function(k) {
