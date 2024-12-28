@@ -473,8 +473,8 @@
                     subject: form.subject.value,
                     message: form.message.value
                 };
-
-                const response = await fetch('https://script.google.com/macros/s/AKfycbyFJ81qZGUPTvY9loK9Pqq8M3v3QCfpKYcYokYOjfWpCzUTayhxfVpHE0TPq81PZAkq/exec', {
+                url='https://script.google.com/macros/s/AKfycbyKA6Cc8doycXL6P5vCmWlVH_MLjIYcb5Hg6vNN6OByXuJIseLOqVWnswEccfpmelj1/exec'
+                const response = await fetch(url, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
