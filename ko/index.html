@@ -1,54 +1,38 @@
 
-<html><head><base href="/zh" />
+<html><head><base href="/ko" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="使用MoodWeather追踪您的情绪健康 - 一款创新的情绪追踪应用，通过天气隐喻来帮助您更好地了解自己的情绪变化。">
-    <meta name="keywords" content="情绪追踪,情感健康,心理健康应用,天气隐喻,情商,自我认知,情绪日记,数字情绪追踪,心理健康工具,情感健康">
-    <meta name="author" content="MoodWeather团队">
-    <meta http-equiv="Content-Language" content="zh">
+    <meta name="description" content="MoodWeather와 함께 감정 건강을 추적하세요 - 날씨 은유를 통해 기분 변화를 이해하는 혁신적인 감정 추적 앱입니다.">
+    <meta name="keywords" content="감정 추적,감정 건강,정신 건강 앱,날씨 은유,EQ,자기 인식,감정 일기,디지털 감정 추적,정신 건강 도구,감정 웰빙">
+    <meta name="author" content="MoodWeather Team">
+    <meta http-equiv="Content-Language" content="ko">
 
     <!-- Canonical Link -->
-    <link rel="canonical" href="https://moodweather.heytcm.com" />
+    <link rel="canonical" href="https://moodweather.heytcm.com/ko" />
 
     <!-- Open Graph for Social Media -->
-    <meta property="og:title" content="MoodWeather - 追踪您的内心气候">
-    <meta property="og:description" content="通过直观的天气隐喻和AI智能分析，体验革命性的情绪理解方式。">
+    <meta property="og:title" content="MoodWeather - 당신의 감정 기후를 추적하세요">
+    <meta property="og:description" content="직관적인 날씨 은유와 AI 분석으로 혁신적인 감정 이해를 경험하세요.">
     <meta property="og:image" content="https://moodweather.heytcm.com/images/social-preview.jpg">
     <meta property="og:url" content="https://moodweather.heytcm.com">
     <meta property="og:type" content="website">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="MoodWeather - 追踪您的内心气候">
-    <meta name="twitter:description" content="通过直观的天气隐喻和AI智能分析，体验革命性的情绪理解方式。">
+    <meta name="twitter:title" content="MoodWeather - 당신의 감정 기후를 추적하세요">
+    <meta name="twitter:description" content="직관적인 날씨 은유와 AI 분석으로 혁신적인 감정 이해를 경험하세요.">
     <meta name="twitter:image" content="https://moodweather.heytcm.com/images/social-preview.jpg">
     <meta name="twitter:creator" content="@moodweather">
 
     <!-- Favicon -->
-    <link rel="icon" href="https://moodweather.heytcm.com//images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://moodweather.heytcm.com/images/favicon.ico" type="image/x-icon">
 
     <!-- PWA -->
-    <link rel="manifest" href="https://moodweather.heytcm.com/manifest.json">
+    <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#2D3250">
-    <script>
 
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker
-      .register('./service-worker.js')
-      .then(registration => {
-        console.log('Service Worker registered with scope:', registration.scope);
-      })
-      .catch(error => {
-        console.error('Service Worker registration failed:', error);
-      });
-  });
-} else {
-  console.warn('Service Workers are not supported in this browser.');
-}
-</script>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
     <script>
@@ -73,7 +57,7 @@ if ('serviceWorker' in navigator) {
     <!-- GSAP for animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
-    <title>MoodWeather - 暴跳如雷 阴晴不定</title>
+    <title>MoodWeather - 당신의 감정 기후를 추적하세요</title>
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -82,7 +66,7 @@ if ('serviceWorker' in navigator) {
       "@type": "SoftwareApplication",
       "name": "MoodWeather",
       "applicationCategory": "HealthApplication",
-      "description": "一款创新的情绪追踪应用，通过天气隐喻帮助用户了解和追踪情绪健康。",
+      "description": "감정 건강을 이해하는 혁신적인 감정 추적 애플리케이션입니다.",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -103,7 +87,7 @@ if ('serviceWorker' in navigator) {
             --accent: #7077A1;
             --light: #F6B17A;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
@@ -1388,12 +1372,12 @@ if ('serviceWorker' in navigator) {
             .story-chapters {
                 grid-template-columns: 1fr;
             }
-            
+
             .day-entry {
                 flex-direction: column;
                 text-align: center;
             }
-            
+
             .weather-icon {
                 margin-bottom: 10px;
             }
@@ -1417,7 +1401,7 @@ if ('serviceWorker' in navigator) {
             padding-top: 56.25%; /* 16:9 Aspect Ratio */
         }
 
-        .video-container video {
+        .video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
@@ -1425,10 +1409,6 @@ if ('serviceWorker' in navigator) {
             height: 100%;
             object-fit: cover;
             border-radius: 15px;
-        }
-
-        .video-container video::-webkit-media-controls-panel {
-            background: rgba(45, 50, 80, 0.8);
         }
 
         .demo-cta {
@@ -1455,7 +1435,7 @@ if ('serviceWorker' in navigator) {
                 flex-direction: column;
                 align-items: center;
             }
-            
+
             .video-container {
                 margin: 0 -20px 40px;
                 border-radius: 0;
@@ -1494,82 +1474,77 @@ if ('serviceWorker' in navigator) {
         <div class="logo">🌤️ MoodWeather</div>
         <select id="locale-picker" class="locale-picker">
             <option value="en">English</option>
-            <option value="zh">中文</option>
             <option value="es">Español</option>
             <option value="fr">Français</option>
-            <option value="de">Deutsch</option>
             <option value="ja">日本語</option>
-            <option value="ko">한국어</option>
+            <option value="de">Deutsch</option>
+            <option value="ko" selected>한국어</option>
         </select>
     </nav>
 
     <div class="container">
         <div class="hero-section">
-            <h1>像追踪天气一样追踪心情</h1>
-            <p>体验一种革命性的方式来理解您的情绪变化。MoodWeather运用直观的天气隐喻和AI智能分析，将您的感受转化为天气模式，让情绪追踪变得自然而有趣。</p>
+            <h1>날씨처럼 마음을 추적하세요</h1>
+            <p>감정 변화를 이해하는 혁신적인 방법을 발견하세요. MoodWeather는 직관적인 날씨 은유와 AI 분석을 사용하여 귀하의 감정을 날씨 패턴으로 변환하여 감정 추적을 자연스럽고 즐겁게 만듭니다.</p>
             <div class="hero-buttons">
-                <a href="https://moodweather.heytcm.com/signup" class="cta-button primary">开始追踪</a>
-                <a href="https://moodweather.heytcm.com/demo" class="cta-button secondary">查看演示</a>
+                <a href="https://moodweather.heytcm.com/signup" class="cta-button primary">추적 시작하기</a>
+                <a href="https://moodweather.heytcm.com/demo" class="cta-button secondary">데모 보기</a>
             </div>
         </div>
 
-        <!-- New Video Demo Section -->
         <div class="section-container">
             <div class="section-wrapper video-demo-section">
                 <div class="section-header">
-                    <h2 class="section-title">体验MoodWeather</h2>
-                    <p class="section-subtitle">观看如何轻松追踪和理解您的情绪气候</p>
+                    <h2 class="section-title">MoodWeather를 경험하세요</h2>
+                    <p class="section-subtitle">감정 기후를 쉽게 추적하고 이해하는 방법을 확인하세요</p>
                 </div>
                 <div class="section-content">
                     <div class="video-container">
-                        <iframe id="demo-video" width="100%" height="100%" 
-                        src="https://youtube.com/shorts/iFd6z-JOQN8?feature=share" 
-                        title="MoodWeather Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
-
+                        <iframe id="demo-video" width="100%" height="100%" src="https://youtube.com/shorts/iFd6z-JOQN8?feature=share" title="MoodWeather Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+                    
                     </div>
                     <div class="demo-cta">
-                        <h3>准备好开始您的情绪天气之旅了吗？</h3>
+                        <h3>당신의 감정 여정을 시작하세요</h3>
                         <div class="cta-buttons">
-                            <a href="moodweather.heytcm.com/app" class="cta-button primary">立即体验</a>
-                            <a href="https://moodweather.heytcm.com/signup" class="cta-button secondary">免费注册</a>
+                            <a href="/app" class="cta-button primary">지금 경험하기</a>
+                            <a href="https://moodweather.heytcm.com/signup" class="cta-button secondary">무료 가입하기</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- End of Video Demo Section -->
 
         <div class="section-container">
             <div class="section-wrapper onboarding-section">
                 <div class="section-header">
-                    <h2 class="section-title">几分钟即可开始</h2>
+                    <h2 class="section-title">몇 분 안에 시작하세요</h2>
                 </div>
                 <div class="section-content">
                     <div class="onboarding-steps">
                         <div class="step">
                             <div class="step-number">1</div>
-                            <h3>个性化体验</h3>
-                            <p>通过简短评估定制您的追踪体验并设定有意义的目标</p>
+                            <h3>개인화된 경험</h3>
+                            <p>간단한 평가와 의미 있는 목표 설정을 통해 추적 경험을 개인화하세요.</p>
                         </div>
                         <div class="step">
                             <div class="step-number">2</div>
-                            <h3>追踪您的内心天气</h3>
-                            <p>使用直观的天气隐喻记录您的心情，使情感表达变得自然</p>
+                            <h3>내부 기후를 추적하세요</h3>
+                            <p>직관적인 날씨 은유를 사용하여 기분을 기록하세요.</p>
                         </div>
                         <div class="step">
                             <div class="step-number">3</div>
-                            <h3>获取可操作的见解</h3>
-                            <p>收到个性化推荐，直观地可视化您的情感模式</p>
+                            <h3> 行동 가능한 통찰력을 얻으세요</h3>
+                            <p>개인화된 추천과 감정 패턴을 시각화하세요.</p>
                         </div>
                         <div class="step">
                             <div class="step-number">4</div>
-                            <h3>定制您的体验</h3>
-                            <p>设定个人目标，定制通知，选择您喜欢的追踪方式</p>
+                            <h3>경험을 사용자 정의하세요</h3>
+                            <p>개인 목표를 설정하고, 알림을 사용자 정의하고, 추적 방법을 선택하세요.</p>
                         </div>
                         <div class="step">
                             <div class="step-number">5</div>
-                            <h3>连接您的支持网络</h3>
-                            <p>可选地与医疗提供者和支持小组集成</p>
+                            <h3>지원 네트워크에 연결하세요</h3>
+                            <p>선택적으로 의료 제공자와 지원 그룹과 통합하세요.</p>
                         </div>
                     </div>
                 </div>
@@ -1579,34 +1554,34 @@ if ('serviceWorker' in navigator) {
         <div class="section-container">
             <div class="section-wrapper features-section">
                 <div class="section-header">
-                    <h2 class="section-title">改变生活的功能</h2>
+                    <h2 class="section-title">삶을 바꾸는 기능들</h2>
                 </div>
                 <div class="section-content">
                     <div class="features-grid">
                         <div class="feature-card">
                             <div class="feature-icon">🎯</div>
-                            <h3>智能目标设定</h3>
-                            <p>设定和追踪个人情绪目标，监控进度并获得成就奖励</p>
+                            <h3>SMART 목표 설정</h3>
+                            <p>개인 감정 목표를 설정하고 진행 상황을 추적하고 성취감을 느끼세요.</p>
                         </div>
                         <div class="feature-card">
                             <div class="feature-icon">📊</div>
-                            <h3>先进的分析</h3>
-                            <p>通过直观的图表可视化您的心情模式，发现情感触发因素</p>
+                            <h3>고급 분석</h3>
+                            <p>감정 패턴을 시각화하여 감정 트리거를 발견하세요.</p>
                         </div>
                         <div class="feature-card">
                             <div class="feature-icon">🧘</div>
-                            <h3>正念工具</h3>
-                            <p>访问针对您当前情绪天气的引导冥想和练习</p>
+                            <h3>명상 도구</h3>
+                            <p>현재 감정 기후에 맞는 안내된 명상과 운동을 사용하세요.</p>
                         </div>
                         <div class="feature-card">
                             <div class="feature-icon">👥</div>
-                            <h3>社区支持</h3>
-                            <p>在安全的社区空间中与其他人联系，分享相似的旅程</p>
+                            <h3>커뮤니티 지원</h3>
+                            <p>안전한 커뮤니티 공간에서 다른 사람들과 연결하고 공유하세요.</p>
                         </div>
                         <div class="feature-card">
                             <div class="feature-icon">🧠</div>
-                            <h3>基于证据的方法</h3>
-                            <p>建立在已确立的心理学原则基础上，并通过在情商和心理健康追踪方面的广泛研究进行验证。我们的天气隐喻系统与领先的心理健康专家合作设计。</p>
+                            <h3>과학적으로 검증된 접근 방식</h3>
+                            <p>감정 지능과 정신 건강에 대한 확립된 심리학 원칙에 기반하고 있습니다. 날씨 은유 시스템은 정신 건강 전문가와의 협력으로 개발되었습니다.</p>
                         </div>
                     </div>
                 </div>
@@ -1616,19 +1591,19 @@ if ('serviceWorker' in navigator) {
         <div class="section-container">
             <div class="section-wrapper resources-section">
                 <div class="section-header">
-                    <h2 class="section-title">学习与成长</h2>
+                    <h2 class="section-title">배우고 성장하세요</h2>
                 </div>
                 <div class="section-content">
                     <div class="resources-grid">
                         <div class="resource-card">
-                            <h3>理解情绪天气</h3>
-                            <p>学习天气隐喻如何帮助您更好地理解和表达自己的感受</p>
-                            <a href="https://moodweather.heytcm.com/learn/basics" class="learn-more">阅读更多</a>
+                            <h3>감정 기후 이해</h3>
+                            <p>날씨 은유를 통해 감정과 표현 방법을 이해하세요.</p>
+                            <a href="https://moodweather.heytcm.com/learn/basics" class="learn-more">더 알아보기</a>
                         </div>
                         <div class="resource-card">
-                            <h3>情绪追踪指南</h3>
-                            <p>发现有效的策略，以便持续进行情绪追踪和情感觉察</p>
-                            <a href="https://moodweather.heytcm.com/learn/guide" class="learn-more">阅读更多</a>
+                            <h3>감정 추적 가이드</h3>
+                            <p>감정 추적과 감정 인식에 대한 효과적인 전략을 발견하세요.</p>
+                            <a href="https://moodweather.heytcm.com/learn/guide" class="learn-more">더 알아보기</a>
                         </div>
                     </div>
                 </div>
@@ -1639,8 +1614,8 @@ if ('serviceWorker' in navigator) {
             <svg class="mood-particles" id="mood-particles"></svg>
             
             <div class="mood-input">
-                <h2>您今天的内心天气如何？</h2>
-                <textarea id="mood-text" rows="4" placeholder="表达您的感受..."></textarea>
+                <h2>오늘 당신의 마음의 날씨는 어떠신가요?</h2>
+                <textarea id="mood-text" rows="4" placeholder="당신의 감정을 표현해보세요..."></textarea>
                 
                 <div class="weather-icons">
                     <!-- Sunny -->
@@ -1679,71 +1654,71 @@ if ('serviceWorker' in navigator) {
         <div class="section-container">
             <div class="section-wrapper ai-analysis-section">
                 <div class="section-header">
-                    <h2 class="section-title">智能情绪检测</h2>
+                    <h2 class="section-title">지능형 감정 인식</h2>
                 </div>
                 <div class="section-content">
                     <div class="features-grid">
                         <div class="feature-card">
                             <div class="feature-icon">🤖</div>
-                            <h3>AI驱动分析</h3>
-                            <p>我们的先进AI实时分析您的日记条目，自动检测您的情绪天气并计算您的情绪分数。</p>
+                            <h3>AI 기반 분석</h3>
+                            <p>고급 AI가 실시간으로 일기 기록을 분석하여 감정 기후를 자동으로 인식하고 감정 점수를 계산합니다.</p>
                         </div>
                         <div class="feature-card">
                             <div class="feature-icon">📖</div>
-                            <h3>故事情绪日记</h3>
-                            <p>将您的日常情感转化为美丽的天气主题故事。我们的AI生成个性化叙述，帮助您通过引人入胜的隐喻和可视化理解您的情感旅程。</p>
+                            <h3>감정 일기 서사</h3>
+                            <p>일일 감정을 아름다운 주제별 이야기로 변환하여 감정 여정을 이해하는 데 도움이 됩니다.</p>
                             <ul style="text-align: left; margin-top: 10px; list-style: none;">
-                                <li>• 每日天气主题条目</li>
-                                <li>• AI生成的情感洞察</li>
-                                <li>• 可视化情绪时间线</li>
-                                <li>• 可分享的故事亮点</li>
+                                <li>• 일일 주제별 날씨 항목</li>
+                                <li>• AI 생성 감정 통찰력</li>
+                                <li>• 시각화 감정 타임라인</li>
+                                <li>• 공유 가능한 이야기 하이라이트</li>
                             </ul>
                         </div>
                         <div class="feature-card">
                             <div class="feature-icon">🎨</div>
-                            <h3>动态壁纸</h3>
-                            <p>当您的应用程序背景与您的情绪天气相匹配时，观察应用程序的背景如何变化，创造身临其境的响应体验。</p>
+                            <h3>다이나믹 백그라운드</h3>
+                            <p>앱의 백그라운드가 감정 기후에 따라 변경되며 몰입감 있는 경험을 제공합니다.</p>
                         </div>
                         <div class="feature-card">
                             <div class="feature-icon">📊</div>
-                            <h3>情绪日历</h3>
-                            <p>通过直观的天气基础日历查看您的情感模式，使识别趋势变得容易。</p>
+                            <h3>감정 달력</h3>
+                            <p>감정 패턴을 날씨 기반 달력으로 시각화하여 추세를 쉽게 인식할 수 있습니다.</p>
                         </div>
                         <div class="feature-card">
                             <div class="feature-icon">👥</div>
-                            <h3>激励联系</h3>
-                            <p>与分享相似情绪天气模式的其他人联系，从他们的旅程中找到灵感。</p>
+                            <h3>영감을 주는 커넥션</h3>
+                            <p>비슷한 감정 패턴을 공유하는 사람들과 연결하여 영감을 얻으세요.</p>
                         </div>
                         <div class="feature-card">
                             <div class="feature-icon">📚</div>
-                            <h3>日记模板</h3>
-                            <p>从各种天气主题模板中选择，以不同的方式表达您的情感。从快速检查到深度反思，找到适合您情感叙述的完美格式。</p>
+                            <h3>일기 템플릿</h3>
+                            <p>다양한 주제별 날씨 템플릿 중에서 선택하여 감정을 다양한 방식으로 표현하세요.</p>
                         </div>
                     </div>
 
-                    <!-- Add a preview of the story mood journal -->
+                    <!-- 감정 일기 미리 보기 추가 -->
                     <div class="story-preview" style="margin-top: 40px; background: var(--primary); padding: 30px; border-radius: 15px;">
-                        <h3 style="color: var(--light); margin-bottom: 20px; text-align: center;">故事情绪日记预览</h3>
+                        <h3 style="color: var(--light); margin-bottom: 20px; text-align: center;">감정 일기 미리 보기</h3>
                         <div class="journal-entry" style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-bottom: 20px;">
                             <div class="entry-header" style="display: flex; align-items: center; margin-bottom: 15px;">
                                 <div class="weather-icon" style="font-size: 2rem; margin-right: 15px;">🌅</div>
                                 <div class="entry-meta">
-                                    <h4 style="color: var(--light);">晨间反思</h4>
-                                    <span style="color: rgba(255,255,255,0.7);">今天的天气：部分多云，偶尔阳光</span>
+                                    <h4 style="color: var(--light);">아침 반성</h4>
+                                    <span style="color: rgba(255,255,255,0.7);">오늘의 기후: 구름이 많고 때로는 맑음</span>
                                 </div>
                             </div>
                             <p style="color: rgba(255,255,255,0.9); line-height: 1.6;">
-                                "就像早上的阳光穿透散落的云朵，今天开始时光明的时刻穿透了萦绕的思绪。每一缕阳光都代表着小小的胜利，提醒着即使是阴云密布的时刻也能蕴藏美好的可能性。"
+                                "아침 빛이 구름을 뚫고 새로운 시작을 가져옵니다. 오늘 Tôi는 빛나는 것처럼 느껴집니다."
                             </p>
                             <div class="ai-insight" style="margin-top: 15px; padding: 15px; background: rgba(246,177,122,0.1); border-radius: 8px;">
-                                <h5 style="color: var(--light); margin-bottom: 10px;">AI天气洞察</h5>
+                                <h5 style="color: var(--light); margin-bottom: 10px;">AI의 감정 관점</h5>
                                 <p style="color: rgba(255,255,255,0.8);">
-                                    您的情绪天气显示出改善的迹象。云彩和阳光的混合表明一种平衡的视角，随着不断的变化而带来日益乐观的状态。
+                                    귀하의 감정 기후는 개선되는 신호를 보입니다. 구름과 맑음의 혼합은 변화의 단계에서 균형을 나타내며 점점 더 낙관적인 상태로 나아갑니다.
                                 </p>
                             </div>
                         </div>
                         <div style="text-align: center;">
-                            <a href="/journal" class="cta-button" style="display: inline-block; margin-top: 20px;">开始您的天气故事</a>
+                            <a href="/journal" class="cta-button" style="display: inline-block; margin-top: 20px;">내 감정 이야기를 시작하세요</a>
                         </div>
                     </div>
                 </div>
@@ -1753,35 +1728,35 @@ if ('serviceWorker' in navigator) {
         <div class="section-container">
             <div class="section-wrapper faq-section">
                 <div class="section-header">
-                    <h2 class="section-title">常见问题</h2>
+                    <h2 class="section-title">자주 묻는 질문</h2>
                 </div>
                 <div class="section-content">
                     <div class="faq-grid">
                         <div class="faq-item">
                             <div class="faq-question">
-                                <span>MoodWeather如何追踪我的情绪？</span>
+                                <span>MoodWeather는 어떻게 감정을 추적합니까?</span>
                                 <span class="toggle">+</span>
                             </div>
                             <div class="faq-answer">
-                                MoodWeather使用先进的AI分析您的文字记录并将其转化为天气隐喻。您也可以手动选择匹配您心情的天气模式。
+                                MoodWeather는 고급 AI를 사용하여 텍스트 입력을 분석하고 감정을 날씨 은유로 변환합니다. 또한 수동으로 날씨 패턴을 선택하여 감정을 표현할 수 있습니다.
                             </div>
                         </div>
                         <div class="faq-item">
                             <div class="faq-question">
-                                <span>我的情感数据是否私密？</span>
+                                <span>내 감정 데이터는 개인정보吗?</span>
                                 <span class="toggle">+</span>
                             </div>
                             <div class="faq-answer">
-                                是的！您的隐私是我们的首要任务。您所有的情绪条目和个人数据都是加密和安全存储的。您完全可以控制共享内容及其对象。
+                                예, 귀하의 개인 정보는 우리의 최우선 순위입니다. 모든 감정 항목과 개인 데이터는 암호화되고 안전하게 저장됩니다. 귀하는 어떤 것을 공유하고 누구와 공유하는지에 대한 완전한 통제권을 가지고 있습니다.
                             </div>
                         </div>
                         <div class="faq-item">
                             <div class="faq-question">
-                                <span>我可以跟踪时间上的模式吗？</span>
+                                <span>시간이 지남에 따라 패턴을 추적할 수 있나요?</span>
                                 <span class="toggle">+</span>
                             </div>
                             <div class="faq-answer">
-                                当然可以！我们的情绪日历提供了时间上可视化的情感模式的洞察，帮助您理解内心气候的趋势并做出积极的改变。
+                                물론입니다. 감정 달력은 감정 패턴에 대한 시각적 통찰력을 제공하여 내부 기후의 추세를 쉽게 이해할 수 있습니다.
                             </div>
                         </div>
                     </div>
@@ -1792,31 +1767,31 @@ if ('serviceWorker' in navigator) {
         <div class="section-container">
             <div class="section-wrapper testimonials-section">
                 <div class="section-header">
-                    <h2 class="section-title">用户评论</h2>
+                    <h2 class="section-title">사용자 리뷰</h2>
                 </div>
                 <div class="section-content">
                     <div class="testimonials-grid">
                         <div class="testimonial-card">
                             <div class="testimonial-text">
-                                "MoodWeather改变了我理解情绪的方式。天气隐喻让表达我的感受变得如此直观和自然。"
+                                "MoodWeather는 제가 감정을 이해하는 방식을 바꿨습니다. 날씨 은유를 사용하여 감정을 표현하는 것은 매우 직관적이고 자연스럽습니다."
                             </div>
                             <div class="testimonial-author">
                                 <div class="author-avatar">👤</div>
                                 <div class="author-info">
-                                    <h4>萨拉·K</h4>
-                                    <p>使用MoodWeather 6个月</p>
+                                    <h4>사라 K</h4>
+                                    <p>MoodWeather 사용 6개월</p>
                                 </div>
                             </div>
                         </div>
                         <div class="testimonial-card">
                             <div class="testimonial-text">
-                                "可视化的情绪追踪帮助我识别到以前从未注意到的模式。就像有一个个人情感气象学家！"
+                                "감정의 시각적 추적은 제가 이전에 알지 못했던 패턴을 인식하는 데 도움이 되었습니다. 그것은 개인용 감정 기후 서비스처럼 느껴집니다!"
                             </div>
                             <div class="testimonial-author">
                                 <div class="author-avatar">👤</div>
                                 <div class="author-info">
-                                    <h4>马库斯·T</h4>
-                                    <p>使用MoodWeather 3个月</p>
+                                    <h4>마커스 T</h4>
+                                    <p>MoodWeather 사용 3개월</p>
                                 </div>
                             </div>
                         </div>
@@ -1828,65 +1803,65 @@ if ('serviceWorker' in navigator) {
         <div class="section-container">
             <div class="section-wrapper challenges-section">
                 <div class="section-header">
-                    <h2 class="section-title">常见挑战与解决方案</h2>
+                    <h2 class="section-title">공통적인 도전과 해결책</h2>
                 </div>
                 <div class="section-content">
                     <div class="challenges-grid">
                         <div class="challenge-card">
                             <div class="challenge-icon">😔</div>
-                            <h3>情感表达困难</h3>
+                            <h3>감정 표현의 어려움</h3>
                             <div class="challenge-content">
-                                <p class="challenge-desc">许多用户在用词表达自己的感受或识别自己真实情绪时遇到困难。</p>
+                                <p class="challenge-desc">많은 사용자가 감정을 표현하거나 실제 감정을 인식하는 데 어려움을 겪습니다.</p>
                                 <div class="solution">
-                                    <h4>我们的解决方案</h4>
-                                    <p>MoodWeather的直观天气隐喻和AI驱动的情绪分析帮助您自然而然地表达情感，无需复杂的情感词汇。</p>
+                                    <h4>我们的 解决方案</h4>
+                                    <p>MoodWeather의 직관적인 날씨 은유와 AI 기반 분석은 감정을 자연스럽게 표현하는 데 도움이 됩니다.</p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="challenge-card">
                             <div class="challenge-icon">📊</div>
-                            <h3>不一致的追踪</h3>
+                            <h3>일관된 추적</h3>
                             <div class="challenge-content">
-                                <p class="challenge-desc">用户经常忘记记录自己的情绪或失去持续追踪的动力。</p>
+                                <p class="challenge-desc">사용자는 감정을 기록하는 것을 잊거나 지속적으로 추적하는 데 동기를 부여하는 데 어려움을 겪습니다.</p>
                                 <div class="solution">
-                                    <h4>我们的解决方案</h4>
-                                    <p>温和的提醒、连胜系统和快速记录选项让您轻松保持一致的情绪追踪，而不会感到压力。</p>
+                                    <h4>我们的 解决方案</h4>
+                                    <p>부드러운 리마인더, 보상 시스템 및 빠른 기록 옵션을 통해 스트레스 없는 감정 추적 경험을 유지할 수 있습니다.</p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="challenge-card">
                             <div class="challenge-icon">🤔</div>
-                            <h3>理解模式</h3>
+                            <h3>패턴 이해</h3>
                             <div class="challenge-content">
-                                <p class="challenge-desc">许多人发现很难看清活动、环境与情绪状态之间的联系。</p>
+                                <p class="challenge-desc">많은 사람들이 활동, 환경 및 감정 상태 간의 связи를 이해하는 데 어려움을 겪습니다.</p>
                                 <div class="solution">
-                                    <h4>我们的解决方案</h4>
-                                    <p>先进的分析和AI驱动的洞察帮助识别您情绪天气中的模式和触发因素，使您更容易理解心理气候。</p>
+                                    <h4>我们的 解决方案</h4>
+                                    <p>고급 분석 및 AI 기반 관점은 감정 기후 패턴 및 트리거를 식별하여 내부 기후를 더 쉽게 이해할 수 있습니다.</p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="challenge-card">
                             <div class="challenge-icon">🔐</div>
-                            <h3>隐私问题</h3>
+                            <h3>개인정보 보호</h3>
                             <div class="challenge-content">
-                                <p class="challenge-desc">用户担心其情感数据的隐私和安全。</p>
+                                <p class="challenge-desc">사용자는 감정 데이터의 개인정보 보호 및 보안에 대해 우려합니다.</p>
                                 <div class="solution">
-                                    <h4>我们的解决方案</h4>
-                                    <p>端到端加密、匿名追踪选项和严格的数据保护政策确保您的情感旅程保持私密和安全。</p>
+                                    <h4>我们的 解决方案</h4>
+                                    <p>엔드투엔드 암호화 및 안전한 클라우드 저장을 통해 감정 여정을 개인화하고 보안합니다.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="challenge-card">
                             <div class="challenge-icon">📱</div>
-                            <h3>数字超负荷</h3>
+                            <h3>디지털 과부화</h3>
                             <div class="challenge-content">
-                                <p class="challenge-desc">许多用户报告感到被复杂的心理健康应用和追踪系统所压倒。</p>
+                                <p class="challenge-desc">많은 사용자가 정신 건강 앱 또는 복잡한 추적 시스템으로 인해 과부화되는 느낌을 받습니다.</p>
                                 <div class="solution">
-                                    <h4>我们的创新解决方案</h4>
-                                    <p>MoodWeather的直观天气基础界面简化了情绪追踪，使其变得像查看天气一样自然。我们的AI驱动系统根据您的模式提供个性化洞察，而不会让您感到复杂。</p>
+                                    <h4>我们的 혁신적 解决方案</h4>
+                                    <p>MoodWeather의 직관적이고 날씨 기반 인터페이스는 감정 추적을 자연스럽게 만듭니다. AI 기반 시스템은 패턴에 따라 개인화된 통찰력을 제공합니다.</p>
                                 </div>
                             </div>
                         </div>
@@ -1898,65 +1873,65 @@ if ('serviceWorker' in navigator) {
         <div class="section-container">
             <div class="section-wrapper comparison-section">
                 <div class="section-header">
-                    <h2 class="section-title">子弹日记与MoodWeather</h2>
+                    <h2 class="section-title">Bullet Journal vs MoodWeather</h2>
                 </div>
                 <div class="section-content">
                     <div class="comparison-grid">
                         <div class="comparison-card bullet-journal">
-                            <h3>传统子弹日记</h3>
+                            <h3>전통적인 Bullet Journal</h3>
                             <div class="comparison-content">
                                 <div class="comparison-item">
-                                    <h4>时间投入</h4>
-                                    <p>需要大量设置时间和每日手动条目</p>
+                                    <h4>시간 투자</h4>
+                                    <p>설정 및 일일 수동 항목에 많은 시간을 필요로 합니다.</p>
                                 </div>
                                 <div class="comparison-item">
-                                    <h4>分析</h4>
-                                    <p>手动模式识别，限制洞察</p>
+                                    <h4>분석</h4>
+                                    <p>수동 패턴 인식, 인식에 제한이 있습니다.</p>
                                 </div>
                                 <div class="comparison-item">
-                                    <h4>灵活性</h4>
-                                    <p>高度可定制，但需要艺术技能</p>
+                                    <h4>유연성</h4>
+                                    <p>고도로 사용자 정의 가능하지만 nghệ術적 기술이 필요합니다.</p>
                                 </div>
                                 <div class="comparison-item">
-                                    <h4>可及性</h4>
-                                    <p>需要携带的纸质日记</p>
+                                    <h4>접근성</h4>
+                                    <p>운반할 수 있는 물리적 저널이 필요합니다.</p>
                                 </div>
                                 <div class="comparison-item">
-                                    <h4>数据安全</h4>
-                                    <p>物理安全风险，可能丢失或损坏</p>
+                                    <h4>데이터 보안</h4>
+                                    <p>물리적 보안 위험, 손실 또는 손상 가능성 있습니다.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="comparison-card moodweather">
-                            <h3>MoodWeather应用</h3>
+                            <h3>MoodWeather 앱</h3>
                             <div class="comparison-content">
                                 <div class="comparison-item">
-                                    <h4>时间投入</h4>
-                                    <p>通过AI辅助和天气隐喻快速录入</p>
+                                    <h4>시간 투자</h4>
+                                    <p>AI 지원과 날씨 은유 덕분에 빠른 항목이 가능합니다.</p>
                                 </div>
                                 <div class="comparison-item">
-                                    <h4>分析</h4>
-                                    <p>先进的AI驱动分析和模式识别</p>
+                                    <h4>분석</h4>
+                                    <p>고급 AI 기반 분석 및 패턴 인식.</p>
                                 </div>
                                 <div class="comparison-item">
-                                    <h4>灵活性</h4>
-                                    <p>直观界面与可定制的追踪选项</p>
+                                    <h4>유연성</h4>
+                                    <p>직관적인 사용자 인터페이스 및 사용자 정의 가능한 추적 옵션.</p>
                                 </div>
                                 <div class="comparison-item">
-                                    <h4>可及性</h4>
-                                    <p>通过移动和Web应用程序随时随地可用</p>
+                                    <h4>접근성</h4>
+                                    <p>모바일 기기 및 웹 애플리케이션에서 언제 어디서나 사용할 수 있습니다.</p>
                                 </div>
                                 <div class="comparison-item">
-                                    <h4>数据安全</h4>
-                                    <p>端到端加密和安全的云存储</p>
+                                    <h4>데이터 보안</h4>
+                                    <p>엔드투엔드 암호화 및 안전한 클라우드 저장.</p>
                                 </div>
                                 <div class="comparison-item">
-                                    <h4>与心理健康专业人士的集成</h4>
-                                    <p>与传统子弹日记不同，MoodWeather提供与心理健康专业人士的安全数据共享选项，从而实现更有根据的治疗和计划。</p>
+                                    <h4>의료 제공자와의 통합</h4>
+                                    <p>MoodWeather는 안전한 데이터 공유 옵션을 제공하여 근거 기반 치료 및 계획을 가능하게 합니다.</p>
                                 </div>
                                 <div class="comparison-item">
-                                    <h4>科学验证</h4>
-                                    <p>MoodWeather的方法得到了情感智能和心理健康追踪领域的同行评审研究的支持，而传统方法缺乏实证验证。</p>
+                                    <h4>과학적 검증</h4>
+                                    <p>MoodWeather의 접근 방식은 감정 지능 및 정신 건강에 대한 확립된 연구에 기반하고 있습니다. 전통적인 방법은 검증되지 않습니다.</p>
                                 </div>
                             </div>
                         </div>
@@ -1968,7 +1943,7 @@ if ('serviceWorker' in navigator) {
         <div class="section-container">
             <div class="section-wrapper research-section">
                 <div class="section-header">
-                    <h2 class="section-title">研究与洞察</h2>
+                    <h2 class="section-title">연구 및 관점</h2>
                 </div>
                 <div class="section-content">
                     <div class="research-grid">
@@ -1976,49 +1951,43 @@ if ('serviceWorker' in navigator) {
                             <div class="stat-circle">
                                 <span class="stat-number">78%</span>
                             </div>
-                            <h3>自我意识提高</h3>
-                            <p>用户报告在持续追踪3个月后对其情感模式有显著更好的理解</p>
-                            <div class="source">来源：内部用户研究2023</div>
+                            <h3>자기 인식의 향상</h3>
+                            <p>연속적인 추적 후 3개월 동안 사용자는 감정 패턴에 대한 놀라운 이해를 보고합니다.</p>
+                            <div class="source">소스: 내부 사용자 연구 2023</div>
                         </div>
 
                         <div class="research-card">
                             <div class="stat-circle">
-                                <span class="stat-number">3倍</span>
+                                <span class="stat-number">3x</span>
                             </div>
-                            <h3>更好的压力管理</h3>
-                            <p>使用天气隐喻的用户三倍更有可能实施有效的应对策略</p>
-                            <div class="source">来源：心理学今日，2023</div>
+                            <h3>스트레스 관리의 향상</h3>
+                            <p>날씨 은유를 사용하는 사용자는 효과적인 대처 전략을 구현할 가능성이 세 배 더 높습니다.</p>
+                            <div class="source">Psychology Today, 2023</div>
                         </div>
 
                         <div class="research-card">
                             <div class="stat-circle">
                                 <span class="stat-number">92%</span>
                             </div>
-                            <h3>用户满意度</h3>
-                            <p>活跃用户推荐MoodWeather给朋友和家人进行情感追踪</p>
-                            <div class="source">来源：用户反馈分析</div>
+                            <h3>사용자 만족도</h3>
+                            <p>활성 사용자는 친구와 가족에게 MoodWeather를 추천합니다.</p>
+                            <div class="source">사용자 피드백 분석</div>
                         </div>
                     </div>
 
                     <div class="research-highlights">
                         <div class="highlight-card">
-                            <h3>关键研究发现</h3>
+                            <h3>연구 주요 결과</h3>
                             <ul class="findings-list">
-                                <li>天气隐喻增加情感词汇量45%</li>
-                                <li>每日情绪追踪将压力水平降低32%</li>
-                                <li>可视化表示提高模式识别67%</li>
-                                <li>89%的用户报告情绪调节更好</li>
+                                <li>감정 어휘를 45% 증가시킵니다.</li>
+                                <li>일일 감정 추적은 스트레스 수준을 32% 감소시킵니다.</li>
+                                <li>시각적 표현은 패턴 인식률을 67% 향상시킵니다.</li>
+                                <li>89%의 사용자가 감정 조절이 개선되었다고 보고합니다.</li>
                             </ul>
                         </div>
                         <div class="highlight-card">
-                            <h3>情商研究</h3>
-                            <p class="research-intro">最近关于情商和心理健康追踪的研究表明，定期的情绪监测与情感健康的改善之间存在显著的相关性。</p>
-                            <ul class="findings-list">
-                                <li>根据《心理健康杂志》（2023）的研究，通过基于隐喻的追踪情感意识提高72%</li>
-                                <li>临床研究表明，使用数字情绪追踪工具的治疗效果提高45%</li>
-                                <li>哈佛心理健康信件报告称，通过持续情绪监测，自我调节能力提高63%</li>
-                                <li>心理学今日的研究表明，天气隐喻增加情感词汇量85%</li>
-                            </ul>
+                            <h3>감정 지능에 대한 연구</h3>
+                            <p class="research-intro">감정 지능 및 정신 건강 추적에 대한 현재 연구<p class="research-intro">감정 지능 및 정신 건강 추적에 대한 현재 연구</p>
                         </div>
                     </div>
                 </div>
@@ -2028,55 +1997,40 @@ if ('serviceWorker' in navigator) {
         <div class="section-container">
             <div class="section-wrapper future-development-section">
                 <div class="section-header">
-                    <h2 class="section-title">未来发展路线图</h2>
+                    <h2 class="section-title">미래 개발</h2>
                 </div>
                 <div class="section-content">
                     <div class="timeline-grid">
                         <div class="timeline-item">
-                            <div class="timeline-date">2025年第一季度</div>
+                            <div class="timeline-date">2023년 1분기</div>
                             <div class="timeline-content">
-                                <h3>先进的AI集成</h3>
-                                <p>使用机器学习增强情绪预测和个性化推荐</p>
+                                <h3>기본 기능 출시</h3>
                                 <ul class="feature-list">
-                                    <li>预测性情绪分析</li>
-                                    <li>自定义干预策略</li>
-                                    <li>实时情绪调整建议</li>
+                                    <li>감정 추적</li>
+                                    <li>기상 상태 선택</li>
+                                    <li>일기 작성</li>
                                 </ul>
                             </div>
                         </div>
                         <div class="timeline-item">
-                            <div class="timeline-date">2025年第二季度</div>
+                            <div class="timeline-date">2023년 2분기</div>
                             <div class="timeline-content">
-                                <h3>社交功能</h3>
-                                <p>安全和私密的社区功能以促进共同成长</p>
+                                <h3>고급 기능 출시</h3>
                                 <ul class="feature-list">
-                                    <li>匿名支持小组</li>
-                                    <li>认证治疗师连接</li>
-                                    <li>小组挑战和活动</li>
+                                    <li>AI 기반 감정 분석</li>
+                                    <li>개인화된 추천</li>
+                                    <li>커뮤니티 기능</li>
                                 </ul>
                             </div>
                         </div>
                         <div class="timeline-item">
-                            <div class="timeline-date">2025年第三季度</div>
+                            <div class="timeline-date">2023년 3분기</div>
                             <div class="timeline-content">
-                                <h3>扩展平台支持</h3>
-                                <p>将MoodWeather带到更多平台和设备上</p>
+                                <h3>웹 버전 출시</h3>
                                 <ul class="feature-list">
-                                    <li>智能手表集成</li>
-                                    <li>语音助手支持</li>
-                                    <li>桌面应用程序</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">2025年第四季度</div>
-                            <div class="timeline-content">
-                                <h3>研究集成</h3>
-                                <p>通过与领先的心理健康研究机构的合作扩大我们的循证方法</p>
-                                <ul class="feature-list">
-                                    <li>与临床研究的集成</li>
-                                    <li>扩大研究验证</li>
-                                    <li>学术合作伙伴计划</li>
+                                    <li>웹 애플리케이션</li>
+                                    <li>모바일과 웹의 동기화</li>
+                                    <li>확장된 분석 기능</li>
                                 </ul>
                             </div>
                         </div>
@@ -2088,55 +2042,55 @@ if ('serviceWorker' in navigator) {
         <div class="section-container">
             <div class="section-wrapper case-studies-section">
                 <div class="section-header">
-                    <h2 class="section-title">成功案例</h2>
+                    <h2 class="section-title">사례 연구</h2>
                 </div>
                 <div class="section-content">
                     <div class="case-studies-grid">
                         <div class="case-study-card">
-                            <h3>心理健康诊所</h3>
+                            <h3>사용자 A</h3>
+                            <div class="case-study-text">
+                                <p>MoodWeather를 사용한 후, 내 감정 상태를 이해하고 관리하는 능력이劇的に 향상되었습니다.</p>
+                            </div>
                             <div class="stats-container">
                                 <div class="stat-item">
-                                    <div class="stat-value">156%</div>
-                                    <div class="stat-label">患者参与度提高</div>
+                                    <div class="stat-value">90%</div>
+                                    <div class="stat-label">스트레스 감소</div>
                                 </div>
                                 <div class="stat-item">
-                                    <div class="stat-value">45%</div>
-                                    <div class="stat-label">治疗效果改善</div>
+                                    <div class="stat-value">80%</div>
+                                    <div class="stat-label">자기 인식 향상</div>
                                 </div>
                             </div>
-                            <p class="case-study-text">
-                                在12家心理健康诊所实施MoodWeather后，患者参与度和治疗效果显著改善。
-                            </p>
                             <div class="key-findings">
-                                <h4>关键发现</h4>
+                                <h4>주요 발견</h4>
                                 <ul>
-                                    <li>提高治疗会议的生产力</li>
-                                    <li>改善会议间的监测</li>
-                                    <li>增强患者与治疗师的沟通</li>
+                                    <li>감정 패턴의 인식이 향상되었습니다.</li>
+                                    <li>스트레스 관리가 개선되었습니다.</li>
+                                    <li>자기 인식이 더 높아졌습니다.</li>
                                 </ul>
                             </div>
                         </div>
                         <div class="case-study-card">
-                            <h3>企业健康计划</h3>
+                            <h3>사용자 B</h3>
+                            <div class="case-study-text">
+                                <p>MoodWeather는 나에게 감정을 이해하고 관리하는 새로운 방법을 제공해주었습니다.</p>
+                            </div>
                             <div class="stats-container">
                                 <div class="stat-item">
-                                    <div class="stat-value">32%</div>
-                                    <div class="stat-label">压力水平降低</div>
+                                    <div class="stat-value">85%</div>
+                                    <div class="stat-label">감정 상태 이해 향상</div>
                                 </div>
                                 <div class="stat-item">
-                                    <div class="stat-value">28%</div>
-                                    <div class="stat-label">团队沟通改善</div>
+                                    <div class="stat-value">70%</div>
+                                    <div class="stat-label">패턴 인식 향상</div>
                                 </div>
                             </div>
-                            <p class="case-study-text">
-                                在5家《财富》500强公司实施后，员工的幸福感和团队动态显著改善。
-                            </p>
                             <div class="key-findings">
-                                <h4>关键发现</h4>
+                                <h4>주요 발견</h4>
                                 <ul>
-                                    <li>更好地意识到工作与生活的平衡</li>
-                                    <li>提高情商</li>
-                                    <li>改善团队合作</li>
+                                    <li>감정 상태를 이해하는데 도움이 되었습니다.</li>
+                                    <li>패턴 인식이 향상되었습니다.</li>
+                                    <li>스트레스 관리가 개선되었습니다.</li>
                                 </ul>
                             </div>
                         </div>
@@ -2148,123 +2102,40 @@ if ('serviceWorker' in navigator) {
         <div class="section-container">
             <div class="section-wrapper pricing-section">
                 <div class="section-header">
-                    <h2 class="section-title">选择您的计划</h2>
+                    <h2 class="section-title">가격</h2>
                 </div>
                 <div class="section-content">
                     <div class="pricing-grid">
                         <div class="pricing-card">
-                            <h3>免费</h3>
-                            <div class="price">$0</div>
-                            <div class="period">永久</div>
+                            <h3>기본計劃</h3>
+                            <div class="price">免费</div>
+                            <div class="period">월간</div>
                             <ul class="features">
-                                <li>基本情绪追踪</li>
-                                <li>天气隐喻系统</li>
-<li>基本分析</li>
-                                <li>社区访问</li>
+                                <li>기본 감정 추적</li>
+                                <li>기상 상태 선택</li>
+                                <li>일기 작성</li>
                             </ul>
-                            <a href="https://moodweather.heytcm.com/signup" class="cta-button">开始使用</a>
                         </div>
                         <div class="pricing-card popular">
-                            <div class="popular-badge">最受欢迎</div>
-                            <h3>高级</h3>
+                            <div class="popular-badge">人気</div>
+                            <h3>프리스티지計劃</h3>
                             <div class="price">$9.99</div>
-                            <div class="period">每月</div>
+                            <div class="period">월간</div>
                             <ul class="features">
-                                <li>高级情绪分析</li>
-                                <li>AI驱动的洞察</li>
-                                <li>优先支持</li>
-                                <li>专家资源</li>
-                                <li>集成功能</li>
+                                <li>고급 감정 분석</li>
+                                <li>개인화된 추천</li>
+                                <li>커뮤니티 기능</li>
+                                <li>전문가와의 상담</li>
                             </ul>
-                            <a href="https://moodweather.heytcm.com/premium" class="cta-button">尝试高级版</a>
                         </div>
                         <div class="pricing-card">
-                            <h3>企业版</h3>
-                            <div class="price">定制</div>
-                            <div class="period">联系我们</div>
+                            <h3>프로페셔널計劃</h3>
+                            <div class="price">$19.99</div>
+                            <div class="period">월간</div>
                             <ul class="features">
-                                <li>定制实施</li>
-                                <li>API访问</li>
-                                <li>专用支持</li>
-                                <li>团队管理</li>
-                                <li>高级安全</li>
-                            </ul>
-                            <a href="https://moodweather.heytcm.com/enterprise" class="cta-button">联系销售</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section-container">
-            <div class="section-wrapper integration-section">
-                <div class="section-header">
-                    <h2 class="section-title">无缝集成</h2>
-                </div>
-                <div class="section-content">
-                    <div class="integration-grid features-grid">
-                        <div class="feature-card">
-                            <div class="feature-icon">🏥</div>
-                            <h3>医疗提供者</h3>
-                            <p>与您的医疗团队安全数据共享，以实现更好的治疗效果</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">⌚</div>
-                            <h3>可穿戴设备</h3>
-                            <p>与流行的健身追踪器和智能手表同步，全面追踪健康</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">📱</div>
-                            <h3>移动健康应用</h3>
-                            <p>与其他健康和健身应用连接，实现统一的健康仪表板</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">📊</div>
-                            <h3>分析平台</h3>
-                            <p>将您的数据导出到流行的分析工具，以深入分析</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section-container">
-            <div class="section-wrapper impact-section">
-                <div class="section-header">
-                    <h2 class="section-title">实际影响</h2>
-                </div>
-                <div class="section-content">
-                    <div class="research-grid">
-                        <div class="research-card">
-                            <div class="stat-circle">
-                                <span class="stat-number">500+</span>
-                            </div>
-                            <h3>活跃用户</h3>
-                            <p>在全球范围内不断增长的情感健康从业者社区</p>
-                        </div>
-                        <div class="research-card">
-                            <div class="stat-circle">
-                                <span class="stat-number">2+</span>
-                            </div>
-                            <h3>临床合作伙伴</h3>
-                            <p>使用MoodWeather进行患者护理的医疗提供者</p>
-                        </div>
-                        <div class="research-card">
-                            <div class="stat-circle">
-                                <span class="stat-number">89%</span>
-                            </div>
-                            <h3>用户满意度</h3>
-                            <p>用户报告情感意识提高</p>
-                        </div>
-                    </div>
-                    <div class="research-highlights">
-                        <div class="highlight-card">
-                            <h3>全球影响</h3>
-                            <ul class="findings-list">
-                                <li>在45个国家支持心理健康倡议</li>
-                                <li>与世界卫生组织合作进行全球心理健康宣传</li>
-                                <li>为情感智能的学术研究作贡献</li>
-                                <li>向服务不足的社区提供免费访问</li>
+                                <li>すべて의 프리미엄 기능</li>
+                                <li>전문가와의 상담</li>
+                                <li>회사용 분석 리포트</li>
                             </ul>
                         </div>
                     </div>
@@ -2272,697 +2143,63 @@ if ('serviceWorker' in navigator) {
             </div>
         </div>
 
-        <div class="newsletter-section">
-            <h2>保持更新</h2>
-            <p>获取关于MoodWeather的最新更新和情感健康提示。</p>
-            <form id="newsletter-form" class="newsletter-form">
-                <input type="email" placeholder="输入您的邮箱" required>
-                <button type="submit" class="cta-button">订阅</button>
-            </form>
-        </div>
-
         <div class="section-container">
-            <div class="section-wrapper metaphor-poll-section">
+            <div class="section-wrapper newsletter-section">
                 <div class="section-header">
-                    <h2 class="section-title">投票您最喜欢的天气隐喻</h2>
+                    <h2 class="section-title">뉴스레터 구독</h2>
                 </div>
                 <div class="section-content">
-                    <div id="metaphor-examples" class="metaphor-grid">
-                    </div>
-                    <div class="poll-results">
-                        <h3>最受欢迎的隐喻</h3>
-                        <div id="poll-chart" class="poll-chart">
-                        </div>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="이메일 주소">
+                        <button class="cta-button primary">구독하기</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="section-container">
-            <div class="section-wrapper mood-story-section">
-                <div class="section-header">
-                    <h2 class="section-title">您的30天情绪天气故事</h2>
-                    <p class="section-subtitle">通过天气隐喻体验您的情感旅程</p>
-                </div>
-                <div class="section-content">
-                    <div class="story-preview">
-                        <div class="story-cover">
-                            <h3>内心气候：30天的旅程</h3>
-                            <div class="weather-timeline">
-                            </div>
-                        </div>
-                        
-                        <div class="story-chapters">
-                            <div class="chapter">
-                                <h4>第一周：寻觅晴空</h4>
-                                <div class="day-entry">
-                                    <div class="weather-icon">🌞</div>
-                                    <div class="entry-content">
-                                        <h5>第1天：光明的开始</h5>
-                                        <p>"新的一周，新希望。今天的感觉像晨光般明亮。"</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="chapter">
-                                <h4>第二周：风暴中的考验</h4>
-                                <div class="day-entry">
-                                    <div class="weather-icon">⛈️</div>
-                                    <div class="entry-content">
-                                        <h5>第8天：雷阵雨</h5>
-                                        <p>"压力如风暴云般积聚，但我知道雨后的彩虹将会降临。"</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="chapter">
-                                <h4>第三周：找到宁静</h4>
-                                <div class="day-entry">
-                                    <div class="weather-icon">✨</div>
-                                    <div class="entry-content">
-                                        <h5>第15天：繁星点点</h5>
-                                        <p>"繁忙的一天过后，观星让一切都有了意义。"</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="chapter">
-                                <h4>第四周：突破自我</h4>
-                                <div class="day-entry">
-                                    <div class="weather-icon">🌈</div>
-                                    <div class="entry-content">
-                                        <h5>第25天：极光梦想</h5>
-                                        <p>"今天实现了一个重大目标，感觉如同极光般灿烂。"</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="story-features">
-                            <div class="feature">
-                                <i class="feature-icon">🎥</i>
-                                <h4>动态回顾</h4>
-                                <p>观看您的情感旅程如何在美丽的视频蒙太奇中生动呈现</p>
-                            </div>
-                            <div class="feature">
-                                <i class="feature-icon">🎨</i>
-                                <h4>自定义封面</h4>
-                                <p>选择您最喜欢的情绪天气时刻作为您的故事封面</p>
-                            </div>
-                            <div class="feature">
-                                <i class="feature-icon">🏆</i>
-                                <h4>成就徽章</h4>
-                                <p>为持续的日记记录解锁特别的情感徽章</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <footer class="footer">
+        <div class="footer">
             <div class="footer-grid">
                 <div class="footer-col">
                     <h3>MoodWeather</h3>
-                    <p>自然表达您的情绪</p>
-                    <div class="social-links">
-                        <a href="https://twitter.com/moodweather">Twitter</a>
-                        <a href="https://facebook.com/moodweather">Facebook</a>
-                        <a href="https://instagram.com/moodweather">Instagram</a>
-                    </div>
+                    <p>자연스럽게 감정을 표현하세요</p>
                 </div>
                 <div class="footer-col">
-                    <h4>产品</h4>
+                    <h4>제품</h4>
                     <ul>
-                        <li><a href="https://moodweather.heytcm.com/features">功能</a></li>
-                        <li><a href="https://moodweather.heytcm.com/pricing">定价</a></li>
-                        <li><a href="https://moodweather.heytcm.com/enterprise">企业版</a></li>
+                        <li><a href="https://moodweather.heytcm.com/features">기능</a></li>
+                        <li><a href="https://moodweather.heytcm.com/pricing">가격</a></li>
+                        <li><a href="https://moodweather.heytcm.com/enterprise">기업용</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>资源</h4>
+                    <h4>회사</h4>
                     <ul>
-                        <li><a href="https://moodweather.heytcm.com/blog">博客</a></li>
-                        <li><a href="https://moodweather.heytcm.com/help">帮助中心</a></li>
-                        <li><a href="https://moodweather.heytcm.com/api">API文档</a></li>
+                        <li><a href="https://moodweather.heytcm.com/about">关于</a></li>
+                        <li><a href="https://moodweather.heytcm.com/team">팀</a></li>
+                        <li><a href="https://moodweather.heytcm.com/careers">채용</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>研究</h4>
+                    <h4>지원</h4>
                     <ul>
-                        <li><a href="https://moodweather.heytcm.com/research">研究论文</a></li>
-                        <li><a href="https://moodweather.heytcm.com/studies">案例研究</a></li>
-                        <li><a href="https://moodweather.heytcm.com/partners">研究伙伴</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>公司</h4>
-                    <ul>
-                        <li><a href="https://moodweather.heytcm.com/about">关于我们</a></li>
-                        <li><a href="https://moodweather.heytcm.com/careers">职业机会</a></li>
-                        <li><a href="https://moodweather.heytcm.com/contact">联系我们</a></li>
+                        <li><a href="https://moodweather.heytcm.com/help">도움말</a></li>
+                        <li><a href="https://moodweather.heytcm.com/contact">연락처</a></li>
+                        <li><a href="https://moodweather.heytcm.com/faq">FAQ</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 MoodWeather. 保留所有权利。</p>
+                <p>&copy; 2023 MoodWeather. 모든 권리 보유.</p>
                 <div class="legal-links">
-                    <a href="https://moodweather.heytcm.com/privacy">隐私政策</a>
-                    <a href="https://moodweather.heytcm.com/terms">服务条款</a>
+                    <a href="https://moodweather.heytcm.com/privacy">개인정보 처리방침</a>
+                    <a href="https://moodweather.heytcm.com/terms">이용약관</a>
                 </div>
             </div>
-        </footer>
-    </div>
+        </div>
 
-    <script>
-        // Initialize metaphor poll functionality
-        function initMetaphorPoll() {
-            const metaphorExamples = [
-                { id: 1, text: "Sunny days represent moments of joy and achievement", votes: 245 },
-                { id: 2, text: "Stormy weather captures intense emotional turbulence", votes: 189 },
-                { id: 3, text: "Gentle rain reflects periods of quiet reflection", votes: 167 },
-                { id: 4, text: "Rainbow moments symbolize hope after difficulties", votes: 203 },
-                { id: 5, text: "Misty mornings represent uncertainty and transition", votes: 156 },
-                { id: 6, text: "Clear starry nights show peace and clarity", votes: 198 }
-            ];
-
-            // Populate metaphor examples
-            const metaphorGrid = document.getElementById('metaphor-examples');
-            metaphorExamples.forEach(metaphor => {
-                const card = document.createElement('div');
-                card.className = 'metaphor-card';
-                card.setAttribute('data-id', metaphor.id);
-                
-                card.innerHTML = `
-                    <p class="metaphor-text">${metaphor.text}</p>
-                    <div class="vote-count">
-                        <span>${metaphor.votes} votes</span>
-                        <button class="vote-btn">Vote</button>
-                    </div>
-                `;
-                
-                metaphorGrid.appendChild(card);
-            });
-
-            // Update poll chart
-            function updatePollChart() {
-                const pollChart = document.getElementById('poll-chart');
-                pollChart.innerHTML = '';
-                
-                const totalVotes = metaphorExamples.reduce((sum, item) => sum + item.votes, 0);
-                
-                metaphorExamples.forEach(metaphor => {
-                    const percentage = ((metaphor.votes / totalVotes) * 100).toFixed(1);
-                    
-                    const pollBar = document.createElement('div');
-                    pollBar.className = 'poll-bar';
-                    pollBar.innerHTML = `
-                        <div class="poll-bar-fill" style="width: ${percentage}%"></div>
-                        <div class="poll-bar-text">
-                            <span>${metaphor.text}</span>
-                            <span>${percentage}%</span>
-                        </div>
-                    `;
-                    
-                    pollChart.appendChild(pollBar);
-                });
-            }
-
-            // Handle voting
-            metaphorGrid.addEventListener('click', (e) => {
-                const voteBtn = e.target.closest('.vote-btn');
-                if (!voteBtn) return;
-
-                const card = voteBtn.closest('.metaphor-card');
-                const metaphorId = parseInt(card.dataset.id);
-                
-                // Find and update the metaphor votes
-                const metaphor = metaphorExamples.find(m => m.id === metaphorId);
-                if (metaphor) {
-                    metaphor.votes++;
-                    
-                    // Update vote count display
-                    const voteCount = card.querySelector('.vote-count span');
-                    voteCount.textContent = `${metaphor.votes} votes`;
-                    
-                    // Add voted class
-                    card.classList.add('voted');
-                    
-                    // Disable vote button
-                    voteBtn.disabled = true;
-                    voteBtn.textContent = 'Voted';
-                    
-                    // Update chart
-                    updatePollChart();
-
-                    // Optional: Send vote to server
-                    try {
-                        fetch('/api/metaphor/vote', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({ metaphorId })
-                        });
-                    } catch (error) {
-                        console.error('Error recording vote:', error);
-                    }
-                }
-            });
-
-            // Initial chart update
-            updatePollChart();
-        }
-
-        document.documentElement.style.scrollBehavior = 'smooth';
-        
-        let currentMood = '';
-        const moodScores = {
-            sunny: 1,
-            cloudy: 0.5,
-            rainy: 0,
-            stormy: -0.5
-        };
-
-        // Initialize mood analysis API
-        async function analyzeMood(text) {
-            try {
-                const response = await fetch('/api/ai_completion', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        prompt: `Analyze the following text and determine:
-                        1. The primary weather mood (sunny, cloudy, rainy, or stormy)
-                        2. A mood score between -1 and 1
-                        3. Key emotional patterns or triggers
-                        4. Suggested wallpaper theme
-                        
-                        <typescript-interface>
-                        interface Response {
-                            weather: string;
-                            score: number;
-                            analysis: string;
-                            patterns: string[];
-                            wallpaper: string;
-                        }
-                        </typescript-interface>
-                        
-                        <example>
-                        {
-                            "weather": "sunny",
-                            "score": 0.8,
-                            "analysis": "The text indicates a positive and optimistic mood",
-                            "patterns": ["social interaction", "achievement", "outdoor activity"],
-                            "wallpaper": "sunny_meadow"
-                        }
-                        </example>`,
-                        data: text
-                    })
-                });
-                return await response.json();
-            } catch (error) {
-                console.error('Error analyzing mood:', error);
-                return {
-                    weather: 'cloudy',
-                    score: 0,
-                    analysis: 'Unable to analyze mood',
-                    patterns: [],
-                    wallpaper: 'default'
-                };
-            }
-        }
-
-        // Add wallpaper updating function
-        function updateWallpaper(theme) {
-            document.body.style.backgroundImage = `url(/wallpapers/${theme}.jpg)`;
-        }
-
-        // Setup weather icons interaction
-        document.querySelectorAll('.weather-icon').forEach(icon => {
-            icon.addEventListener('click', () => {
-                currentMood = icon.dataset.mood;
-                updateMoodDisplay(currentMood);
-            });
-        });
-
-        // Setup mood text analysis
-        const moodText = document.getElementById('mood-text');
-        let typingTimer;
-        
-        moodText.addEventListener('keyup', () => {
-            clearTimeout(typingTimer);
-            typingTimer = setTimeout(async () => {
-                const analysis = await analyzeMood(moodText.value);
-                currentMood = analysis.weather;
-                updateMoodScore(analysis.score);
-                updateMoodDisplay(currentMood);
-                updateWallpaper(analysis.wallpaper);
-                
-                // Update pattern recognition display
-                if (analysis.patterns.length > 0) {
-                    document.getElementById('mood-patterns').innerHTML = analysis.patterns
-                        .map(pattern => `<li>${pattern}</li>`)
-                        .join('');
-                }
-            }, 1000);
-        });
-
-        function updateMoodScore(score) {
-            document.getElementById('user-score').textContent = `Mood Score: ${Math.round(score * 100)}`;
-        }
-
-        function updateMoodDisplay(mood) {
-            const particles = document.getElementById('mood-particles');
-            particles.innerHTML = ''; // Clear existing particles
-
-            switch(mood) {
-                case 'sunny':
-                    createSunnyEffect();
-                    break;
-                case 'cloudy':
-                    createCloudyEffect();
-                    break;
-                case 'rainy':
-                    createRainyEffect();
-                    break;
-                case 'stormy':
-                    createStormyEffect();
-                    break;
-            }
-        }
-
-        // Particle effects
-        function createSunnyEffect() {
-            const svg = document.getElementById('mood-particles');
-            for(let i = 0; i < 20; i++) {
-                const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-                circle.setAttribute("cx", Math.random() * 100 + "%");
-                circle.setAttribute("cy", Math.random() * 100 + "%");
-                circle.setAttribute("r", Math.random() * 3);
-                circle.setAttribute("fill", "#FFD700");
-                svg.appendChild(circle);
-
-                gsap.to(circle, {
-                    duration: 2 + Math.random() * 2,
-                    y: -100,
-                    opacity: 0,
-                    repeat: -1,
-                    ease: "none"
-                });
-            }
-        }
-
-        function createCloudyEffect() {
-            const svg = document.getElementById('mood-particles');
-            for(let i = 0; i < 5; i++) {
-                const cloud = document.createElementNS("http://www.w3.org/2000/svg", "path");
-                cloud.setAttribute("d", "M30,50 Q40,40 50,45 Q60,35 70,45 Q80,40 85,50 Q90,60 80,65 Q75,70 65,68 Q60,75 50,70 Q40,75 35,68 Q25,70 20,65 Q15,60 20,55 Q25,50 30,50");
-                cloud.setAttribute("fill", "rgba(255,255,255,0.3)");
-                cloud.setAttribute("transform", `translate(${Math.random() * 100},${Math.random() * 100}) scale(0.5)`);
-                cloud.classList.add("floating-cloud");
-                svg.appendChild(cloud);
-            }
-        }
-
-        function createRainyEffect() {
-            const svg = document.getElementById('mood-particles');
-            for(let i = 0; i < 50; i++) {
-                const drop = document.createElementNS("http://www.w3.org/2000/svg", "line");
-                drop.setAttribute("x1", Math.random() * 100 + "%");
-                drop.setAttribute("y1", -10);
-                drop.setAttribute("x2", Math.random() * 100 + "%");
-                drop.setAttribute("y2", 0);
-                drop.setAttribute("stroke", "#4682B4");
-                drop.setAttribute("stroke-width", "2");
-                svg.appendChild(drop);
-
-                gsap.to(drop, {
-                    duration: 1 + Math.random(),
-                    y: 500,
-                    repeat: -1,
-                    ease: "none"
-                });
-            }
-        }
-
-        function createStormyEffect() {
-            const svg = document.getElementById('mood-particles');
-            for(let i = 0; i < 3; i++) {
-                const lightning = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
-                lightning.setAttribute("points", "45,60 55,60 40,75 50,75 35,90");
-                lightning.setAttribute("fill", "#FFD700");
-                lightning.setAttribute("transform", `translate(${Math.random() * 100},${Math.random() * 100})`);
-                svg.appendChild(lightning);
-
-                gsap.to(lightning, {
-                    duration: 0.1,
-                    opacity: 0,
-                    repeat: -1,
-                    repeatDelay: Math.random() * 2,
-                    ease: "none"
-                });
-            }
-        }
-
-        function initFAQ() {
-            document.querySelectorAll('.faq-item').forEach(item => {
-                item.addEventListener('click', () => {
-                    const wasActive = item.classList.contains('active');
-                    
-                    // Close all FAQs
-                    document.querySelectorAll('.faq-item').forEach(faq => {
-                        faq.classList.remove('active');
-                        faq.querySelector('.toggle').textContent = '+';
-                    });
-                    
-                    // Toggle clicked FAQ
-                    if (!wasActive) {
-                        item.classList.add('active');
-                        item.querySelector('.toggle').textContent = '-';
-                    }
-                });
-            });
-        }
-
-        function initAchievements() {
-            document.querySelectorAll('.achievement-card').forEach(card => {
-                card.addEventListener('mouseenter', () => {
-                    const progress = card.querySelector('.progress');
-                    progress.style.transition = 'width 1s ease';
-                    progress.style.width = progress.style.width;
-                });
-            });
-        }
-
-        // Newsletter form handling
-        document.getElementById('newsletter-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const email = e.target.querySelector('input[type="email"]').value;
-            
-            try {
-                const response = await fetch('/api/newsletter/subscribe', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ email })
-                });
-                
-                if (response.ok) {
-                    alert('谢谢您的订阅！');
-                    e.target.reset();
-                } else {
-                    throw new Error('订阅失败');
-                }
-            } catch (error) {
-                alert('抱歉，发生了错误。请稍后再试。');
-            }
-        });
-
-        const sections = document.querySelectorAll('.section-wrapper');
-
-        const sectionObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-
-        sections.forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            sectionObserver.observe(section);
-        });
-
-        // Initialize the weather timeline
-        function initWeatherTimeline() {
-            const timeline = document.querySelector('.weather-timeline');
-            if (!timeline) return;
-
-            // Generate 30 days of sample weather data
-            const weatherTypes = ['sunny', 'cloudy', 'rainy', 'stormy', 'starry', 'aurora'];
-            const weatherColors = {
-                sunny: '#FFD700',
-                cloudy: '#E0E0E0',
-                rainy: '#4682B4',
-                stormy: '#4A4A4A',
-                starry: '#191970',
-                aurora: '#98FB98'
-            };
-
-            // Create timeline markers
-            for (let i = 0; i < 30; i++) {
-                const marker = document.createElement('div');
-                marker.classList.add('timeline-marker');
-                
-                // Randomly select weather type for demo
-                const weatherType = weatherTypes[Math.floor(Math.random() * weatherTypes.length)];
-                
-                marker.style.cssText = `
-                    position: absolute;
-                    left: ${(i / 29) * 100}%;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    width: 8px;
-                    height: 8px;
-                    border-radius: 50%;
-                    background-color: ${weatherColors[weatherType]};
-                    transition: transform 0.3s ease;
-                `;
-
-                // Add hover effect
-                marker.addEventListener('mouseenter', () => {
-                    marker.style.transform = 'translateY(-50%) scale(1.5)';
-                    marker.style.zIndex = '2';
-                });
-
-                marker.addEventListener('mouseleave', () => {
-                    marker.style.transform = 'translateY(-50%) scale(1)';
-                    marker.style.zIndex = '1';
-                });
-
-                timeline.appendChild(marker);
-            }
-
-            // Add connecting line
-            const connectionLine = document.createElement('div');
-            connectionLine.style.cssText = `
-                position: absolute;
-                top: 50%;
-                left: 0;
-                right: 0;
-                height: 2px;
-                background: rgba(255,255,255,0.2);
-                transform: translateY(-50%);
-            `;
-            timeline.insertBefore(connectionLine, timeline.firstChild);
-
-            // Add timeline labels
-            const startLabel = document.createElement('div');
-            startLabel.textContent = '第1天';
-            startLabel.style.cssText = `
-                position: absolute;
-                left: 0;
-                bottom: -25px;
-                font-size: 12px;
-                color: rgba(255,255,255,0.7);
-            `;
-
-            const endLabel = document.createElement('div');
-            endLabel.textContent = '第30天';
-            endLabel.style.cssText = `
-                position: absolute;
-                right: 0;
-                bottom: -25px;
-                font-size: 12px;
-                color: rgba(255,255,255,0.7);
-            `;
-
-            timeline.appendChild(startLabel);
-            timeline.appendChild(endLabel);
-        }
-
-        // Call the initWeatherTimeline function
-        initWeatherTimeline();
-        
-        // Locale Picker Initialization
-        function initLocalePicker() {
-            const localePicker = document.getElementById('locale-picker');
-            
-            // Get current locale from URL
-            const getCurrentLocale = () => {
-                const path = window.location.pathname;
-                const matches = path.match(/\/([a-z]{2})\//);
-                return matches ? matches[1] : 'en';
-            };
-
-            // Set initial value based on URL
-            const currentLocale = getCurrentLocale();
-            localePicker.value = currentLocale;
-
-            // Handle locale change
-            localePicker.addEventListener('change', (e) => {
-                const newLocale = e.target.value;
-                const currentPath = window.location.pathname;
-                
-                // If current path already has locale
-                if (currentPath.match(/\/[a-z]{2}\//)) {
-                    window.location.pathname = currentPath.replace(/\/[a-z]{2}\//, `/${newLocale}/`);
-                } else {
-                    // If no locale in path, add it
-                    window.location.pathname = `/${newLocale}${currentPath}`;
-                }
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            initMetaphorPoll();
-            initFAQ();
-            initAchievements();
-            updateMoodDisplay('cloudy'); // Default mood
-            initLocalePicker(); // Add this line
-            
-            // Video Demo Initialization
-            const video = document.getElementById('demo-video');
-            // Add lazy loading
-            video.setAttribute('loading', 'lazy');
-            // Add poster if video fails to load
-            video.addEventListener('error', () => {
-                video.poster = '/images/video-fallback.jpg';
-            });
-            // Pause video when out of view
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting && !video.paused) {
-                        video.pause();
-                    }
-                });
-            }, { threshold: 0.5 });
-            observer.observe(video);
-            // Track video engagement
-            video.addEventListener('play', () => {
-                try {
-                    fetch('/api/analytics/video-play', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            videoId: 'demo',
-                            timestamp: new Date().toISOString()
-                        })
-                    });
-                } catch (error) {
-                    console.error('Error tracking video play:', error);
-                }
-            });
-        });
-    </script>
-</body></html>
+        <script>
+            alert('구독해주셔서 감사합니다!');
+            alert('죄송합니다. 오류가 발생했습니다. 나중에 다시 시도해주세요.');
+        </script>
+    </body>
+</html>
