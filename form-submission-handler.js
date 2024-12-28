@@ -69,7 +69,7 @@
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
-          form.reset();
+          // form.reset();
 var successMessage = document.getElementById("success-message");
 if (successMessage) {
     successMessage.style.display = "block"; // show success message
