@@ -15,7 +15,7 @@
     <!-- Open Graph for Social Media -->
     <meta property="og:title" content="MoodWeather - Track Your Emotional Climate">
     <meta property="og:description" content="Experience innovative emotional understanding with intuitive weather metaphors and AI analysis.">
-    <meta property="og:image" content="https://moodweather.heytcm.com/images/social-preview.jpg">
+    <meta property="og:image" content="https://moodweather.heytcm.com/social-preview.jpg">
     <meta property="og:url" content="https://moodweather.heytcm.com">
     <meta property="og:type" content="website">
 
@@ -23,32 +23,15 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="MoodWeather - Track Your Emotional Climate">
     <meta name="twitter:description" content="Experience innovative emotional understanding with intuitive weather metaphors and AI analysis.">
-    <meta name="twitter:image" content="https://moodweather.heytcm.com/images/social-preview.jpg">
+    <meta name="twitter:image" content="https://moodweather.heytcm.com/social-preview.jpg">
     <meta name="twitter:creator" content="@moodweather">
 
     <!-- Favicon -->
-    <link rel="icon" href="https://moodweather.heytcm.com//images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://moodweather.heytcm.com/images/favicon.ico" type="image/x-icon">
 
     <!-- PWA -->
-    <link rel="manifest" href="https://moodweather.heytcm.com/manifest.json">
+    <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#2D3250">
-    <script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker
-      .register('./service-worker.js')
-      .then(registration => {
-        console.log('Service Worker registered with scope:', registration.scope);
-      })
-      .catch(error => {
-        console.error('Service Worker registration failed:', error);
-      });
-  });
-} else {
-  console.warn('Service Workers are not supported in this browser.');
-}
-
-        </script>
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
@@ -92,7 +75,7 @@ if ('serviceWorker' in navigator) {
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.8",
-        "ratingCount": "1250"
+        "ratingCount": "15"
       }
     }
     </script>
@@ -1484,6 +1467,27 @@ if ('serviceWorker' in navigator) {
         .timeline-marker:hover {
             box-shadow: 0 0 10px rgba(255,255,255,0.5);
         }
+        
+        /* Add new styles for feature icons */
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--light);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.2);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.9);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
     </style>
 </head>
 <body>
@@ -1502,10 +1506,10 @@ if ('serviceWorker' in navigator) {
     <div class="container">
         <div class="hero-section">
             <h1>Track Your Mind Like Weather</h1>
-            <p>Discover an innovative way to understand your emotional changes. MoodWeather uses intuitive weather metaphors and AI analysis to transform your emotions into weather patterns, making emotional tracking natural and enjoyable.</p>
+            <p>Discover an innovative way to understand your emotional changes. MoodWeather transforms emotional expression through relatable weather metaphors, making it simple and engaging to articulate emotions. With features like voice recording, personalized rewards, and community connection, taking charge of your mental well-being has never been more engaging.</p>
             <div class="hero-buttons">
-                <a href="https://moodweather.heytcm.com/signup" class="cta-button primary">SignUp</a>
-                <a href="https://moodweather.heytcm.com/app" class="cta-button secondary">View Demo</a>
+                <a href="https://moodweather.heytcm.com/signup" class="cta-button primary">Start Tracking</a>
+                <a href="https://moodweather.heytcm.com/demo" class="cta-button secondary">View Demo</a>
             </div>
         </div>
 
@@ -1532,7 +1536,7 @@ if ('serviceWorker' in navigator) {
                     <div class="demo-cta">
                         <h3>Ready to start your emotional journey?</h3>
                         <div class="cta-buttons">
-                            <a href="https://moodweather.heytcm.com/app" class="cta-button primary">Experience Now</a>
+                            <a href="/app" class="cta-button primary">Experience Now</a>
                             <a href="https://moodweather.heytcm.com/signup" class="cta-button secondary">Free Sign Up</a>
                         </div>
                     </div>
@@ -1581,33 +1585,65 @@ if ('serviceWorker' in navigator) {
             <div class="section-wrapper features-section">
                 <div class="section-header">
                     <h2 class="section-title">Life-Changing Features</h2>
+                    <p class="section-subtitle">More than just a tracker - a holistic tool for emotional awareness and connection</p>
                 </div>
                 <div class="section-content">
                     <div class="features-grid">
                         <div class="feature-card">
-                            <div class="feature-icon">🎯</div>
-                            <h3>SMART Goal Setting</h3>
-                            <p>Set personal emotional goals, track your progress, and experience a sense of accomplishment.</p>
+                            <div class="feature-icon">📝</div>
+                            <h3>Expressive Mood Logging</h3>
+                            <p>Submit moods via text, tags, or voice recordings for quick and easy tracking.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🖼️</div>
+                            <h3>Personalized Rewards</h3>
+                            <p>Unlock beautiful weather-themed wallpapers that reflect your logged moods, enhancing your emotional journey.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🌐</div>
+                            <h3>Connect with Others</h3>
+                            <p>The Radar page helps you find nearby users experiencing similar emotions, fostering community support.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🏆</div>
+                            <h3>Engaging Leaderboard</h3>
+                            <p>Compete with friends and see how your activity compares to others in your city, motivating you to stay engaged.</p>
                         </div>
                         <div class="feature-card">
                             <div class="feature-icon">📊</div>
-                            <h3>Advanced Analytics</h3>
-                            <p>Visualize your emotional patterns through visual charts and discover emotional triggers.</p>
+                            <h3>In-Depth Analytics</h3>
+                            <p>Access comprehensive reports to visualize mood patterns over time and gain insights into emotional triggers.</p>
                         </div>
                         <div class="feature-card">
-                            <div class="feature-icon">🧘</div>
-                            <h3>Mindfulness Tools</h3>
-                            <p>Access guided meditations and exercises tailored to your current emotional climate.</p>
+                            <div class="feature-icon">📅</div>
+                            <h3>Mood Calendar & Collectibles</h3>
+                            <p>Track your moods with a calendar feature and unlock themed collectibles that add a gamified element to self-care.</p>
                         </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">👥</div>
-                            <h3>Community Support</h3>
-                            <p>Connect with others in a safe community space and share your shared journey.</p>
+                    </div>
+
+                    <!-- Add a preview of the story mood journal -->
+                    <div class="story-preview" style="margin-top: 40px; background: var(--primary); padding: 30px; border-radius: 15px;">
+                        <h3 style="color: var(--light); margin-bottom: 20px; text-align: center;">Preview of the Emotional Journal</h3>
+                        <div class="journal-entry" style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                            <div class="entry-header" style="display: flex; align-items: center; margin-bottom: 15px;">
+                                <div class="weather-icon" style="font-size: 2rem; margin-right: 15px;">🌅</div>
+                                <div class="entry-meta">
+                                    <h4 style="color: var(--light);">Morning Reflection</h4>
+                                    <span style="color: rgba(255,255,255,0.7);">Today's Climate: Partly Cloudy, Occasionally Sunny</span>
+                                </div>
+                            </div>
+                            <p style="color: rgba(255,255,255,0.9); line-height: 1.6;">
+                                "The morning light has broken through the clouds and brought a new beginning. Every ray of light symbolizes a small victory and reminds me that even on dark days, wonderful opportunities await."
+                            </p>
+                            <div class="ai-insight" style="margin-top: 15px; padding: 15px; background: rgba(246,177,122,0.1); border-radius: 8px;">
+                                <h5 style="color: var(--light); margin-bottom: 10px;">AI's Emotional Perspective</h5>
+                                <p style="color: rgba(255,255,255,0.8);">
+                                    Your emotional climate shows signs of improvement. The mix of clouds and sunshine indicates a balanced spectrum in a phase of change, leading you into an increasingly optimistic state.
+                                </p>
+                            </div>
                         </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">🧠</div>
-                            <h3>Scientifically Proven Approach</h3>
-                            <p>Based on proven psychological principles, supported by extensive research on emotional intelligence and mental health. Our weather metaphor system was developed in collaboration with mental health professionals.</p>
+                        <div style="text-align: center;">
+                            <a href="/journal" class="cta-button" style="display: inline-block; margin-top: 20px;">Start Your Weather Story</a>
                         </div>
                     </div>
                 </div>
@@ -2159,113 +2195,30 @@ if ('serviceWorker' in navigator) {
                             <div class="period">Forever</div>
                             <ul class="features">
                                 <li>Basic emotional tracking</li>
-                                <li>Weather metaphor system</li>
-                                <li>Basic insights</li>
-                                <li>Access to the community</li>
+                                <li><li>Personalized rewards and badges</li>
                             </ul>
-                            <a href="https://moodweather.heytcm.com/signup" class="cta-button">Get Started</a>
                         </div>
                         <div class="pricing-card popular">
-                            <div class="popular-badge">Most Popular</div>
+                            <div class="popular-badge">Popular</div>
                             <h3>Premium</h3>
                             <div class="price">$9.99</div>
-                            <div class="period">Monthly</div>
+                            <div class="period">Per Month</div>
                             <ul class="features">
-                                <li>Advanced emotional analytics</li>
-                                <li>AI-powered insights</li>
-                                <li>Priority support</li>
-                                <li>Expert resources</li>
-                                <li>Integration features</li>
+                                <li>Advanced emotional tracking with AI insights</li>
+                                <li>Personalized coaching and recommendations</li>
+                                <li>Access to community forums and support groups</li>
+                                <li>Prioritized customer support</li>
                             </ul>
-                            <a href="https://moodweather.heytcm.com/premium" class="cta-button">Try Premium</a>
                         </div>
                         <div class="pricing-card">
-                            <h3>Enterprise</h3>
-                            <div class="price">Custom</div>
-                            <div class="period">Contact Us</div>
+                            <h3>Pro</h3>
+                            <div class="price">$19.99</div>
+                            <div class="period">Per Month</div>
                             <ul class="features">
-                                <li>Customized implementation</li>
-                                <li>API access</li>
-                                <li>Dedicated support</li>
-                                <li>Team management</li>
-                                <li>Enhanced security</li>
-                            </ul>
-                            <a href="https://moodweather.heytcm.com/enterprise" class="cta-button">Contact Sales</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section-container">
-            <div class="section-wrapper integration-section">
-                <div class="section-header">
-                    <h2 class="section-title">Seamless Integration</h2>
-                </div>
-                <div class="section-content">
-                    <div class="integration-grid features-grid">
-                        <div class="feature-card">
-                            <div class="feature-icon">🏥</div>
-                            <h3>Healthcare Providers</h3>
-                            <p>Share your data securely with your health team to achieve better treatment outcomes.</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">⌚</div>
-                            <h3>Wearable Devices</h3>
-                            <p>Sync with popular fitness trackers and smartwatches for holistic health tracking.</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">📱</div>
-                            <h3>Mobile Health Apps</h3>
-                            <p>Connect with other health and fitness apps to get a unified dashboard for your health.</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">📊</div>
-                            <h3>Analytics Platforms</h3>
-                            <p>Export data to popular analytics tools for deeper insights.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="section-container">
-            <div class="section-wrapper impact-section">
-                <div class="section-header">
-                    <h2 class="section-title">Real Impact</h2>
-                </div>
-                <div class="section-content">
-                    <div class="research-grid">
-                        <div class="research-card">
-                            <div class="stat-circle">
-                                <span class="stat-number">500+</span>
-                            </div>
-                            <h3>Active Users</h3>
-                            <p>A community of emotional health enthusiasts growing worldwide.</p>
-                        </div>
-                        <div class="research-card">
-                            <div class="stat-circle">
-                                <span class="stat-number">2+</span>
-                            </div>
-                            <h3>Clinical Partners</h3>
-                            <p>Healthcare providers using MoodWeather to care for their patients.</p>
-                        </div>
-                        <div class="research-card">
-                            <div class="stat-circle">
-                                <span class="stat-number">89%</span>
-                            </div>
-                            <h3>User Satisfaction</h3>
-                            <p>Users report improvements in their emotional awareness.</p>
-                        </div>
-                    </div>
-                    <div class="research-highlights">
-                        <div class="highlight-card">
-                            <h3>Global Impacts</h3>
-                            <ul class="findings-list">
-                                <li>Supporting mental health initiatives in 5 countries.</li>
-                                <li>Collaborating with the World Health Organization to improve access to mental health.</li>
-                                <li>Contributing to academic research in emotional intelligence.</li>
-                                <li>Providing free access for underserved communities.</li>
+                                <li>All Premium features</li>
+                                <li>Advanced data analytics and insights</li>
+                                <li>Customizable tracking and reporting</li>
+                                <li>Dedicated account manager</li>
                             </ul>
                         </div>
                     </div>
@@ -2273,704 +2226,50 @@ if ('serviceWorker' in navigator) {
             </div>
         </div>
 
-        <div class="newsletter-section">
-            <h2>Stay Informed</h2>
-            <p>Get the latest updates and emotional health advice from MoodWeather.</p>
-            <form id="newsletter-form" class="newsletter-form">
-                <input type="email" placeholder="Enter your email" required>
-                <button type="submit" class="cta-button">Subscribe</button>
-            </form>
-        </div>
-
         <div class="section-container">
-            <div class="section-wrapper metaphor-poll-section">
-                <div class="section-header">
-                    <h2 class="section-title">Vote for Your Favorite Weather Metaphor</h2>
-                </div>
+            <div class="section-wrapper newsletter-section">
                 <div class="section-content">
-                    <div id="metaphor-examples" class="metaphor-grid">
-                    </div>
-                    <div class="poll-results">
-                        <h3>Most Popular Metaphor</h3>
-                        <div id="poll-chart" class="poll-chart">
-                        </div>
+                    <h2>Stay Updated with Our Newsletter</h2>
+                    <p>Get the latest news, updates, and tips on mental health and emotional wellness.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Your email address">
+                        <button class="cta-button">Subscribe</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="section-container">
-            <div class="section-wrapper mood-story-section">
-                <div class="section-header">
-                    <h2 class="section-title">Your Emotional Story in 30 Days</h2>
-                    <p class="section-subtitle">Experience your emotional journey through weather metaphors</p>
-                </div>
-                <div class="section-content">
-                    <div class="story-preview">
-                        <div class="story-cover">
-                            <h3>Inner Climate: A 30-Day Journey</h3>
-                            <div class="weather-timeline">
-                            </div>
-                        </div>
-                        
-                        <div class="story-chapters">
-                            <div class="chapter">
-                                <h4>Week One: In Search of Sunny Skies</h4>
-                                <div class="day-entry">
-                                    <div class="weather-icon">🌞</div>
-                                    <div class="entry-content">
-                                        <h5>Day 1: Radiant Start</h5>
-                                        <p>"A new week, new hope. Today I feel radiant, like the morning light."</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="chapter">
-                                <h4>Week Two: Challenges in the Storm</h4>
-                                <div class="day-entry">
-                                    <div class="weather-icon">⛈️</div>
-                                    <div class="entry-content">
-                                        <h5>Day 8: Electric Storm</h5>
-                                        <p>"The stress accumulates like storm clouds, but I know that after the rain, a rainbow will come."</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="chapter">
-                                <h4>Week Three: Finding Calm</h4>
-                                <div class="day-entry">
-                                    <div class="weather-icon">✨</div>
-                                    <div class="entry-content">
-                                        <h5>Day 15: Glittering Stars</h5>
-                                        <p>"After a busy day, gazing at the stars brings meaning to everything."</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="chapter">
-                                <h4>Week Four: Breaking Through Barriers</h4>
-                                <div class="day-entry">
-                                    <div class="weather-icon">🌈</div>
-                                    <div class="entry-content">
-                                        <h5>Day 25: Dreams of Resurrection</h5>
-                                        <p>"Today I achieved an important goal and feel radiant like a resurrection."</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="story-features">
-                            <div class="feature">
-                                <i class="feature-icon">🎥</i>
-                                <h4>Dynamic Summary</h4>
-                                <p>Experience how your emotional journey is presented in a beautiful video montage.</p>
-                            </div>
-                            <div class="feature">
-                                <i class="feature-icon">🎨</i>
-                                <h4>Personalized Cover</h4>
-                                <p>Choose one of your favorite moments as the cover for your story.</p>
-                            </div>
-                            <div class="feature">
-                                <i class="feature-icon">🏆</i>
-                                <h4>Achievement Badges</h4>
-                                <p>Unlock special emotional badges by keeping a consistent journal.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <footer class="footer">
+        <div class="footer">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <h3>MoodWeather</h3>
-                    <p>Express your emotions naturally</p>
+                    <h3>About Us</h3>
+                    <p>We are a team of mental health professionals and technologists dedicated to creating innovative solutions for emotional wellness.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Follow Us</h3>
                     <div class="social-links">
-                        <a href="https://twitter.com/moodweather">Twitter</a>
-                        <a href="https://facebook.com/moodweather">Facebook</a>
-                        <a href="https://instagram.com/moodweather">Instagram</a>
+                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Instagram</a>
                     </div>
-                </div>
-                <div class="footer-col">
-                    <h4>Product</h4>
-                    <ul>
-                        <li><a href="https://moodweather.heytcm.com/features">Features</a></li>
-                        <li><a href="https://moodweather.heytcm.com/pricing">Pricing</a></li>
-                        <li><a href="https://moodweather.heytcm.com/enterprise">Enterprise</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="https://moodweather.heytcm.com/blog">Blog</a></li>
-                        <li><a href="https://moodweather.heytcm.com/help">Help Center</a></li>
-                        <li><a href="https://moodweather.heytcm.com/api">API Documentation</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Research</h4>
-                    <ul>
-                        <li><a href="https://moodweather.heytcm.com/research">Research Publications</a></li>
-                        <li><a href="https://moodweather.heytcm.com/studies">Case Studies</a></li>
-                        <li><a href="https://moodweather.heytcm.com/partners">Research Partners</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="https://moodweather.heytcm.com/about">About Us</a></li>
-                        <li><a href="https://moodweather.heytcm.com/careers">Career Opportunities</a></li>
-                        <li><a href="https://moodweather.heytcm.com/contact">Contact Us</a></li>
-                    </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 MoodWeather. All rights reserved.</p>
                 <div class="legal-links">
-                    <a href="https://moodweather.heytcm.com/privacy">Privacy Policy</a>
-                    <a href="https://moodweather.heytcm.com/terms">Terms of Use</a>
+                    <a href="/terms">Terms of Service</a>
+                    <a href="/privacy">Privacy Policy</a>
                 </div>
+                <div class="copyright">Copyright 2023 MoodWeather. All rights reserved.</div>
             </div>
-        </footer>
+        </div>
     </div>
-
-    <script>
-        // Initialize metaphor poll functionality
-        function initMetaphorPoll() {
-            const metaphorExamples = [
-                { id: 1, text: "Sunny days represent moments of joy and success", votes: 245 },
-                { id: 2, text: "The stormy sky captures intense emotional turbulence", votes: 189 },
-                { id: 3, text: "The gentle rain reflects times of quiet reflection", votes: 167 },
-                { id: 4, text: "Moments of the rainbow symbolize hope after difficulties", votes: 203 },
-                { id: 5, text: "Veiled mornings represent uncertainty and transition", votes: 156 },
-                { id: 6, text: "Clear starry skies denote peace and clarity", votes: 198 }
-            ];
-
-            // Populate metaphor examples
-            const metaphorGrid = document.getElementById('metaphor-examples');
-            metaphorExamples.forEach(metaphor => {
-                const card = document.createElement('div');
-                card.className = 'metaphor-card';
-                card.setAttribute('data-id', metaphor.id);
-                
-                card.innerHTML = `
-                    <p class="metaphor-text">${metaphor.text}</p>
-                    <div class="vote-count">
-                        <span>${metaphor.votes} Votes</span>
-                        <button class="vote-btn">Vote</button>
-                    </div>
-                `;
-                
-                metaphorGrid.appendChild(card);
-            });
-
-            // Update poll chart
-            function updatePollChart() {
-                const pollChart = document.getElementById('poll-chart');
-                pollChart.innerHTML = '';
-                
-                const totalVotes = metaphorExamples.reduce((sum, item) => sum + item.votes, 0);
-                
-                metaphorExamples.forEach(metaphor => {
-                    const percentage = ((metaphor.votes / totalVotes) * 100).toFixed(1);
-                    
-                    const pollBar = document.createElement('div');
-                    pollBar.className = 'poll-bar';
-                    pollBar.innerHTML = `
-                        <div class="poll-bar-fill" style="width: ${percentage}%"></div>
-                        <div class="poll-bar-text">
-                            <span>${metaphor.text}</span>
-                            <span>${percentage}%</span>
-                        </div>
-                    `;
-                    
-                    pollChart.appendChild(pollBar);
-                });
-            }
-
-            // Handle voting
-            metaphorGrid.addEventListener('click', (e) => {
-                const voteBtn = e.target.closest('.vote-btn');
-                if (!voteBtn) return;
-
-                const card = voteBtn.closest('.metaphor-card');
-                const metaphorId = parseInt(card.dataset.id);
-                
-                // Find and update the metaphor votes
-                const metaphor = metaphorExamples.find(m => m.id === metaphorId);
-                if (metaphor) {
-                    metaphor.votes++;
-                    
-                    // Update vote count display
-                    const voteCount = card.querySelector('.vote-count span');
-                    voteCount.textContent = `${metaphor.votes} Votes`;
-                    
-                    // Add voted class
-                    card.classList.add('voted');
-                    
-                    // Disable vote button
-                    voteBtn.disabled = true;
-                    voteBtn.textContent = 'Voted';
-                    
-                    // Update chart
-                    updatePollChart();
-
-                    // Optional: Send vote to server
-                    try {
-                        fetch('/api/metaphor/vote', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({ metaphorId })
-                        });
-                    } catch (error) {
-                        console.error('Error recording vote:', error);
-                    }
-                }
-            });
-
-            // Initial chart update
-            updatePollChart();
-        }
-
-        document.documentElement.style.scrollBehavior = 'smooth';
-        
-        let currentMood = '';
-        const moodScores = {
-            sunny: 1,
-            cloudy: 0.5,
-            rainy: 0,
-            stormy: -0.5
-        };
-
-        // Initialize mood analysis API
-        async function analyzeMood(text) {
-            try {
-                const response = await fetch('/api/ai_completion', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        prompt: `Analyze the following text and determine:
-                        1. The primary weather mood (sunny, cloudy, rainy or stormy)
-                        2. An mood score between -1 and 1
-                        3. Key patterns or triggers
-                        4. Suggested background theme
-                        
-                        <typescript-interface>
-                        interface Response {
-                            weather: string;
-                            score: number;
-                            analysis: string;
-                            patterns: string[];
-                            wallpaper: string;
-                        }
-                        </typescript-interface>
-                        
-                        <example>
-                        {
-                            "weather": "sunny",
-                            "score": 0.8,
-                            "analysis": "The text indicates a positive and optimistic mood",
-                            "patterns": ["social interaction", "success", "outdoor activities"],
-                            "wallpaper": "sunny_meadow"
-                        }
-                        </example>`,
-                        data: text
-                    })
-                });
-                return await response.json();
-            } catch (error) {
-                console.error('Error recognizing mood:', error);
-                return {
-                    weather: 'cloudy',
-                    score: 0,
-                    analysis: 'Mood could not be analyzed',
-                    patterns: [],
-                    wallpaper: 'default'
-                };
-            }
-        }
-
-        // Add wallpaper updating function
-        function updateWallpaper(theme) {
-            document.body.style.backgroundImage = `url(/wallpapers/${theme}.jpg)`;
-        }
-
-        // Setup weather icons interaction
-        document.querySelectorAll('.weather-icon').forEach(icon => {
-            icon.addEventListener('click', () => {
-                currentMood = icon.dataset.mood;
-                updateMoodDisplay(currentMood);
-            });
-        });
-
-        // Setup mood text analysis
-        const moodText = document.getElementById('mood-text');
-        let typingTimer = null;
-        
-        moodText.addEventListener('keyup', () => {
-            clearTimeout(typingTimer);
-            typingTimer = setTimeout(async () => {
-                const analysis = await analyzeMood(moodText.value);
-                currentMood = analysis.weather;
-                updateMoodScore(analysis.score);
-                updateMoodDisplay(currentMood);
-                updateWallpaper(analysis.wallpaper);
-                
-                // Update pattern recognition display
-                if (analysis.patterns.length > 0) {
-                    document.getElementById('mood-patterns').innerHTML = analysis.patterns
-                        .map(pattern => `<li>${pattern}</li>`)
-                        .join('');
-                }
-            }, 1000);
-        });
-
-        function updateMoodScore(score) {
-            document.getElementById('user-score').textContent = `Mood Score: ${Math.round(score * 100)}`;
-        }
-
-        function updateMoodDisplay(mood) {
-            const particles = document.getElementById('mood-particles');
-            particles.innerHTML = ''; // Clear existing particles
-
-            switch(mood) {
-                case 'sunny':
-                    createSunnyEffect();
-                    break;
-                case 'cloudy':
-                    createCloudyEffect();
-                    break;
-                case 'rainy':
-                    createRainyEffect();
-                    break;
-                case 'stormy':
-                    createStormyEffect();
-                    break;
-            }
-        }
-
-        // Particle effects
-        function createSunnyEffect() {
-            const svg = document.getElementById('mood-particles');
-            for(let i = 0; i < 20; i++) {
-                const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-                circle.setAttribute("cx", Math.random() * 100 + "%");
-                circle.setAttribute("cy", Math.random() * 100 + "%");
-                circle.setAttribute("r", Math.random() * 3);
-                circle.setAttribute("fill", "#FFD700");
-                svg.appendChild(circle);
-
-                gsap.to(circle, {
-                    duration: 2 + Math.random() * 2,
-                    y: -100,
-                    opacity: 0,
-                    repeat: -1,
-                    ease: "none"
-                });
-            }
-        }
-
-        function createCloudyEffect() {
-            const svg = document.getElementById('mood-particles');
-            for(let i = 0; i < 5; i++) {
-                const cloud = document.createElementNS("http://www.w3.org/2000/svg", "path");
-                cloud.setAttribute("d", "M30,50 Q40,40 50,45 Q60,35 70,45 Q80,40 85,50 Q90,60 80,65 Q75,70 65,68 Q60,75 50,70 Q40,75 35,68 Q25,70 20,65 Q15,60 20,55 Q25,50 30,50");
-                cloud.setAttribute("fill", "rgba(255,255,255,0.3)");
-                cloud.setAttribute("transform", `translate(${Math.random() * 100},${Math.random() * 100}) scale(0.5)`);
-                cloud.classList.add("floating-cloud");
-                svg.appendChild(cloud);
-            }
-        }
-
-        function createRainyEffect() {
-            const svg = document.getElementById('mood-particles');
-            for(let i = 0; i < 50; i++) {
-                const drop = document.createElementNS("http://www.w3.org/2000/svg", "line");
-                drop.setAttribute("x1", Math.random() * 100 + "%");
-                drop.setAttribute("y1", -10);
-                drop.setAttribute("x2", Math.random() * 100 + "%");
-                drop.setAttribute("y2", 0);
-                drop.setAttribute("stroke", "#4682B4");
-                drop.setAttribute("stroke-width", "2");
-                svg.appendChild(drop);
-
-                gsap.to(drop, {
-                    duration: 1 + Math.random(),
-                    y: 500,
-                    repeat: -1,
-                    ease: "none"
-                });
-            }
-        }
-
-        function createStormyEffect() {
-            const svg = document.getElementById('mood-particles');
-            for(let i = 0; i < 3; i++) {
-                const lightning = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
-                lightning.setAttribute("points", "45,60 55,60 40,75 50,75 35,90");
-                lightning.setAttribute("fill", "#FFD700");
-                lightning.setAttribute("transform", `translate(${Math.random() * 100},${Math.random() * 100})`);
-                svg.appendChild(lightning);
-
-                gsap.to(lightning, {
-                    duration: 0.1,
-                    opacity: 0,
-                    repeat: -1,
-                    repeatDelay: Math.random() * 2,
-                    ease: "none"
-                });
-            }
-        }
-
-        function initFAQ() {
-            document.querySelectorAll('.faq-item').forEach(item => {
-                item.addEventListener('click', () => {
-                    const wasActive = item.classList.contains('active');
-                    
-                    // Close all FAQs
-                    document.querySelectorAll('.faq-item').forEach(faq => {
-                        faq.classList.remove('active');
-                        faq.querySelector('.toggle').textContent = '+';
-                    });
-                    
-                    // Toggle clicked FAQ
-                    if (!wasActive) {
-                        item.classList.add('active');
-                        item.querySelector('.toggle').textContent = '-';
-                    }
-                });
-            });
-        }
-
-        function initAchievements() {
-            document.querySelectorAll('.achievement-card').forEach(card => {
-                card.addEventListener('mouseenter', () => {
-                    const progress = card.querySelector('.progress');
-                    progress.style.transition = 'width 1s ease';
-                    progress.style.width = progress.style.width;
-                });
-            });
-        }
-
-        // Newsletter form handling
-        document.getElementById('newsletter-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const email = e.target.querySelector('input[type="email"]').value;
-            
-            try {
-                const response = await fetch('/api/newsletter/subscribe', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ email })
-                });
-                
-                if (response.ok) {
-                    alert('Thank you for subscribing!');
-                    e.target.reset();
-                } else {
-                    throw new Error('Subscription failed');
-                }
-            } catch (error) {
-                alert('Sorry, an error occurred. Please try again later.');
-            }
-        });
-
-        const sections = document.querySelectorAll('.section-wrapper');
-
-        const sectionObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-
-        sections.forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            sectionObserver.observe(section);
-        });
-
-        // Initialize the weather timeline
-        function initWeatherTimeline() {
-            const timeline = document.querySelector('.weather-timeline');
-            if (!timeline) return;
-
-            // Generate 30 days of sample weather data
-            const weatherTypes = ['sunny', 'cloudy', 'rainy', 'stormy', 'starry', 'aurora'];
-            const weatherColors = {
-                sunny: '#FFD700',
-                cloudy: '#E0E0E0',
-                rainy: '#4682B4',
-                stormy: '#4A4A4A',
-                starry: '#191970',
-                aurora: '#98FB98'
-            };
-
-            // Create timeline markers
-            for (let i = 0; i < 30; i++) {
-                const marker = document.createElement('div');
-                marker.classList.add('timeline-marker');
-                
-                // Randomly select weather type for demo
-                const weatherType = weatherTypes[Math.floor(Math.random() * weatherTypes.length)];
-                
-                marker.style.cssText = `
-                    position: absolute;
-                    left: ${(i / 29) * 100}%;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    width: 8px;
-                    height: 8px;
-                    border-radius: 50%;
-                    background-color: ${weatherColors[weatherType]};
-                    transition: transform 0.3s ease;
-                `;
-
-                // Add hover effect
-                marker.addEventListener('mouseenter', () => {
-                    marker.style.transform = 'translateY(-50%) scale(1.5)';
-                    marker.style.zIndex = '2';
-                });
-
-                marker.addEventListener('mouseleave', () => {
-                    marker.style.transform = 'translateY(-50%) scale(1)';
-                    marker.style.zIndex = '1';
-                });
-
-                timeline.appendChild(marker);
-            }
-
-            // Add connecting line
-            const connectionLine = document.createElement('div');
-            connectionLine.style.cssText = `
-                position: absolute;
-                top: 50%;
-                left: 0;
-                right: 0;
-                height: 2px;
-                background: rgba(255,255,255,0.2);
-                transform: translateY(-50%);
-            `;
-            timeline.insertBefore(connectionLine, timeline.firstChild);
-
-            // Add timeline labels
-            const startLabel = document.createElement('div');
-            startLabel.textContent = 'Day 1';
-            startLabel.style.cssText = `
-                position: absolute;
-                left: 0;
-                bottom: -25px;
-                font-size: 12px;
-                color: rgba(255,255,255,0.7);
-            `;
-
-            const endLabel = document.createElement('div');
-            endLabel.textContent = 'Day 30';
-            endLabel.style.cssText = `
-                position: absolute;
-                right: 0;
-                bottom: -25px;
-                font-size: 12px;
-                color: rgba(255,255,255,0.7);
-            `;
-
-            timeline.appendChild(startLabel);
-            timeline.appendChild(endLabel);
-        }
-
-        // Call the initWeatherTimeline function
-        initWeatherTimeline();
-        
-        // Locale Picker Initialization
-        function initLocalePicker() {
-            const localePicker = document.getElementById('locale-picker');
-            
-            // Get current locale from URL
-            const getCurrentLocale = () => {
-                const path = window.location.pathname;
-                const matches = path.match(/\/([a-z]{2})\//);
-                return matches ? matches[1] : 'en';
-            };
-
-            // Set initial value based on URL
-            const currentLocale = getCurrentLocale();
-            localePicker.value = currentLocale;
-
-            // Handle locale change
-            localePicker.addEventListener('change', (e) => {
-                const newLocale = e.target.value;
-                const currentPath = window.location.pathname;
-                
-                // If current path already has locale
-                if (currentPath.match(/\/[a-z]{2}\//)) {
-                    window.location.pathname = currentPath.replace(/\/[a-z]{2}\//, `/${newLocale}/`);
-                } else {
-                    // If no locale in path, add it
-                    window.location.pathname = `/${newLocale}${currentPath}`;
-                }
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            initMetaphorPoll();
-            initFAQ();
-            initAchievements();
-            updateMoodDisplay('cloudy'); // Default mood
-            initLocalePicker(); // Add this line
-            
-            // Video Demo Initialization with YouTube
-            const videoFrame = document.getElementById('demo-video');
-            
-            // Track video visibility
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) {
-                        // Post message to pause the video when out of view
-                        try {
-                            videoFrame.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-                        } catch (error) {
-                            console.error('Error pausing the video:', error);
-                        }
-                    }
-                });
-            }, { threshold: 0.5 });
-            
-            observer.observe(videoFrame);
-
-            // Track video engagement
-            window.addEventListener('message', (event) => {
-                if (event.origin !== "https://www.youtube.com") return;
-                
-                try {
-                    const data = JSON.parse(event.data);
-                    if (data.event === "onStateChange" && data.info === 1) { // 1 means playing
-                        fetch('/api/analytics/video-play', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({
-                                videoId: 'demo',
-                                timestamp: new Date().toISOString()
-                            })
-                        });
-                    }
-                } catch (error) {
-                    console.error('Error tracking video play:', error);
-                }
-            });
-        });
-    </script>
-</body></html>
+</body>
+</html>
