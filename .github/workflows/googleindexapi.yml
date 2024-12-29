@@ -38,7 +38,11 @@ jobs:
           echo "${{ secrets.SERVICE_ACCOUNT_JSON_BASE64 }}" | base64 --decode > ~/.gis/service_account.json
 
       - name: Run Google Indexing Script
+        env:
+          GIS_PRIVATE_KEY: ${{ secrets.SERVICE_ACCOUNT_PRIVATE_KEY }}      
+          GIS_CLIENT_EMAIL: ${{ secrets.SERVICE_ACCOUNT_CLIENT_EMAIL }}
+      
         run: |
           # If no domain input was provided, fallback to a default domain or from an environment variable
           DOMAIN=${{ github.event.inputs.domain || 'default-domain.com' }}
-          gis $DOMAIN
+          gis $DOMAIN  --client-email "$GIS_CLIENT_EMAIL" --private-key "$GIS_PRIVATE_KEY"
