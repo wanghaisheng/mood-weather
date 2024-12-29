@@ -7,6 +7,7 @@ on:
         description: 'Domain or URL to index'
         required: true
         type: string
+        default: moodweather.heytcm.com
 
   # Cron schedule to run every day at midnight (UTC)
   # schedule:
