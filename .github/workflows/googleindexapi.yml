@@ -42,8 +42,10 @@ jobs:
         env:
           GIS_PRIVATE_KEY: ${{ secrets.SERVICE_ACCOUNT_PRIVATE_KEY }}      
           GIS_CLIENT_EMAIL: ${{ secrets.SERVICE_ACCOUNT_CLIENT_EMAIL }}
-      
         run: |
+          echo "${{ secrets.SERVICE_ACCOUNT_PRIVATE_KEY }}" | sed 's/\\n/\n/g' > private_key.pem
+          export GIS_PRIVATE_KEY=$(cat private_key.pem)
+        
           # If no domain input was provided, fallback to a default domain or from an environment variable
           DOMAIN=${{ github.event.inputs.domain || 'default-domain.com' }}
           gis $DOMAIN  --client-email "$GIS_CLIENT_EMAIL" --private-key "$GIS_PRIVATE_KEY"
