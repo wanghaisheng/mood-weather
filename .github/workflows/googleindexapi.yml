@@ -35,7 +35,7 @@ jobs:
       - name: Set up service account JSON
         run: |
           mkdir -p ~/.gis
-          echo "${{ secrets.SERVICE_ACCOUNT_JSON }}" > ~/.gis/service_account.json
+          echo "${{ secrets.SERVICE_ACCOUNT_JSON_BASE64 }}" | base64 --decode > ~/.gis/service_account.json
 
       - name: Run Google Indexing Script
         run: |
