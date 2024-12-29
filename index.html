@@ -31,7 +31,7 @@
     <!-- PWA -->
     <link rel="manifest" href="https://moodweather.heytcm.com/manifest.json">
     <meta name="theme-color" content="#2D3250">
-    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://www.clarity.ms/tag/XXXXXX"></script><script>
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://www.clarity.ms/tag/XXXXXX"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://www.clarity.ms/tag/XXXXXX"></script><script>
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker
@@ -1483,7 +1483,74 @@ if ('serviceWorker' in navigator) {
         .timeline-marker:hover {
             box-shadow: 0 0 10px rgba(255,255,255,0.5);
         }
+        
+        /* Add new styles for user videos section */
+        .user-videos-section {
+            background: var(--secondary);
+            padding: 60px 20px;
+            margin: 40px 0;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+        
+        .video-testimonial {
+            background: var(--primary);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .video-testimonial:hover {
+            transform: translateY(-5px);
+        }
+        
+        .video-wrapper {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background: #000;
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .video-info {
+            padding: 20px;
+        }
+        
+        .video-info h3 {
+            color: var(--light);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .video-info p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        .video-stats {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
+    
 <style data-id="immersive-translate-input-injected-css">.immersive-translate-input {
   position: absolute;
   top: 0;
@@ -1981,7 +2048,7 @@ if ('serviceWorker' in navigator) {
         </div>
 
         <div class="weather-container">
-            <svg class="mood-particles" id="mood-particles"><path d="M30,50 Q40,40 50,45 Q60,35 70,45 Q80,40 85,50 Q90,60 80,65 Q75,70 65,68 Q60,75 50,70 Q40,75 35,68 Q25,70 20,65 Q15,60 20,55 Q25,50 30,50" fill="rgba(255,255,255,0.3)" transform="translate(83.26231079150268,41.96032242575398) scale(0.5)" class="floating-cloud"></path><path d="M30,50 Q40,40 50,45 Q60,35 70,45 Q80,40 85,50 Q90,60 80,65 Q75,70 65,68 Q60,75 50,70 Q40,75 35,68 Q25,70 20,65 Q15,60 20,55 Q25,50 30,50" fill="rgba(255,255,255,0.3)" transform="translate(45.64095486908497,1.232363125739866) scale(0.5)" class="floating-cloud"></path><path d="M30,50 Q40,40 50,45 Q60,35 70,45 Q80,40 85,50 Q90,60 80,65 Q75,70 65,68 Q60,75 50,70 Q40,75 35,68 Q25,70 20,65 Q15,60 20,55 Q25,50 30,50" fill="rgba(255,255,255,0.3)" transform="translate(20.52804545921618,96.17638297438225) scale(0.5)" class="floating-cloud"></path><path d="M30,50 Q40,40 50,45 Q60,35 70,45 Q80,40 85,50 Q90,60 80,65 Q75,70 65,68 Q60,75 50,70 Q40,75 35,68 Q25,70 20,65 Q15,60 20,55 Q25,50 30,50" fill="rgba(255,255,255,0.3)" transform="translate(16.679953412741845,89.60415394538785) scale(0.5)" class="floating-cloud"></path><path d="M30,50 Q40,40 50,45 Q60,35 70,45 Q80,40 85,50 Q90,60 80,65 Q75,70 65,68 Q60,75 50,70 Q40,75 35,68 Q25,70 20,65 Q15,60 20,55 Q25,50 30,50" fill="rgba(255,255,255,0.3)" transform="translate(95.13734860173886,93.18186009266944) scale(0.5)" class="floating-cloud"></path></svg>
+            <svg class="mood-particles" id="mood-particles"><path d="M30,50 Q40,40 50,45 Q60,35 70,45 Q80,40 85,50 Q90,60 80,65 Q75,70 65,68 Q60,75 50,70 Q40,75 35,68 Q25,70 20,65 Q15,60 20,55 Q25,50 30,50" fill="rgba(255,255,255,0.3)" transform="translate(22.634639282373904,24.57416344381924) scale(0.5)" class="floating-cloud"></path><path d="M30,50 Q40,40 50,45 Q60,35 70,45 Q80,40 85,50 Q90,60 80,65 Q75,70 65,68 Q60,75 50,70 Q40,75 35,68 Q25,70 20,65 Q15,60 20,55 Q25,50 30,50" fill="rgba(255,255,255,0.3)" transform="translate(81.0415242068119,34.07897533074073) scale(0.5)" class="floating-cloud"></path><path d="M30,50 Q40,40 50,45 Q60,35 70,45 Q80,40 85,50 Q90,60 80,65 Q75,70 65,68 Q60,75 50,70 Q40,75 35,68 Q25,70 20,65 Q15,60 20,55 Q25,50 30,50" fill="rgba(255,255,255,0.3)" transform="translate(55.58163030129233,83.80667045710473) scale(0.5)" class="floating-cloud"></path><path d="M30,50 Q40,40 50,45 Q60,35 70,45 Q80,40 85,50 Q90,60 80,65 Q75,70 65,68 Q60,75 50,70 Q40,75 35,68 Q25,70 20,65 Q15,60 20,55 Q25,50 30,50" fill="rgba(255,255,255,0.3)" transform="translate(71.57899066739739,16.661122956921037) scale(0.5)" class="floating-cloud"></path><path d="M30,50 Q40,40 50,45 Q60,35 70,45 Q80,40 85,50 Q90,60 80,65 Q75,70 65,68 Q60,75 50,70 Q40,75 35,68 Q25,70 20,65 Q15,60 20,55 Q25,50 30,50" fill="rgba(255,255,255,0.3)" transform="translate(14.534255521071039,87.72826115740881) scale(0.5)" class="floating-cloud"></path></svg>
             
             <div class="mood-input">
                 <h2>How's the Weather in Your Mind Today?</h2>
@@ -2133,6 +2200,51 @@ if ('serviceWorker' in navigator) {
                 </div>
             </div>
         </div>
+<div class="section-container">
+            <div class="section-wrapper user-videos-section">
+                <div class="section-header">
+                    <h2 class="section-title">User Success Stories</h2>
+                    <p class="section-subtitle">Real users sharing their emotional journeys with MoodWeather</p>
+                </div>
+                <div class="section-content">
+                    <div class="video-grid">
+                        <div class="video-testimonial">
+                            <div class="video-wrapper">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/user1video" title="Sarah's Journey with MoodWeather" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                            </div>
+                            <div class="video-info">
+                                <h3>Sarah's Transformation</h3>
+                                <p>"After 6 months with MoodWeather, I finally understand my emotional patterns."</p>
+                                <span class="video-stats">52K views • 2 months ago</span>
+                            </div>
+                        </div>
+
+                        <div class="video-testimonial">
+                            <div class="video-wrapper">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/user2video" title="John's Experience with MoodWeather" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                            </div>
+                            <div class="video-info">
+                                <h3>John's Story</h3>
+                                <p>"The weather metaphors helped me express feelings I couldn't describe before."</p>
+                                <span class="video-stats">38K views • 1 month ago</span>
+                            </div>
+                        </div>
+
+                        <div class="video-testimonial">
+                            <div class="video-wrapper">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/user3video" title="Maria's MoodWeather Experience" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                            </div>
+                            <div class="video-info">
+                                <h3>Maria's Journey</h3>
+                                <p>"From emotional storms to clear skies - my therapy journey with MoodWeather."</p>
+                                <span class="video-stats">45K views • 3 weeks ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
 
         <div class="section-container">
             <div class="section-wrapper testimonials-section" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
@@ -2311,7 +2423,7 @@ if ('serviceWorker' in navigator) {
         </div>
 
         <div class="section-container">
-            <div class="section-wrapper research-section" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+            <div class="section-wrapper research-section" style="opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s;">
                 <div class="section-header">
                     <h2 class="section-title">Research and Perspectives</h2>
                 </div>
@@ -2371,7 +2483,7 @@ if ('serviceWorker' in navigator) {
         </div>
 
         <div class="section-container">
-            <div class="section-wrapper future-development-section" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+            <div class="section-wrapper future-development-section" style="opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s;">
                 <div class="section-header">
                     <h2 class="section-title">Future Development Roadmap</h2>
                 </div>
@@ -2431,7 +2543,7 @@ if ('serviceWorker' in navigator) {
         </div>
 
         <div class="section-container">
-            <div class="section-wrapper case-studies-section" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+            <div class="section-wrapper case-studies-section" style="opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s;">
                 <div class="section-header">
                     <h2 class="section-title">Case Studies</h2>
                 </div>
@@ -2491,7 +2603,7 @@ if ('serviceWorker' in navigator) {
         </div>
 
         <div class="section-container">
-            <div class="section-wrapper pricing-section" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+            <div class="section-wrapper pricing-section" style="opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s;">
                 <div class="section-header">
                     <h2 class="section-title">Choose Your Plan</h2>
                 </div>
@@ -2542,7 +2654,7 @@ if ('serviceWorker' in navigator) {
         </div>
 
         <div class="section-container">
-            <div class="section-wrapper integration-section" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+            <div class="section-wrapper integration-section" style="opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s;">
                 <div class="section-header">
                     <h2 class="section-title">Seamless Integration</h2>
                 </div>
@@ -2574,7 +2686,7 @@ if ('serviceWorker' in navigator) {
         </div>
 
         <div class="section-container">
-            <div class="section-wrapper impact-section" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+            <div class="section-wrapper impact-section" style="opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s;">
                 <div class="section-header">
                     <h2 class="section-title">Real Impact</h2>
                 </div>
@@ -2627,13 +2739,49 @@ if ('serviceWorker' in navigator) {
         </div>
 
         <div class="section-container">
-            <div class="section-wrapper metaphor-poll-section" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+            <div class="section-wrapper metaphor-poll-section" style="opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s;">
                 <div class="section-header">
                     <h2 class="section-title">Vote for Your Favorite Weather Metaphor</h2>
                 </div>
                 <div class="section-content">
                     <div id="metaphor-examples" class="metaphor-grid">
                     <div class="metaphor-card" data-id="1">
+                    <p class="metaphor-text">Sunny days represent moments of joy and success</p>
+                    <div class="vote-count">
+                        <span>245 Votes</span>
+                        <button class="vote-btn">Vote</button>
+                    </div>
+                </div><div class="metaphor-card" data-id="2">
+                    <p class="metaphor-text">The stormy sky captures intense emotional turbulence</p>
+                    <div class="vote-count">
+                        <span>189 Votes</span>
+                        <button class="vote-btn">Vote</button>
+                    </div>
+                </div><div class="metaphor-card" data-id="3">
+                    <p class="metaphor-text">The gentle rain reflects times of quiet reflection</p>
+                    <div class="vote-count">
+                        <span>167 Votes</span>
+                        <button class="vote-btn">Vote</button>
+                    </div>
+                </div><div class="metaphor-card" data-id="4">
+                    <p class="metaphor-text">Moments of the rainbow symbolize hope after difficulties</p>
+                    <div class="vote-count">
+                        <span>203 Votes</span>
+                        <button class="vote-btn">Vote</button>
+                    </div>
+                </div><div class="metaphor-card" data-id="5">
+                    <p class="metaphor-text">Veiled mornings represent uncertainty and transition</p>
+                    <div class="vote-count">
+                        <span>156 Votes</span>
+                        <button class="vote-btn">Vote</button>
+                    </div>
+                </div><div class="metaphor-card" data-id="6">
+                    <p class="metaphor-text">Clear starry skies denote peace and clarity</p>
+                    <div class="vote-count">
+                        <span>198 Votes</span>
+                        <button class="vote-btn">Vote</button>
+                    </div>
+                </div><div class="metaphor-card" data-id="1">
                     <p class="metaphor-text">Sunny days represent moments of joy and success</p>
                     <div class="vote-count">
                         <span>245 Votes</span>
@@ -2715,7 +2863,7 @@ if ('serviceWorker' in navigator) {
         </div>
 
         <div class="section-container">
-            <div class="section-wrapper mood-story-section" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+            <div class="section-wrapper mood-story-section" style="opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s;">
                 <div class="section-header">
                     <h2 class="section-title">Your Emotional Story in 30 Days</h2>
                     <p class="section-subtitle">Experience your emotional journey through weather metaphors</p>
@@ -2724,8 +2872,8 @@ if ('serviceWorker' in navigator) {
                     <div class="story-preview">
                         <div class="story-cover">
                             <h3>Inner Climate: A 30-Day Journey</h3>
-                            <div class="weather-timeline"><div style="position: absolute; top: 50%; left: 0px; right: 0px; height: 2px; background: rgba(255, 255, 255, 0.2); transform: translateY(-50%);"></div>
-                            <div class="timeline-marker" style="position: absolute; left: 0%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(74, 74, 74); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 3.44828%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(152, 251, 152); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 6.89655%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(255, 215, 0); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 10.3448%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(70, 130, 180); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 13.7931%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(255, 215, 0); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 17.2414%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(255, 215, 0); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 20.6897%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(74, 74, 74); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 24.1379%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(255, 215, 0); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 27.5862%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(224, 224, 224); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 31.0345%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(74, 74, 74); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 34.4828%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(224, 224, 224); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 37.931%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(152, 251, 152); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 41.3793%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(224, 224, 224); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 44.8276%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(25, 25, 112); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 48.2759%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(74, 74, 74); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 51.7241%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(224, 224, 224); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 55.1724%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(224, 224, 224); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 58.6207%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(255, 215, 0); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 62.069%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(224, 224, 224); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 65.5172%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(255, 215, 0); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 68.9655%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(255, 215, 0); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 72.4138%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(255, 215, 0); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 75.8621%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(74, 74, 74); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 79.3103%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(224, 224, 224); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 82.7586%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(74, 74, 74); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 86.2069%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(70, 130, 180); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 89.6552%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(25, 25, 112); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 93.1034%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(152, 251, 152); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 96.5517%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(255, 215, 0); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 100%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(74, 74, 74); transition: transform 0.3s;"></div><div style="position: absolute; left: 0px; bottom: -25px; font-size: 12px; color: rgba(255, 255, 255, 0.7);">Day 1</div><div style="position: absolute; right: 0px; bottom: -25px; font-size: 12px; color: rgba(255, 255, 255, 0.7);">Day 30</div></div>
+                            <div class="weather-timeline"><div style="position: absolute; top: 50%; left: 0px; right: 0px; height: 2px; background: rgba(255, 255, 255, 0.2); transform: translateY(-50%);"></div><div style="position: absolute; top: 50%; left: 0px; right: 0px; height: 2px; background: rgba(255, 255, 255, 0.2); transform: translateY(-50%);"></div>
+                            <div class="timeline-marker" style="position: absolute; left: 0%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(74, 74, 74); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 3.44828%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(152, 251, 152); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 6.89655%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(255, 215, 0); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 10.3448%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(70, 130, 180); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 13.7931%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(255, 215, 0); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 17.2414%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(255, 215, 0); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 20.6897%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(74, 74, 74); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 24.1379%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(255, 215, 0); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 27.5862%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(224, 224, 224); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 31.0345%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(74, 74, 74); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 34.4828%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(224, 224, 224); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 37.931%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(152, 251, 152); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 41.3793%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(224, 224, 224); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 44.8276%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(25, 25, 112); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 48.2759%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(74, 74, 74); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 51.7241%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(224, 224, 224); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 55.1724%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(224, 224, 224); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 58.6207%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(255, 215, 0); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 62.069%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(224, 224, 224); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 65.5172%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(255, 215, 0); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 68.9655%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(255, 215, 0); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 72.4138%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(255, 215, 0); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 75.8621%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(74, 74, 74); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 79.3103%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(224, 224, 224); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 82.7586%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(74, 74, 74); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 86.2069%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(70, 130, 180); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 89.6552%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(25, 25, 112); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 93.1034%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(152, 251, 152); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 96.5517%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(255, 215, 0); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 100%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(74, 74, 74); transition: transform 0.3s;"></div><div style="position: absolute; left: 0px; bottom: -25px; font-size: 12px; color: rgba(255, 255, 255, 0.7);">Day 1</div><div style="position: absolute; right: 0px; bottom: -25px; font-size: 12px; color: rgba(255, 255, 255, 0.7);">Day 30</div><div class="timeline-marker" style="position: absolute; left: 0%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(224, 224, 224); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 3.44828%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(25, 25, 112); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 6.89655%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(74, 74, 74); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 10.3448%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(152, 251, 152); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 13.7931%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(74, 74, 74); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 17.2414%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(70, 130, 180); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 20.6897%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(70, 130, 180); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 24.1379%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(152, 251, 152); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 27.5862%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(25, 25, 112); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 31.0345%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(70, 130, 180); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 34.4828%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(255, 215, 0); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 37.931%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(255, 215, 0); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 41.3793%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(255, 215, 0); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 44.8276%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(224, 224, 224); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 48.2759%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(224, 224, 224); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 51.7241%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(25, 25, 112); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 55.1724%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(74, 74, 74); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 58.6207%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(224, 224, 224); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 62.069%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(70, 130, 180); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 65.5172%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(152, 251, 152); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 68.9655%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(255, 215, 0); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 72.4138%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(74, 74, 74); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 75.8621%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(25, 25, 112); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 79.3103%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(74, 74, 74); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 82.7586%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(224, 224, 224); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 86.2069%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(74, 74, 74); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 89.6552%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(70, 130, 180); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 93.1034%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(70, 130, 180); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 96.5517%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(70, 130, 180); transition: transform 0.3s;"></div><div class="timeline-marker" style="position: absolute; left: 100%; top: 50%; transform: translateY(-50%); width: 8px; height: 8px; border-radius: 50%; background-color: rgb(224, 224, 224); transition: transform 0.3s;"></div><div style="position: absolute; left: 0px; bottom: -25px; font-size: 12px; color: rgba(255, 255, 255, 0.7);">Day 1</div><div style="position: absolute; right: 0px; bottom: -25px; font-size: 12px; color: rgba(255, 255, 255, 0.7);">Day 30</div></div>
                         </div>
                         
                         <div class="story-chapters">
@@ -3389,5 +3537,6 @@ if ('serviceWorker' in navigator) {
         });
     </script>
 <!-- Cloudflare Pages Analytics --><script defer="" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;: &quot;27d8dbdd5c394eca861d9560b44b0d7c&quot;}"></script><!-- Cloudflare Pages Analytics -->
-<div id="__FEISHU_CLIPPER__"></div></body><script type="text/javascript" src="chrome-extension://dodbcooajgdhbhjjgmelkccfkphhelae/static/tiktok_lib.js"></script><div id="immersive-translate-popup" style="all: initial"></div>
-</html>
+<div id="__FEISHU_CLIPPER__"></div><!-- Cloudflare Pages Analytics --><script defer="" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;: &quot;27d8dbdd5c394eca861d9560b44b0d7c&quot;}"></script><!-- Cloudflare Pages Analytics --><script type="text/javascript" src="chrome-extension://dodbcooajgdhbhjjgmelkccfkphhelae/static/tiktok_lib.js"></script><div id="immersive-translate-popup" style="all: initial"></div>
+
+<div id="__FEISHU_CLIPPER__"></div></body><script type="text/javascript" src="chrome-extension://dodbcooajgdhbhjjgmelkccfkphhelae/static/tiktok_lib.js"></script></html>
